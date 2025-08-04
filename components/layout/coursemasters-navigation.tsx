@@ -49,7 +49,7 @@ const CoursemastersNavigation = () => {
           </div>
 
           {/* Mobile Navigation */}
-          {isOpen ? <div className="md:hidden bg-gray-50 pb-4">
+          {isOpen ? <div className="md:hidden bg-gray-50 pb-4 relative z-50">
               {navItems.map((item) => (
                 <Link
                   className="block px-6 py-3 text-gray-700 hover:bg-gray-100 border-t border-gray-200"
