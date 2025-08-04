@@ -48,11 +48,12 @@ const CoursemastersNavigation = () => {
             </button>
           </div>
 
-          {/* Mobile Navigation */}
-          {isOpen ? <div className="md:hidden bg-gray-50 pb-4 relative z-50">
+          {/* Mobile Navigation - Dropdown */}
+          <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-96' : 'max-h-0'}`}>
+            <div className="bg-white shadow-md px-4 py-2">
               {navItems.map((item) => (
                 <Link
-                  className="block px-6 py-3 text-gray-700 hover:bg-gray-100 border-t border-gray-200"
+                  className="block py-3 px-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-colors"
                   href={item.href}
                   key={item.name}
                   onClick={() => {
@@ -62,7 +63,8 @@ const CoursemastersNavigation = () => {
                   {item.name}
                 </Link>
               ))}
-            </div> : null}
+            </div>
+          </div>
         </div>
       </div>
     </header>
