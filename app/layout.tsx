@@ -2,7 +2,6 @@ import cn from "classnames";
 import type { Metadata } from "next";
 import Image from 'next/image';
 import React from "react";
-
 import "@/styles/tailwind.css";
 import Footer from "@/components/layout/footer";
 import Navigation from "@/components/layout/navigation";
@@ -35,25 +34,9 @@ export const metadata: Metadata = {
     ],
   },
   metadataBase: new URL(siteConfig.url),
-  icons: [
-    {
-      rel: 'apple-touch-icon',
-      url: '/favicon/apple-touch-icon.png',
-    },
-    {
-      rel: 'mask-icon',
-      url: '/favicon/safari-pinned-tab.svg',
-    },
-    {
-      rel: 'icon',
-      url: '/favicon/favicon-32x32.png',
-    },
-    {
-      rel: 'icon',
-      url: '/favicon/favicon-16x16.png',
-    },
-  ],
-  manifest: '/favicon/site.webmanifest',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -63,6 +46,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="en"
       suppressHydrationWarning
     >
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
       <body className="min-h-screen bg-gray-100">
         <Providers>
           {/* Header Bar */}
