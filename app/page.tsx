@@ -10,7 +10,7 @@ export default function Home() {
     <main className="min-h-screen">
         {/* Hero Section */}
         <div className="relative w-full h-[80vh]">
-          <div className="absolute inset-0">
+          <div className="absolute inset-0 z-0">
             <Image
               alt="Qraft Academy Hero"
               className="object-cover size-full"
@@ -20,17 +20,19 @@ export default function Home() {
               width={1920}
             />
           </div>
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center">
+          <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center z-10">
             <h1 className="text-4xl font-bold text-white mb-4">Qraft Academy</h1>
             <p className="text-xl text-white">Learn. Work. Achieve.</p>
           </div>
         </div>
 
         {/* Thematic Areas Section */}
-        <DevelopmentTracks />
+        <div className="relative z-20 bg-white pt-16">
+          <DevelopmentTracks />
+        </div>
 
         {/* Apprenticeship Split Screen */}
-        <div className="w-full flex flex-col lg:flex-row bg-white">
+        <div className="w-full flex flex-col lg:flex-row bg-white py-16">
           <div className="w-full lg:w-1/2 h-96 relative">
             <Image
               alt="Digital entrepreneurs learning"

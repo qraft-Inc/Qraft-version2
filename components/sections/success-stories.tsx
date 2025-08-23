@@ -8,7 +8,7 @@ export default function SuccessStories() {
       role: "UX Designer",
       quote: "The hands-on training prepared me for real-world challenges.",
       company: "Design Co",
-      image: "/images/1_QuAwhEVWVs6pp9vjoojg7g.jpg"
+      image: "/images/team.png"
     }
   ];
 

@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const navItems = [
     {
@@ -88,6 +89,10 @@ const Navigation = () => {
     },
   ];
 
+  const toggleDropdown = (itemName: string) => {
+    setOpenDropdown(openDropdown === itemName ? null : itemName);
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="bg-white">
@@ -131,6 +136,7 @@ const Navigation = () => {
               className="md:hidden text-gray-500 p-2"
               onClick={() => {
                 setIsOpen(!isOpen);
+                setOpenDropdown(null);
               }}
             >
               <svg className="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -157,29 +163,44 @@ const Navigation = () => {
               {navItems.map((item) =>
                 item.dropdown ? (
                   <div key={item.name}>
-                    <Link
-                      className="block px-6 py-3 text-gray-700 hover:bg-gray-100 border-t border-gray-200 w-full text-left"
-                      href={item.href}
-                      onClick={() => {
-                        setIsOpen(false);
-                      }}
+                    <button
+                      className="flex items-center justify-between w-full px-6 py-3 text-gray-700 hover:bg-gray-100 border-t border-gray-200 text-left"
+                      onClick={() => toggleDropdown(item.name)}
                     >
-                      {item.name}
-                    </Link>
-                    <div className="pl-8 bg-gray-100">
-                      {item.dropdown.map((dropdownItem) => (
-                        <Link
-                          className="block px-6 py-3 text-gray-700 hover:bg-gray-200 border-t border-gray-200 text-sm"
-                          href={dropdownItem.href}
-                          key={dropdownItem.name}
-                          onClick={() => {
-                            setIsOpen(false);
-                          }}
-                        >
-                          {dropdownItem.name}
-                        </Link>
-                      ))}
-                    </div>
+                      <span className="font-medium">{item.name}</span>
+                      <svg
+                        className={`w-4 h-4 transition-transform ${
+                          openDropdown === item.name ? 'rotate-180' : ''
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+                    {openDropdown === item.name && (
+                      <div className="bg-gray-100">
+                        {item.dropdown.map((dropdownItem) => (
+                          <Link
+                            className="block px-8 py-3 text-gray-700 hover:bg-gray-200 border-t border-gray-200 text-sm"
+                            href={dropdownItem.href}
+                            key={dropdownItem.name}
+                            onClick={() => {
+                              setIsOpen(false);
+                              setOpenDropdown(null);
+                            }}
+                          >
+                            {dropdownItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 ) : (
                   <Link
@@ -188,6 +209,7 @@ const Navigation = () => {
                     key={item.name}
                     onClick={() => {
                       setIsOpen(false);
+                      setOpenDropdown(null);
                     }}
                   >
                     {item.name}
