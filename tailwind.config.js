@@ -1,3 +1,4 @@
+endering
 const { pick, omit } = require("lodash")
 const colors = require("tailwindcss/colors")
 const defaultTheme = require("tailwindcss/defaultTheme")
@@ -6,9 +7,7 @@ const defaultTheme = require("tailwindcss/defaultTheme")
 module.exports = {
   darkMode: "class",
   content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+
   ],
   theme: {
     extend: {
@@ -21,8 +20,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        heading: ['var(--font-baron-neue)'],
-        default: ['var(--font-lato)'],
+
       },
       minHeight: {
         ...defaultTheme.height,

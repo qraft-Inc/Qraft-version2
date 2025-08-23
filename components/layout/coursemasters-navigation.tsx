@@ -48,23 +48,7 @@ const CoursemastersNavigation = () => {
             </button>
           </div>
 
-          {/* Mobile Navigation */}
-          {isOpen ? (
-            <div className="md:hidden bg-gray-50 pb-4">
-              {navItems.map((item) => (
-                <Link
-                  className="block px-6 py-3 text-gray-700 hover:bg-gray-100 border-t border-gray-200"
-                  href={item.href}
-                  key={item.name}
-                  onClick={() => {
-                    setIsOpen(false);
-                  }}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          ) : null}
+
         </div>
       </div>
     </header>

@@ -10,24 +10,7 @@ export default function Home() {
     <main className="min-h-screen">
         {/* Hero Section */}
         <div className="relative w-full h-[80vh]">
-          <div className="absolute inset-0 z-0">
-            <Image
-              alt="Qraft Academy Hero"
-              className="object-cover size-full"
-              height={1080}
-              priority
-              src="/images/hero.png"
-              width={1920}
-            />
-          </div>
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center z-10">
-            <h1 className="text-4xl font-bold text-white mb-4">Qraft Academy</h1>
-            <p className="text-xl text-white">Learn. Work. Achieve.</p>
-          </div>
-        </div>
 
-        {/* Thematic Areas Section */}
-        <div className="relative z-20 bg-white pt-16">
           <DevelopmentTracks />
         </div>
 
@@ -44,7 +27,7 @@ export default function Home() {
             />
           </div>
           <div className="w-full lg:w-1/2 flex items-center justify-center p-8">
-            <div className="max-w-md text-center">
+            <div className="max-w-md text-center bg-white/90 backdrop-blur-sm p-8 rounded-lg shadow-lg">
               <h3 className="text-3xl font-bold text-blue-800 mb-4">
                 Master Your Craft
               </h3>
