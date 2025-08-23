@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const navItems = [
     {
@@ -88,6 +89,10 @@ const Navigation = () => {
     },
   ];
 
+  const toggleDropdown = (itemName: string) => {
+    setOpenDropdown(openDropdown === itemName ? null : itemName);
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="bg-white">
@@ -131,6 +136,7 @@ const Navigation = () => {
               className="md:hidden text-gray-500 p-2"
               onClick={() => {
                 setIsOpen(!isOpen);
+                setOpenDropdown(null);
               }}
             >
               <svg className="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -152,45 +158,7 @@ const Navigation = () => {
               </svg>
             </button>
           </div>
-          {isOpen && (
-            <div className="md:hidden bg-gray-50 pb-4 max-h-screen overflow-y-auto">
-              <div className="container mx-auto px-4">
-                {navItems.map((item) => (
-                  <React.Fragment key={item.name}>
-                    {item.dropdown ? (
-                      <>
-                        <Link
-                          className="block px-6 py-3 text-gray-700 hover:bg-gray-100 border-t border-gray-200 w-full text-left"
-                          href={item.href}
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {item.name}
-                        </Link>
-                        <div className="pl-8 bg-gray-100">
-                          {item.dropdown.map((dropdownItem) => (
-                            <Link
-                              className="block px-6 py-3 text-gray-700 hover:bg-gray-200 border-t border-gray-200 text-sm"
-                              href={dropdownItem.href}
-                              key={dropdownItem.name}
-                              onClick={() => setIsOpen(false)}
-                            >
-                              {dropdownItem.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </>
-                    ) : (
-                      <Link
-                        className="block px-6 py-3 text-gray-700 hover:bg-gray-100 border-t border-gray-200"
-                        href={item.href}
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    )}
-                  </React.Fragment>
-                ))}
-              </div>
+
             </div>
           )}
         </div>

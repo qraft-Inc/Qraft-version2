@@ -48,23 +48,7 @@ const CoursemastersNavigation = () => {
             </button>
           </div>
 
-          {/* Mobile Navigation - Dropdown */}
-          <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-96' : 'max-h-0'}`}>
-            <div className="bg-white shadow-md px-4 py-2">
-              {navItems.map((item) => (
-                <Link
-                  className="block py-3 px-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-colors"
-                  href={item.href}
-                  key={item.name}
-                  onClick={() => {
-                    setIsOpen(false);
-                  }}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          </div>
+
         </div>
       </div>
     </header>

@@ -10,24 +10,7 @@ export default function Home() {
     <main className="min-h-screen">
         {/* Hero Section */}
         <div className="relative w-full h-[80vh]">
-          <Image
-            alt="Qraft Academy Hero"
-            className="object-cover"
-            fill
-            priority
-            src="/images/hero.png"
-          />
-          <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-center">
-            <h1 className="text-5xl font-bold text-white mb-4">Qraft Academy</h1>
-            <p className="text-2xl text-white">Learn. Work. Achieve.</p>
-          </div>
-        </div>
 
-        {/* Thematic Areas Section */}
-        <div className="py-12 bg-white">
-          <div className="max-w-7xl mx-auto px-6 text-center mb-8">
-            <h2 className="text-4xl font-bold text-gray-800">Thematic Areas</h2>
-          </div>
           <DevelopmentTracks />
         </div>
 
