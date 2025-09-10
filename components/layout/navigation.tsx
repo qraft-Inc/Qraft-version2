@@ -95,9 +95,9 @@ const Navigation = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
-      <div className="bg-white">
+      <div className="bg-white relative">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-16 relative">
             <nav className="hidden md:flex w-full justify-center space-x-8">
               {navItems.map((item) =>
                 item.dropdown ? (
@@ -133,13 +133,13 @@ const Navigation = () => {
             </nav>
             <button
               aria-label="Menu"
-              className="md:hidden text-gray-500 p-2"
+              className="md:hidden text-gray-700 p-2 bg-white rounded-md border border-gray-300 hover:bg-gray-50"
               onClick={() => {
                 setIsOpen(!isOpen);
                 setOpenDropdown(null);
               }}
             >
-              <svg className="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isOpen ? (
                   <path
                     d="M6 18L18 6M6 6l12 12"

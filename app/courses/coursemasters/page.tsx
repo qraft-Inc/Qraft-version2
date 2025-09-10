@@ -4,9 +4,9 @@ import React from 'react';
 import Image from 'next/image';
 
 const images = [
-  '/images/GwDsNJxW8AElh0G.jpeg',
-  '/images/GwDsM8mWkAAeVRg.jpeg',
-  '/images/GvzqcJzWAAAK-zk.jpeg'
+  '/images/Image_fx (1).jpg',
+  '/images/Image_fx.jpg',
+  '/images/Image_fx (2).jpg'
 ];
 
 export default function CourseMastersPage() {
@@ -32,7 +32,7 @@ export default function CourseMastersPage() {
             alt="Course Masters slideshow"
             fill
             className="object-cover"
-            unoptimized={true}
+            quality={90}
           />
           <div className="absolute bottom-8 right-8 max-w-md p-6 text-white">
             <h2 className="text-3xl font-bold mb-4">Let Us Create Your Online Course</h2>
@@ -64,7 +64,7 @@ export default function CourseMastersPage() {
             width={400}
             height={225}
             className="w-full h-auto"
-            unoptimized={true}
+            quality={90}
           />
           <div className="p-6">
             <h3 className="text-lg font-semibold mb-1">D4GW Understanding Digital Rights Course</h3>
@@ -84,12 +84,12 @@ export default function CourseMastersPage() {
         {/* Card 2 */}
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
           <Image 
-            src="/images/WhatsApp%20Image%202025-08-04%20at%2016.26.03_2aeab8e2.jpg"
+            src="/images/WhatsApp Image 2025-08-04 at 16.26.03_2aeab8e2.jpg"
             alt="Course Thumbnail"
             width={400}
             height={225}
             className="w-full h-auto"
-            unoptimized={true}
+            quality={90}
           />
           <div className="p-6">
             <h3 className="text-lg font-semibold mb-1">Business and Human Rights E-Learning Course</h3>
@@ -114,7 +114,7 @@ export default function CourseMastersPage() {
             width={400}
             height={225}
             className="w-full h-auto"
-            unoptimized={true}
+            quality={90}
           />
           <div className="p-6">
             <h3 className="text-lg font-semibold mb-1">French - D4GW Understanding Digital Rights Course</h3>
@@ -139,7 +139,7 @@ export default function CourseMastersPage() {
           alt="Explore Our Courses"
           fill
           className="object-cover"
-          unoptimized={true}
+          quality={90}
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white p-8">
           <h3 className="text-3xl font-bold mb-4 text-center">Browse Through Our Courses</h3>
@@ -172,7 +172,7 @@ export default function CourseMastersPage() {
               width={400}
               height={225}
               className="w-full h-auto"
-              unoptimized={true}
+              quality={90}
             />
             <div className="p-6">
               <h3 className="text-lg font-semibold mb-2">Animation Studio</h3>
@@ -190,7 +190,7 @@ export default function CourseMastersPage() {
               width={400}
               height={225}
               className="w-full h-auto"
-              unoptimized={true}
+              quality={90}
             />
             <div className="p-6">
               <h3 className="text-lg font-semibold mb-2">Video Production Studio</h3>
@@ -208,7 +208,7 @@ export default function CourseMastersPage() {
               width={400}
               height={225}
               className="w-full h-auto"
-              unoptimized={true}
+              quality={90}
             />
             <div className="p-6">
               <h3 className="text-lg font-semibold mb-2">Audio Recording Studio</h3>
@@ -228,7 +228,7 @@ export default function CourseMastersPage() {
           width={1200}
           height={600}
           className="w-full h-auto rounded-lg"
-          unoptimized={true}
+          quality={90}
         />
       </div>
 
@@ -245,7 +245,7 @@ export default function CourseMastersPage() {
             width={200}
             height={100}
             className="h-auto"
-            unoptimized={true}
+            quality={90}
           />
         </div>
       </div>

@@ -66,7 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen bg-gray-100">
         <Providers>
           {/* Header Bar */}
-          <div className="bg-blue-800 text-white py-3 px-4">
+          <div className="bg-blue-800 text-white py-3 px-4 z-40">
             <div className="container mx-auto flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-16 h-16 bg-black rounded-full">
