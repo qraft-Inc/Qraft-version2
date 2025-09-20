@@ -160,6 +160,63 @@ const Navigation = () => {
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden bg-white border-t">
+          <div className="px-6 py-4">
+            {navItems.map((item) => (
+              <div key={item.name} className="mb-2">
+                {item.dropdown ? (
+                  <div>
+                    <button
+                      className="flex justify-between items-center w-full text-left text-gray-700 hover:text-blue-600 font-medium py-2 px-1 transition-colors"
+                      onClick={() => toggleDropdown(item.name)}
+                    >
+                      {item.name}
+                      <svg
+                        className={`w-4 h-4 transition-transform ${openDropdown === item.name ? 'rotate-180' : ''}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+                    {openDropdown === item.name && (
+                      <div className="ml-4 mt-1 space-y-1">
+                        {item.dropdown.map((dropdownItem) => (
+                          <Link
+                            className="block text-sm text-gray-600 hover:text-blue-600 py-1 px-2 transition-colors"
+                            href={dropdownItem.href}
+                            key={dropdownItem.name}
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {dropdownItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    className="block text-gray-700 hover:text-blue-600 font-medium py-2 px-1 transition-colors"
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </header>
   );
 };
