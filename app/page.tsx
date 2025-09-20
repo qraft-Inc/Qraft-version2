@@ -8,9 +8,32 @@ import SuccessStories from '@/components/sections/success-stories'
 export default function Home() {
   return (
     <main className="min-h-screen">
-        {/* Hero Section */}
-        <div className="relative w-full h-[80vh]">
+        {/* Hero Image Section */}
+        <div className="relative w-full h-screen">
+          <Image
+            alt="Qraft Academy Hero"
+            className="object-cover"
+            fill
+            priority
+            src="/images/hero.png"
+          />
+          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <div className="text-center text-white max-w-4xl px-4">
+              <h1 className="text-5xl md:text-7xl font-bold mb-6">
+                Welcome to Qraft Academy
+              </h1>
+              <p className="text-xl md:text-2xl mb-8">
+                Empowering the next generation of digital creators and innovators
+              </p>
+              <button className="px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+                Start Your Journey
+              </button>
+            </div>
+          </div>
+        </div>
 
+        {/* Development Tracks Section */}
+        <div className="relative w-full py-16">
           <DevelopmentTracks />
         </div>
 

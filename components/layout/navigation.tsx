@@ -158,9 +158,6 @@ const Navigation = () => {
               </svg>
             </button>
           </div>
-
-            </div>
-          )}
         </div>
       </div>
     </header>
