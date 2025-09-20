@@ -1,5 +1,13 @@
 'use client';
 
+import React from 'react';
+import Image from 'next/image';
+
+const images = [
+  '/images/hero.png',
+  '/images/gradient.jpeg',
+  '/images/rect3.png'
+];
 
 export default function CourseMastersPage() {
   const [currentSlide, setCurrentSlide] = React.useState(0);
@@ -10,6 +18,11 @@ export default function CourseMastersPage() {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleLearnMore = () => {
+    // Add navigation or modal logic here
+    console.log('Learn More clicked');
+  };
 
   return (
     <>
@@ -34,6 +47,7 @@ export default function CourseMastersPage() {
               educate, empower, or innovate, we can help you bring your vision to life
             </p>
             <button 
+              onClick={handleLearnMore}
               className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded"
               suppressHydrationWarning
             >
@@ -76,7 +90,7 @@ export default function CourseMastersPage() {
         {/* Card 2 */}
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
           <Image 
-            src="/images/WhatsApp%20Image%202025-08-04%20at%2016.26.03_2aeab8e2.jpg"
+            src="/images/WhatsApp Image 2025-08-04 at 16.26.03_2aeab8e2.jpg"
             alt="Course Thumbnail"
             width={400}
             height={225}
@@ -123,8 +137,6 @@ export default function CourseMastersPage() {
           </div>
         </div>
       </div>
-
-
     </div>
     </>
   );
