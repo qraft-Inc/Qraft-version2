@@ -54,14 +54,13 @@ export default function CapitalMastersPage() {
             CapitalMasters bridges the gap by connecting informal groups, microfinance, SACCOs, banks, and
             investment platforms into an integrated financial ecosystem.
           </p>
-    
         </div>
       </section>
 
      {/* Training Programs Section */}
 <section id="programs" className="py-20 bg-gray-50">
   <div className="container mx-auto px-6">
-    <h2 className="text-3xl md:text-4xl font-bold text-center mb-极6 text-gray-900">
+    <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-gray-900">
       Our Training Programs by Financial Level
     </h2>
     <p className="text-xl text-gray-700 text-center max-w-4xl mx-auto mb-12 leading-relaxed">
@@ -152,7 +151,6 @@ export default function CapitalMastersPage() {
   </div>
 </section>
 
-
       {/* MoneyKind Section */}
       <section id="moneykind" className="py-20 bg-white">
         <div className="container mx-auto px-6">
@@ -166,9 +164,14 @@ export default function CapitalMastersPage() {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="w-full h-80 bg-blue-100 rounded-lg flex items-center justify-center">
-                <span className="text-blue-800 text-lg">MoneyKind App Interface</span>
-              </div>
+              <Image
+                src="/images/moneykind.jpg"
+                alt="MoneyKind - Financial Technology Solutions"
+                width={600}
+                height={400}
+                className="w-full h-80 object-cover rounded-lg"
+                unoptimized={true}
+              />
             </div>
             <div>
               <h3 className="text-2xl font-semibold mb-4 text-gray-900">Key Features</h3>
@@ -182,7 +185,7 @@ export default function CapitalMastersPage() {
                 ].map((feature, index) => (
                   <li key={index} className="flex items-center">
                     <svg className="w-5 h-5 text-green-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 极13l4 4L19 7" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <span className="text-gray-700">{feature}</span>
                   </li>
@@ -193,45 +196,58 @@ export default function CapitalMastersPage() {
         </div>
       </section>
 
-      {/* ThrivePath Section */}
-      <section id="thrivepath" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-gray-900">
-            ThrivePath - Modern Personal Financial Literacy (21st-Century Workers)
-          </h2>
-          <p className="text-xl text-gray-700 text-center max-w-4xl mx-auto mb-12 leading-relaxed">
-            A practical, workplace-ready curriculum to help employees make confident money decisions.
-          </p>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl font-semibold mb-4 text-gray-900">Curriculum Modules</h3>
-              <ul className="space-y-3">
-                {[
-                  "Budgeting and expense tracking",
-                  "Debt management strategies",
-                  "Investment fundamentals",
-                  "Retirement planning",
-                  "Digital financial tools",
-                  "Workplace financial wellness"
-                ].map((module, index) => (
-                  <li key={index} className="flex items-center">
-                    <svg className="w-5 h-5 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                    <span className="text-gray-700">{module}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <div className="w-full h-80 bg-green-100 rounded-lg flex items-center justify-center">
-                <span className="text-green-800 text-lg">ThrivePath Learning Materials</span>
-              </div>
-            </div>
-          </div>
+    {/* ThrivePath Section */}
+<section id="thrivepath" className="py-20 bg-gray-50">
+  <div className="container mx-auto px-6">
+    <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-gray-900">
+      ThrivePath - Modern Personal Financial Literacy (21st-Century Workers)
+    </h2>
+    <p className="text-xl text-gray-700 text-center max-w-4xl mx-auto mb-12 leading-relaxed">
+      A practical, workplace-ready curriculum to help employees make confident money decisions.
+    </p>
+    
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h3 className="text-2xl font-semibold mb-4 text-gray-900">Curriculum Modules</h3>
+        <ul className="space-y-3">
+          {[
+            "Budgeting and expense tracking",
+            "Debt management strategies",
+            "Investment fundamentals",
+            "Retirement planning",
+            "Digital financial tools",
+            "Workplace financial wellness"
+          ].map((module, index) => (
+            <li key={index} className="flex items-center">
+              <svg className="w-5 h-5 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+              <span className="text-gray-700">{module}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-8 flex flex-col sm:flex-row gap-4">
+          <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg text-lg" suppressHydrationWarning={true}>
+            Enroll Your Team
+          </button>
+          <button className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 px-8 rounded-lg text-lg" suppressHydrationWarning={true}>
+            Request Syllabus
+          </button>
         </div>
-      </section>
+      </div>
+      <div>
+        <Image
+          src="/images/thrive Images.jpg"
+          alt="ThrivePath Learning Materials"
+          width={600}
+          height={400}
+          className="w-full h-80 object-cover rounded-lg shadow-lg border-4 border-blue-200"
+          unoptimized={true}
+        />
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Trusted By Section */}
       <section id="trusted" className="py-20 bg-white">
@@ -295,7 +311,7 @@ export default function CapitalMastersPage() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-极1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 suppressHydrationWarning={true}
               />
               <button
@@ -319,10 +335,6 @@ export default function CapitalMastersPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">Get In Touch</h3>
-              <p className="text-gray-600 mb-4">
-                Interested in our programs or have questions? Reach out to our team.
-              </p>
               <div className="space-y-2">
                 <p className="text-gray-700">
                   <strong>Email:</strong> hello@qraftacademy.com
