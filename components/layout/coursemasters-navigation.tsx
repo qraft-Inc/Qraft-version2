@@ -33,7 +33,7 @@ const CoursemastersNavigation = () => {
             {/* Mobile menu button */}
             <button
               aria-label="Menu"
-              className="md:hidden text-gray-500 p-2"
+              className="md:hidden text-gray-500 hover:text-gray-700 p-2 rounded-md transition-colors"
               onClick={() => {
                 setIsOpen(!isOpen);
               }}
@@ -47,10 +47,45 @@ const CoursemastersNavigation = () => {
               </svg>
             </button>
           </div>
-
-
         </div>
       </div>
+
+      {/* Mobile Menu - Full screen overlay */}
+      {isOpen && (
+        <div className="md:hidden fixed inset-0 z-40 bg-white">
+          {/* Close button */}
+          <div className="flex justify-end p-4">
+            <button
+              className="text-gray-500 hover:text-gray-700 p-2"
+              onClick={() => setIsOpen(false)}
+            >
+              <svg className="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M6 18L18 6M6 6l12 12"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                />
+              </svg>
+            </button>
+          </div>
+
+          {/* Mobile Navigation Items */}
+          <div className="px-6 py-4 overflow-y-auto max-h-[calc(100vh-80px)]">
+            {navItems.map((item) => (
+              <div key={item.name} className="mb-3">
+                <Link
+                  className="block text-gray-700 hover:text-blue-600 font-medium py-3 px-2 transition-colors border-b border-gray-100"
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </header>
   );
 };
