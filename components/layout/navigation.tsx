@@ -1,18 +1,14 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import Link from "next/link"
-import React, { useState } from 'react'
+import Link from "next/link";
+import React, { useState } from "react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const navItems = [
-    {
-      name: "Home",
-      href: "/",
-    },
+    { name: "Home", href: "/" },
     {
       name: "WorkMasters",
       href: "/courses/workmasters",
@@ -28,7 +24,7 @@ const Navigation = () => {
       dropdown: [
         { name: "Become A Course Creator", href: "/courses/coursemasters/become-creator" },
         { name: "Let Us Build Your Course", href: "/courses/coursemasters/build-your-course" },
-        { name: "Browse All Our Courses", href: "https://classroom.qraftacademy.com/" }, // Updated to external link
+        { name: "Browse All Our Courses", href: "https://classroom.qraftacademy.com/" },
       ],
     },
     {
@@ -59,11 +55,11 @@ const Navigation = () => {
     },
     {
       name: "Future of Work Consortium",
-      href: "https://futureofwork.qraftacademy.com/", // Updated to external link
+      href: "https://futureofwork.qraftacademy.com/",
       dropdown: [
-        { name: "Boards And Committees", href: "https://futureofwork.qraftacademy.com/board" }, // Updated to external link
-        { name: "Policies And Advocacy", href: "https://futureofwork.qraftacademy.com/policies" }, // Updated to external link
-        { name: "Members", href: "https://futureofwork.qraftacademy.com/members" }, // Updated to external link
+        { name: "Boards And Committees", href: "https://futureofwork.qraftacademy.com/board" },
+        { name: "Policies And Advocacy", href: "https://futureofwork.qraftacademy.com/policies" },
+        { name: "Members", href: "https://futureofwork.qraftacademy.com/members" },
       ],
     },
     {
@@ -96,22 +92,23 @@ const Navigation = () => {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex justify-between items-center h-16">
-            <nav className="hidden md:flex w-full justify-center space-x-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex justify-center items-center h-16">
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex space-x-2 lg:space-x-4">
               {navItems.map((item) =>
                 item.dropdown ? (
-                  <div className="relative group flex items-center" key={item.name}>
+                  <div className="relative group" key={item.name}>
                     <Link
-                      className="text-gray-700 hover:text-blue-600 font-medium py-2 px-1 transition-colors"
+                      className="flex items-center text-gray-700 hover:text-blue-600 font-medium px-2 py-2 transition-colors text-sm"
                       href={item.href}
                     >
                       {item.name}
                     </Link>
-                    <div className="absolute left-0 top-full mt-0 w-48 bg-white rounded-md shadow-lg z-10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-200">
+                    <div className="absolute left-0 top-full mt-0 w-56 bg-white rounded-md shadow-lg z-10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                       {item.dropdown.map((dropdownItem) => (
                         <Link
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
                           href={dropdownItem.href}
                           key={dropdownItem.name}
                         >
@@ -122,7 +119,7 @@ const Navigation = () => {
                   </div>
                 ) : (
                   <Link
-                    className="text-gray-700 hover:text-blue-600 font-medium py-2 px-1 transition-colors flex items-center"
+                    className="flex items-center text-gray-700 hover:text-blue-600 font-medium px-2 py-2 transition-colors text-sm"
                     href={item.href}
                     key={item.name}
                   >
@@ -131,15 +128,17 @@ const Navigation = () => {
                 )
               )}
             </nav>
+
+            {/* Mobile Menu Button */}
             <button
               aria-label="Menu"
-              className="md:hidden text-gray-500 p-2"
+              className="md:hidden text-gray-700 hover:text-blue-900 p-2 rounded-md transition-colors"
               onClick={() => {
                 setIsOpen(!isOpen);
                 setOpenDropdown(null);
               }}
             >
-              <svg className="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isOpen ? (
                   <path
                     d="M6 18L18 6M6 6l12 12"
@@ -163,19 +162,39 @@ const Navigation = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t">
-          <div className="px-6 py-4">
+        <div className="md:hidden fixed inset-0 z-40 bg-white">
+          {/* Close button */}
+          <div className="flex justify-end p-4">
+            <button
+              className="text-gray-500 hover:text-gray-700 p-2"
+              onClick={() => setIsOpen(false)}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M6 18L18 6M6 6l12 12"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                />
+              </svg>
+            </button>
+          </div>
+
+          {/* Mobile Navigation Items */}
+          <div className="px-6 py-4 overflow-y-auto max-h-[calc(100vh-80px)] bg-white">
             {navItems.map((item) => (
-              <div key={item.name} className="mb-2">
+              <div key={item.name} className="mb-3">
                 {item.dropdown ? (
                   <div>
                     <button
-                      className="flex justify-between items-center w-full text-left text-gray-700 hover:text-blue-600 font-medium py-2 px-1 transition-colors"
+                      className="flex justify-between items-center w-full text-left text-gray-700 hover:text-blue-600 font-medium py-3 px-2 transition-colors border-b border-gray-100"
                       onClick={() => toggleDropdown(item.name)}
                     >
-                      {item.name}
+                      <span>{item.name}</span>
                       <svg
-                        className={`w-4 h-4 transition-transform ${openDropdown === item.name ? 'rotate-180' : ''}`}
+                        className={`w-4 h-4 transition-transform ${
+                          openDropdown === item.name ? "rotate-180" : ""
+                        }`}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -189,10 +208,10 @@ const Navigation = () => {
                       </svg>
                     </button>
                     {openDropdown === item.name && (
-                      <div className="ml-4 mt-1 space-y-1">
+                      <div className="ml-4 mt-2 space-y-2">
                         {item.dropdown.map((dropdownItem) => (
                           <Link
-                            className="block text-sm text-gray-600 hover:text-blue-600 py-1 px-2 transition-colors"
+                            className="block text-gray-600 hover:text-blue-600 py-2 px-3 transition-colors rounded-md hover:bg-gray-50"
                             href={dropdownItem.href}
                             key={dropdownItem.name}
                             onClick={() => setIsOpen(false)}
@@ -205,7 +224,7 @@ const Navigation = () => {
                   </div>
                 ) : (
                   <Link
-                    className="block text-gray-700 hover:text-blue-600 font-medium py-2 px-1 transition-colors"
+                    className="block text-gray-700 hover:text-blue-600 font-medium py-3 px-2 transition-colors border-b border-gray-100"
                     href={item.href}
                     onClick={() => setIsOpen(false)}
                   >
