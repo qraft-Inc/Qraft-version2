@@ -53,7 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Providers>
           {/* Header Bar */}
           <div className="bg-blue-800 text-white py-3 px-4">
-            <div className="container mx-auto flex items-center justify-between">
+            <div className="container mx-auto flex items-center justify-center">
               <div className="flex items-center gap-3">
                 <div className="w-16 h-16 bg-black rounded-full">
                   <Image
@@ -65,10 +65,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   />
                 </div>
                 <span className="text-xl font-bold ">Qraft Academy</span>
-              </div>
-              <div className="flex flex-col items-end">
-                <span className="text-xl font-bold">Future of Work & EdTech</span>
-                <span className="text-sm italic">Modern Work Development</span>
               </div>
             </div>
           </div>

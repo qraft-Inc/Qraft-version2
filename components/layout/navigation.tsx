@@ -20,7 +20,7 @@ const Navigation = () => {
     },
     {
       name: "CourseMasters",
-      href: "/courses/coursemasters",
+      href: "/coursemasters",
       dropdown: [
         { name: "Become A Course Creator", href: "/courses/coursemasters/become-creator" },
         { name: "Let Us Build Your Course", href: "/courses/coursemasters/build-your-course" },
@@ -93,7 +93,7 @@ const Navigation = () => {
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex justify-center items-center h-16">
+          <div className="flex justify-between items-center h-16">
             {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-2 lg:space-x-4">
               {navItems.map((item) =>

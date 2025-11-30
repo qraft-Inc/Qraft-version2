@@ -23,7 +23,7 @@ export default function Home() {
                 Welcome to Qraft Academy
               </h1>
               <p className="text-xl md:text-2xl mb-8">
-                Empowering the next generation of digital creators and innovators
+                Learn. Work. Achieve.
               </p>
               <button className="px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-lg hover:bg-blue-700 transition-colors">
                 Start Your Journey
