@@ -26,26 +26,38 @@ const tracks = [
 
 export function DevelopmentTracks() {
   return (
-    <section className="py-8 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-          {tracks.map((track) => (
-            <div
-              className="bg-white border-2 border-gray-100 rounded-xl p-6 hover:border-blue-300 hover:shadow-xl transition-all"
-              key={track.title}
-            >
-              <h3 className="text-xl font-bold text-gray-800 mb-4">{track.title}</h3>
-              <p className="text-gray-700 mb-4 text-base">{track.description}</p>
-              <a 
-                className="inline-flex items-center gap-2 text-blue-700 hover:text-blue-900 font-semibold text-base transition-colors" 
-                href={track.href}
-              >
-                Explore This Theme
-                <ArrowUpRight className="size-5 text-blue-700" />
-              </a>
-            </div>
-          ))}
+    <section className="container-custom">
+      <div className="text-center mb-10 sm:mb-12 md:mb-16 max-w-3xl mx-auto px-4">
+        <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-primary-100 rounded-full text-primary-700 font-semibold text-xs sm:text-sm mb-4 sm:mb-6">
+          📚 Learning Paths
         </div>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-4 sm:mb-6 leading-tight">
+          Development Tracks
+        </h2>
+        <p className="text-base sm:text-lg md:text-xl text-neutral-600">
+          Choose your path to success with our comprehensive learning tracks
+        </p>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        {tracks.map((track, index) => (
+          <div
+            className="group card p-6 sm:p-8 active:scale-95 sm:hover:scale-105 sm:hover:shadow-2xl transition-all duration-300 cursor-pointer border-2 border-transparent active:border-primary-200 sm:hover:border-primary-200 touch-manipulation"
+            key={track.title}
+          >
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center text-white font-bold text-lg sm:text-xl mb-4 sm:mb-6 group-active:scale-110 sm:group-hover:scale-110 transition-transform duration-300">
+              {index + 1}
+            </div>
+            <h3 className="text-lg sm:text-xl font-bold text-neutral-900 mb-3 sm:mb-4 group-active:text-primary-600 sm:group-hover:text-primary-600 transition-colors leading-snug">{track.title}</h3>
+            <p className="text-neutral-600 mb-4 sm:mb-6 text-sm sm:text-base leading-relaxed">{track.description}</p>
+            <a 
+              className="inline-flex items-center gap-2 text-primary-600 active:text-primary-700 sm:hover:text-primary-700 font-semibold text-sm sm:text-base transition-all group-active:gap-3 sm:group-hover:gap-3" 
+              href={track.href}
+            >
+              Explore This Theme
+              <ArrowUpRight className="size-4 sm:size-5" />
+            </a>
+          </div>
+        ))}
       </div>
     </section>
   );

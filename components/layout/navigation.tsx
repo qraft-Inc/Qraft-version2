@@ -9,40 +9,46 @@ const Navigation = () => {
 
   const navItems = [
     { name: "Home", href: "/" },
+    { name: "Courses", href: "https://classroom.qraftacademy.com/" },
     {
-      name: "WorkMasters",
-      href: "/courses/workmasters",
+      name: "Mastery Programs",
+      href: "/programs",
       dropdown: [
-        { name: "Work Readiness Bootcamp", href: "/courses/workmasters/readiness-bootcamp" },
-        { name: "Apprenticeship & Employability Opportunities", href: "/courses/workmasters/apprenticeship-employability" },
-        { name: "Browse All Our Freelance Talent", href: "/courses/workmasters/browse-talent" },
-      ],
-    },
-    {
-      name: "CourseMasters",
-      href: "/coursemasters",
-      dropdown: [
-        { name: "Become A Course Creator", href: "/courses/coursemasters/become-creator" },
-        { name: "Let Us Build Your Course", href: "/courses/coursemasters/build-your-course" },
-        { name: "Browse All Our Courses", href: "https://classroom.qraftacademy.com/" },
-      ],
-    },
-    {
-      name: "CapitalMasters",
-      href: "/courses/capitalmasters",
-      dropdown: [
-        { name: "Investor Network", href: "/courses/capitalmasters/investor-network" },
-        { name: "Financial Literacy & Business Growth", href: "/courses/capitalmasters/startup-business-growth-hub" },
-        { name: "Browse All Our StartUps", href: "/courses/capitalmasters/browse-startups" },
-      ],
-    },
-    {
-      name: "TechMasters",
-      href: "/courses/techmasters",
-      dropdown: [
-        { name: "Hackathons And Open Source", href: "/courses/techmasters/hackathons-open-source" },
-        { name: "Research & Development", href: "/courses/techmasters/research-development-labs" },
-        { name: "Browse All Our Tech Solutions", href: "/courses/techmasters/browse-edtech-solutions" },
+        { 
+          name: "WorkMasters", 
+          href: "/courses/workmasters",
+          subItems: [
+            { name: "Work Readiness Bootcamp", href: "/courses/workmasters/readiness-bootcamp" },
+            { name: "Apprenticeship & Employability", href: "/courses/workmasters/apprenticeship-employability" },
+            { name: "Browse Freelance Talent", href: "/courses/workmasters/browse-talent" },
+          ]
+        },
+        { 
+          name: "CourseMasters", 
+          href: "/coursemasters",
+          subItems: [
+            { name: "Become A Course Creator", href: "/courses/coursemasters/become-creator" },
+            { name: "Let Us Build Your Course", href: "/courses/coursemasters/build-your-course" },
+          ]
+        },
+        { 
+          name: "CapitalMasters", 
+          href: "/courses/capitalmasters",
+          subItems: [
+            { name: "Investor Network", href: "/courses/capitalmasters/investor-network" },
+            { name: "Financial Literacy & Business Growth", href: "/courses/capitalmasters/startup-business-growth-hub" },
+            { name: "Browse StartUps", href: "/courses/capitalmasters/browse-startups" },
+          ]
+        },
+        { 
+          name: "TechMasters", 
+          href: "/courses/techmasters",
+          subItems: [
+            { name: "Hackathons And Open Source", href: "/courses/techmasters/hackathons-open-source" },
+            { name: "Research & Development", href: "/courses/techmasters/research-development-labs" },
+            { name: "Browse Tech Solutions", href: "/courses/techmasters/browse-edtech-solutions" },
+          ]
+        },
       ],
     },
     {
@@ -54,7 +60,7 @@ const Navigation = () => {
       ],
     },
     {
-      name: "Future of Work Consortium",
+      name: "Future of Work",
       href: "https://futureofwork.qraftacademy.com/",
       dropdown: [
         { name: "Boards And Committees", href: "https://futureofwork.qraftacademy.com/board" },
@@ -63,24 +69,12 @@ const Navigation = () => {
       ],
     },
     {
-      name: "Programs",
-      href: "/programs",
-      dropdown: [
-        { name: "Care Economy", href: "/programs/care-economy" },
-        { name: "Knowledge Economy", href: "/programs/knowledge-economy" },
-        { name: "Digital Economy", href: "/programs/digital-economy" },
-        { name: "Gig Economy", href: "/programs/gig-economy" },
-        { name: "Creative Economy", href: "/programs/creative-economy" },
-        { name: "Innovation Economy", href: "/programs/innovation-economy" },
-      ],
-    },
-    {
       name: "Community",
       href: "/community",
       dropdown: [
-        { name: "Future of work tour", href: "/future-of-work-consortium" },
+        { name: "Future of Work Tour", href: "/future-of-work-consortium" },
         { name: "Events", href: "#" },
-        { name: "Special groups", href: "#" },
+        { name: "Special Groups", href: "#" },
       ],
     },
   ];
@@ -90,83 +84,104 @@ const Navigation = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-sm">
-      <div className="bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex justify-between items-center h-16">
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex space-x-2 lg:space-x-4">
-              {navItems.map((item) =>
-                item.dropdown ? (
-                  <div className="relative group" key={item.name}>
-                    <Link
-                      className="flex items-center text-gray-700 hover:text-blue-600 font-medium px-2 py-2 transition-colors text-sm"
-                      href={item.href}
-                    >
-                      {item.name}
-                    </Link>
-                    <div className="absolute left-0 top-full mt-0 w-56 bg-white rounded-md shadow-lg z-10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                      {item.dropdown.map((dropdownItem) => (
-                        <Link
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
-                          href={dropdownItem.href}
-                          key={dropdownItem.name}
-                        >
-                          {dropdownItem.name}
-                        </Link>
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-neutral-200 shadow-sm">
+      <div className="container-custom">
+        <div className="flex justify-between items-center h-16 sm:h-20">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex space-x-1 lg:space-x-2">
+            {navItems.map((item) =>
+              item.dropdown ? (
+                <div className="relative group" key={item.name}>
+                  <Link
+                    className="flex items-center text-neutral-700 active:text-primary-600 sm:hover:text-primary-600 font-semibold px-2 lg:px-3 py-2 rounded-lg transition-all duration-200 active:bg-primary-50 sm:hover:bg-primary-50 text-sm lg:text-base"
+                    href={item.href}
+                  >
+                    {item.name}
+                    <svg className="w-4 h-4 ml-1 group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </Link>
+                  <div className="absolute left-0 top-full mt-2 w-72 bg-white rounded-2xl shadow-xl z-10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 border border-neutral-100">
+                    <div className="p-2">
+                      {item.dropdown.map((dropdownItem: any, idx: number) => (
+                        <div key={dropdownItem.name}>
+                          <Link
+                            className={`block px-4 py-3 text-sm font-medium transition-all duration-200 rounded-xl ${
+                              dropdownItem.subItems 
+                                ? 'text-primary-600 hover:bg-primary-50 font-bold' 
+                                : 'text-neutral-700 hover:text-primary-600 hover:bg-primary-50'
+                            }`}
+                            href={dropdownItem.href}
+                          >
+                            {dropdownItem.name}
+                          </Link>
+                          {dropdownItem.subItems && (
+                            <div className="ml-4 space-y-1 mb-2">
+                              {dropdownItem.subItems.map((subItem: any) => (
+                                <Link
+                                  key={subItem.name}
+                                  className="block px-3 py-2 text-xs text-neutral-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-all duration-200"
+                                  href={subItem.href}
+                                >
+                                  • {subItem.name}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       ))}
                     </div>
                   </div>
-                ) : (
-                  <Link
-                    className="flex items-center text-gray-700 hover:text-blue-600 font-medium px-2 py-2 transition-colors text-sm"
-                    href={item.href}
-                    key={item.name}
-                  >
-                    {item.name}
-                  </Link>
-                )
-              )}
-            </nav>
+                </div>
+              ) : (
+                <Link
+                  className="flex items-center text-neutral-700 active:text-primary-600 sm:hover:text-primary-600 font-semibold px-2 lg:px-3 py-2 rounded-lg transition-all duration-200 active:bg-primary-50 sm:hover:bg-primary-50 text-sm lg:text-base"
+                  href={item.href}
+                  key={item.name}
+                >
+                  {item.name}
+                </Link>
+              )
+            )}
+          </nav>
 
-            {/* Mobile Menu Button */}
-            <button
-              aria-label="Menu"
-              className="md:hidden text-gray-700 hover:text-blue-900 p-2 rounded-md transition-colors"
-              onClick={() => {
-                setIsOpen(!isOpen);
-                setOpenDropdown(null);
-              }}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {isOpen ? (
-                  <path
-                    d="M6 18L18 6M6 6l12 12"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                  />
-                ) : (
-                  <path
-                    d="M4 6h16M4 12h16M4 18h16"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                  />
-                )}
-              </svg>
-            </button>
-          </div>
+          {/* Mobile Menu Button */}
+          <button
+            aria-label="Menu"
+            className="md:hidden text-neutral-700 active:text-primary-600 p-2 rounded-lg active:bg-primary-50 transition-all duration-200 touch-manipulation min-h-[44px] min-w-[44px]"
+            onClick={() => {
+              setIsOpen(!isOpen);
+              setOpenDropdown(null);
+            }}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {isOpen ? (
+                <path
+                  d="M6 18L18 6M6 6l12 12"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                />
+              ) : (
+                <path
+                  d="M4 6h16M4 12h16M4 18h16"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                />
+              )}
+            </svg>
+          </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden fixed inset-0 z-40 bg-white">
+        <div className="md:hidden fixed inset-0 z-40 bg-white animate-fade-in">
           {/* Close button */}
           <div className="flex justify-end p-4">
             <button
-              className="text-gray-500 hover:text-gray-700 p-2"
+              className="text-neutral-500 active:text-neutral-700 p-2 rounded-lg active:bg-neutral-100 transition-all touch-manipulation min-h-[44px] min-w-[44px]"
               onClick={() => setIsOpen(false)}
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -181,18 +196,18 @@ const Navigation = () => {
           </div>
 
           {/* Mobile Navigation Items */}
-          <div className="px-6 py-4 overflow-y-auto max-h-[calc(100vh-80px)] bg-white">
+          <div className="px-4 py-2 overflow-y-auto max-h-[calc(100vh-80px)] bg-white">
             {navItems.map((item) => (
-              <div key={item.name} className="mb-3">
+              <div key={item.name} className="mb-2">
                 {item.dropdown ? (
                   <div>
                     <button
-                      className="flex justify-between items-center w-full text-left text-gray-700 hover:text-blue-600 font-medium py-3 px-2 transition-colors border-b border-gray-100"
+                      className="flex justify-between items-center w-full text-left text-neutral-800 active:text-primary-600 font-semibold py-4 px-4 transition-all duration-200 border-b border-neutral-100 active:bg-primary-50 rounded-lg touch-manipulation min-h-[48px]"
                       onClick={() => toggleDropdown(item.name)}
                     >
                       <span>{item.name}</span>
                       <svg
-                        className={`w-4 h-4 transition-transform ${
+                        className={`w-5 h-5 transition-transform duration-300 ${
                           openDropdown === item.name ? "rotate-180" : ""
                         }`}
                         fill="none"
@@ -208,23 +223,42 @@ const Navigation = () => {
                       </svg>
                     </button>
                     {openDropdown === item.name && (
-                      <div className="ml-4 mt-2 space-y-2">
-                        {item.dropdown.map((dropdownItem) => (
-                          <Link
-                            className="block text-gray-600 hover:text-blue-600 py-2 px-3 transition-colors rounded-md hover:bg-gray-50"
-                            href={dropdownItem.href}
-                            key={dropdownItem.name}
-                            onClick={() => setIsOpen(false)}
-                          >
-                            {dropdownItem.name}
-                          </Link>
+                      <div className="ml-2 mt-1 space-y-1 animate-slide-in">
+                        {item.dropdown.map((dropdownItem: any) => (
+                          <div key={dropdownItem.name}>
+                            <Link
+                              className={`block py-3 px-4 transition-all duration-200 rounded-lg font-medium min-h-[48px] flex items-center ${
+                                dropdownItem.subItems 
+                                  ? 'text-primary-600 active:bg-primary-50 font-bold' 
+                                  : 'text-neutral-600 active:text-primary-600 active:bg-primary-50'
+                              }`}
+                              href={dropdownItem.href}
+                              onClick={() => !dropdownItem.subItems && setIsOpen(false)}
+                            >
+                              {dropdownItem.name}
+                            </Link>
+                            {dropdownItem.subItems && (
+                              <div className="ml-4 space-y-1 mt-1">
+                                {dropdownItem.subItems.map((subItem: any) => (
+                                  <Link
+                                    key={subItem.name}
+                                    className="block text-neutral-600 active:text-primary-600 py-2 px-3 transition-all duration-200 rounded-lg active:bg-primary-50 text-sm min-h-[44px] flex items-center"
+                                    href={subItem.href}
+                                    onClick={() => setIsOpen(false)}
+                                  >
+                                    • {subItem.name}
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
+                          </div>
                         ))}
                       </div>
                     )}
                   </div>
                 ) : (
                   <Link
-                    className="block text-gray-700 hover:text-blue-600 font-medium py-3 px-2 transition-colors border-b border-gray-100"
+                    className="block text-neutral-800 active:text-primary-600 font-semibold py-4 px-4 transition-all duration-200 border-b border-neutral-100 active:bg-primary-50 rounded-lg min-h-[48px] flex items-center"
                     href={item.href}
                     onClick={() => setIsOpen(false)}
                   >

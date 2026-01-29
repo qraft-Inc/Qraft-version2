@@ -2,11 +2,89 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom styles */
-h1 {
-  @apply font-sans;
+@layer base {
+  html {
+    @apply scroll-smooth antialiased;
+  }
+  
+  body {
+    @apply bg-neutral-50 text-neutral-900;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+  
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+  
+  p {
+    @apply text-base md:text-lg leading-relaxed;
+  }
 }
 
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-out;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-white text-primary-600 border-2 border-primary-600 rounded-xl font-semibold hover:bg-primary-50 transition-all duration-300;
+  }
+  
+  .card {
+    @apply bg-white rounded-2xl shadow-soft hover:shadow-xl transition-all duration-300 overflow-hidden;
+  }
+  
+  .card-glass {
+    @apply bg-white/80 backdrop-blur-lg rounded-2xl shadow-soft border border-white/20;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700;
+  }
+  
+  .gradient-accent {
+    @apply bg-gradient-to-br from-accent-500 via-accent-600 to-accent-700;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-accent-600;
+  }
+}
+
+@layer utilities {
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-8 transition-all duration-700;
+  }
+  
+  .animate-on-scroll.is-visible {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+/* Custom styles */
 .debug {
-  border:red 10px solid;
+  border: red 10px solid;
 }
