@@ -17,7 +17,7 @@ export default function GetInvolved() {
             Ready to Get Involved?
           </h2>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-primary-100 mb-8 sm:mb-10 md:mb-12 leading-relaxed">
-            Join our community of learners and innovators. Whether you're a student, mentor, or partner, there's a place for you at Qraft Academy.
+            Join our diverse community of employees advancing their careers, freelancers growing their businesses, entrepreneurs scaling their ventures, and job seekers launching their professional journeys.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-12 sm:mb-14 md:mb-16">
             <Link href="/courses/coursemasters" className="w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 bg-white text-primary-600 font-bold rounded-xl active:bg-primary-50 sm:hover:bg-primary-50 transition-all duration-300 flex items-center justify-center gap-2 active:scale-95 sm:hover:scale-105 shadow-xl group touch-manipulation min-h-[48px]">

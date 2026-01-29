@@ -45,7 +45,7 @@ export default function Programs() {
             Master Your Future
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-neutral-600">
-            Choose from our specialized programs designed to elevate your skills
+            Specialized programs for employees, freelancers, entrepreneurs, and entry-level professionals to elevate your skills and accelerate your career.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">

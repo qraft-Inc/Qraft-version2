@@ -22,8 +22,11 @@ export default function Home() {
               <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold mb-4 sm:mb-6 md:mb-8 animate-slide-up leading-tight">
                 Welcome to <span className="block sm:inline text-gradient bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-accent-400">Qraft Academy</span>
               </h1>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-8 sm:mb-10 md:mb-12 font-light tracking-wide text-primary-100">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-4 sm:mb-6 font-light tracking-wide text-primary-100">
                 Learn. Work. Achieve.
+              </p>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-8 sm:mb-10 md:mb-12 font-normal text-white/90">
+                For Employees • Freelancers • Entrepreneurs • Job Seekers
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center w-full sm:w-auto px-4 sm:px-0">
                 <button className="btn-primary w-full sm:w-auto px-6 sm:px-8 md:px-10 py-3 sm:py-4 text-base sm:text-lg group">
@@ -104,7 +107,7 @@ export default function Home() {
                 Master Your Craft
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-neutral-600 mb-6 sm:mb-8 leading-relaxed">
-                Your Skill Is Your Career. Transform your passion into expertise with our comprehensive learning programs.
+                Your Skill Is Your Career. Whether you're an employee advancing your career, a freelancer expanding your services, an entrepreneur building your business, or a job seeker entering the workforce—transform your passion into expertise with our comprehensive learning programs.
               </p>
               <a href="https://classroom.qraftacademy.com/" className="btn-primary w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg group inline-flex items-center justify-center">
                 Join Qraft Academy

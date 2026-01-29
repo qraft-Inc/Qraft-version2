@@ -37,8 +37,8 @@ export function DevelopmentTracks() {
         <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-neutral-700 mb-4 sm:mb-6">
           Future Of Work Pillars
         </h3>
-        <p className="text-base sm:text-lg md:text-xl text-neutral-600">
-          Choose your path to success with our comprehensive learning tracks
+        <p className="text-base sm:text-lg md:text-xl text-neutral-600 mb-3">
+          Choose your path to success with our comprehensive learning tracks designed for employees, freelancers, entrepreneurs, and job seekers.
         </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
