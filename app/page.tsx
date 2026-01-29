@@ -45,6 +45,38 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Statistics Section */}
+        <section className="section-padding bg-white">
+          <div className="container-custom">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+              <div className="text-center p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-primary-50 to-white border border-primary-100 hover:shadow-lg transition-all duration-300">
+                <div className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-primary-600 mb-3">
+                  10,000+
+                </div>
+                <p className="text-base sm:text-lg font-semibold text-neutral-700">Learners Trained</p>
+              </div>
+              <div className="text-center p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-accent-50 to-white border border-accent-100 hover:shadow-lg transition-all duration-300">
+                <div className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-accent-600 mb-3">
+                  150+
+                </div>
+                <p className="text-base sm:text-lg font-semibold text-neutral-700">Courses Built</p>
+              </div>
+              <div className="text-center p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-primary-50 to-white border border-primary-100 hover:shadow-lg transition-all duration-300">
+                <div className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-primary-600 mb-3">
+                  25+
+                </div>
+                <p className="text-base sm:text-lg font-semibold text-neutral-700">Partner Organizations</p>
+              </div>
+              <div className="text-center p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-accent-50 to-white border border-accent-100 hover:shadow-lg transition-all duration-300">
+                <div className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-accent-600 mb-3">
+                  15+
+                </div>
+                <p className="text-base sm:text-lg font-semibold text-neutral-700">Countries Reached</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Development Tracks Section */}
         <div className="relative w-full section-padding bg-gradient-to-b from-neutral-50 to-white">
           <DevelopmentTracks />
