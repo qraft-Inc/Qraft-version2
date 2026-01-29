@@ -32,7 +32,7 @@ export function DevelopmentTracks() {
           📚 Learning Paths
         </div>
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-4 sm:mb-6 leading-tight">
-          Development Tracks
+          Modern Work Development Tracks / Future Of Work Pillars
         </h2>
         <p className="text-base sm:text-lg md:text-xl text-neutral-600">
           Choose your path to success with our comprehensive learning tracks
