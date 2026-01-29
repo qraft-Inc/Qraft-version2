@@ -31,9 +31,12 @@ export function DevelopmentTracks() {
         <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-primary-100 rounded-full text-primary-700 font-semibold text-xs sm:text-sm mb-4 sm:mb-6">
           📚 Learning Paths
         </div>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-4 sm:mb-6 leading-tight">
-          Modern Work Development Tracks / Future Of Work Pillars
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-3 sm:mb-4 leading-tight">
+          Modern Work Development Tracks
         </h2>
+        <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-neutral-700 mb-4 sm:mb-6">
+          Future Of Work Pillars
+        </h3>
         <p className="text-base sm:text-lg md:text-xl text-neutral-600">
           Choose your path to success with our comprehensive learning tracks
         </p>
