@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
+import CourseMastersSummary from '@/components/sections/coursemasters-summary'
 import { DevelopmentTracks } from '@/components/sections/development-tracks'
 import GetInvolved from '@/components/sections/get-involved'
 import Programs from '@/components/sections/programs'
@@ -125,6 +126,8 @@ export default function Home() {
             <Programs />
           </div>
         </section>
+
+        <CourseMastersSummary />
 
         {/* Success Stories Split Screen */}
         <div className="w-full flex flex-col lg:flex-row py-12 sm:py-16 md:py-20 lg:py-24 bg-neutral-50">
