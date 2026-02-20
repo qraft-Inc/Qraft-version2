@@ -3,11 +3,24 @@
 import Link from "next/link";
 import React, { useState } from "react";
 
+interface NavItem {
+  name: string;
+  href: string;
+  dropdown?: Array<{
+    name: string;
+    href: string;
+    subItems?: Array<{
+      name: string;
+      href: string;
+    }>;
+  }>;
+}
+
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-  const navItems = [
+  const navItems: NavItem[] = [
     { name: "Home", href: "/" },
     { name: "CourseMasters", href: "/coursemasters" },
     { name: "Online Courses", href: "https://classroom.qraftacademy.com/" },
