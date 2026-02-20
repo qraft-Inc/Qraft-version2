@@ -3,13 +3,10 @@ import React from 'react'
 import CourseMastersSummary from '@/components/sections/coursemasters-summary'
 import { DevelopmentTracks } from '@/components/sections/development-tracks'
 import GetInvolved from '@/components/sections/get-involved'
-import Programs from '@/components/sections/programs'
-import SuccessStories from '@/components/sections/success-stories'
 
 export default function Home() {
   return (
     <main className="min-h-screen">
-        {/* Hero Image Section */}
         <div className="relative w-full h-[100svh] min-h-[600px]">
           <Image
             alt="Qraft Academy Hero"
@@ -49,7 +46,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Statistics Section */}
         <section className="section-padding bg-white">
           <div className="container-custom">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
@@ -81,12 +77,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Development Tracks Section */}
+        <CourseMastersSummary />
+
         <div className="relative w-full section-padding bg-gradient-to-b from-neutral-50 to-white">
           <DevelopmentTracks />
         </div>
 
-        {/* Apprenticeship Split Screen */}
         <div className="w-full flex flex-col lg:flex-row">
           <div className="w-full lg:w-1/2 h-64 sm:h-80 md:h-96 lg:h-auto relative overflow-hidden group">
             <Image
@@ -120,16 +116,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Programs Section */}
-        <section className="section-padding bg-gradient-to-b from-white to-neutral-50">
-          <div className="container-custom">
-            <Programs />
-          </div>
-        </section>
-
-        <CourseMastersSummary />
-
-        {/* Success Stories Split Screen */}
         <div className="w-full flex flex-col lg:flex-row py-12 sm:py-16 md:py-20 lg:py-24 bg-neutral-50">
           <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-8 md:p-12 lg:p-16 order-2 lg:order-1">
             <div className="max-w-xl w-full">
@@ -148,7 +134,7 @@ export default function Home() {
                   ))}
                 </div>
                 <blockquote className="text-base sm:text-lg text-neutral-700 mb-4 sm:mb-6 italic leading-relaxed">
-                  "The apprenticeship program gave me the hands-on skills I needed to get ahead in my career as an engineer"
+                  &quot;The apprenticeship program gave me the hands-on skills I needed to get ahead in my career as an engineer&quot;
                 </blockquote>
                 <div className="flex items-center gap-3 sm:gap-4">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white font-bold text-lg sm:text-xl flex-shrink-0">
@@ -163,7 +149,7 @@ export default function Home() {
             </div>
           </div>
           <div className="w-full lg:w-1/2 h-64 sm:h-80 md:h-96 lg:h-auto relative overflow-hidden group order-1 lg:order-2">
-             <Image
+            <Image
               alt="Success Story"
               className="object-cover size-full group-hover:scale-110 transition-transform duration-700"
               height={600}
@@ -175,10 +161,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Get Involved Section */}
         <GetInvolved />
 
-        {/* Centered Image with Text */}
         <div className="w-full py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 bg-gradient-to-br from-primary-50 via-white to-accent-50">
           <div className="container-custom flex flex-col items-center">
             <div className="text-center mb-8 sm:mb-10 md:mb-12 max-w-3xl px-4">
@@ -202,7 +186,7 @@ export default function Home() {
             </div>
             <div className="text-center max-w-3xl px-4">
               <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold text-neutral-900 mb-4 sm:mb-6 leading-tight">
-                Join the Future of Work
+                Join the Future of Work Forum
               </h3>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-neutral-600 mb-6 sm:mb-8">
                 Liberate your potential through innovative learning experiences

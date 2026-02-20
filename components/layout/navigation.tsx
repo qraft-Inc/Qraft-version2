@@ -9,73 +9,21 @@ const Navigation = () => {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "Courses", href: "https://classroom.qraftacademy.com/" },
+    { name: "CourseMasters", href: "/coursemasters" },
+    { name: "Online Courses", href: "https://classroom.qraftacademy.com/" },
+    { name: "On-Site Classes", href: "/on-site-classes" },
+    { name: "TechMasters", href: "/courses/techmasters" },
     {
-      name: "Mastery Programs",
-      href: "/programs",
-      dropdown: [
-        { 
-          name: "WorkMasters", 
-          href: "/courses/workmasters",
-          subItems: [
-            { name: "Work Readiness Bootcamp", href: "/courses/workmasters/readiness-bootcamp" },
-            { name: "Apprenticeship & Employability", href: "/courses/workmasters/apprenticeship-employability" },
-            { name: "Browse Freelance Talent", href: "/courses/workmasters/browse-talent" },
-          ]
-        },
-        { 
-          name: "CourseMasters", 
-          href: "/coursemasters",
-          subItems: [
-            { name: "Become A Course Creator", href: "/courses/coursemasters/become-creator" },
-            { name: "Let Us Build Your Course", href: "/courses/coursemasters/build-your-course" },
-          ]
-        },
-        { 
-          name: "CapitalMasters", 
-          href: "/courses/capitalmasters",
-          subItems: [
-            { name: "Investor Network", href: "/courses/capitalmasters/investor-network" },
-            { name: "Financial Literacy & Business Growth", href: "/courses/capitalmasters/startup-business-growth-hub" },
-            { name: "Browse StartUps", href: "/courses/capitalmasters/browse-startups" },
-          ]
-        },
-        { 
-          name: "TechMasters", 
-          href: "/courses/techmasters",
-          subItems: [
-            { name: "Hackathons And Open Source", href: "/courses/techmasters/hackathons-open-source" },
-            { name: "Research & Development", href: "/courses/techmasters/research-development-labs" },
-            { name: "Browse Tech Solutions", href: "/courses/techmasters/browse-edtech-solutions" },
-          ]
-        },
-      ],
+      name: "Our Platforms For Workers",
+      href: "/platforms",
     },
     {
-      name: "Our Spaces",
+      name: "Future of Work Forum",
+      href: "/future-of-work-forum",
+    },
+    {
+      name: "Our Hub",
       href: "/spaces",
-      dropdown: [
-        { name: "QraftLabs", href: "https://labs.qraftacademy.com/" },
-        { name: "Qraft Solutions Hub", href: "#" },
-      ],
-    },
-    {
-      name: "Future of Work",
-      href: "https://futureofwork.qraftacademy.com/",
-      dropdown: [
-        { name: "Boards And Committees", href: "https://futureofwork.qraftacademy.com/board" },
-        { name: "Policies And Advocacy", href: "https://futureofwork.qraftacademy.com/policies" },
-        { name: "Members", href: "https://futureofwork.qraftacademy.com/members" },
-      ],
-    },
-    {
-      name: "Community",
-      href: "/community",
-      dropdown: [
-        { name: "Future of Work Tour", href: "/future-of-work-consortium" },
-        { name: "Events", href: "#" },
-        { name: "Special Groups", href: "#" },
-      ],
     },
   ];
 

@@ -2,7 +2,7 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "Qraft Academy",
-  description: "Future of work and Edtech Solutions",
+  description: "Future of Work Forum and Edtech Solutions",
   logo: {
     dark: "/images/logos/dark.svg",
     light: "/images/logos/light.svg",
@@ -53,6 +53,7 @@ export const seoKeywords =  [
   "adaptive learning",
   "personalized learning",
   "educational technology trends",
+  "future of work forum",
   "future of work",
   "workplace automation",
   "remote work",

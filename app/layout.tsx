@@ -35,7 +35,26 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(siteConfig.url),
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+    other: [
+      {
+        rel: 'manifest',
+        url: '/site.webmanifest',
+      },
+      {
+        rel: 'android-chrome-192x192',
+        url: '/android-chrome-192x192.png',
+      },
+      {
+        rel: 'android-chrome-512x512',
+        url: '/android-chrome-512x512.png',
+      },
+    ],
   },
 };
 
@@ -48,6 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#2563eb" />
       </head>
       <body className="min-h-screen bg-neutral-50 text-neutral-900">
         <Providers>

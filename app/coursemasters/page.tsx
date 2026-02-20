@@ -79,7 +79,7 @@ export default function CourseMastersPage() {
   return (
     <>
       {/* HERO SECTION */}
-      <div className="relative h-[85vh] min-h-[620px]">
+      <div className="relative h-[70vh] min-h-[520px] sm:h-[85vh] sm:min-h-[620px]">
         {images.map((src, index) => (
           <div
             key={src}
@@ -96,13 +96,13 @@ export default function CourseMastersPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
             <div className="absolute inset-0 flex items-end lg:items-center">
-              <div className="w-full max-w-2xl px-6 sm:px-10 pb-10 lg:pb-0 text-white">
-                <div className="bg-black/40 backdrop-blur-md rounded-2xl p-6 sm:p-8 shadow-2xl border border-white/20">
-                  <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-white/70">CourseMasters</p>
-                  <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-4 leading-tight">
+              <div className="w-full max-w-2xl px-5 sm:px-10 pb-8 lg:pb-0 text-white">
+                <div className="bg-black/50 backdrop-blur-md rounded-2xl p-5 sm:p-8 shadow-2xl border border-white/20">
+                  <p className="text-[0.65rem] sm:text-sm uppercase tracking-[0.3em] text-white/70">CourseMasters</p>
+                  <h2 className="text-2xl sm:text-4xl font-bold mt-3 mb-3 leading-tight">
                     Let Us Create Your Online Course
                   </h2>
-                  <p className="text-base sm:text-lg text-white/90 mb-6">
+                  <p className="text-sm sm:text-lg text-white/90 mb-5 sm:mb-6">
                     We specialize in creating impactful online courses for NGOs, EdTechs, schools, and government organizations. Whether you&apos;re looking to educate, empower, or innovate, we can help you bring your vision to life.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3">
@@ -136,15 +136,15 @@ export default function CourseMastersPage() {
 
       {/* COURSE PORTFOLIO SECTION */}
       <div className="bg-gray-50">
-        <div className="container mx-auto px-4 py-16">
-          <div className="max-w-3xl mx-auto text-center mb-12">
+        <div className="container mx-auto px-4 py-12 sm:py-16">
+          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-600">Portfolio</p>
-            <h2 className="text-3xl md:text-4xl font-bold mt-3">Client Courses Portfolio</h2>
-            <p className="text-base text-gray-600 mt-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3">Client Courses Portfolio</h2>
+            <p className="text-sm sm:text-base text-gray-600 mt-3">
               A snapshot of courses built for partners and institutions.
             </p>
           </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
           {[
             {
               title: 'D4GW Understanding Digital Rights Course',
@@ -171,8 +171,8 @@ export default function CourseMastersPage() {
                 className="w-full h-auto"
                 unoptimized={true}
               />
-              <div className="p-6">
-                <h3 className="text-lg font-semibold mb-1">{card.title}</h3>
+              <div className="p-5 sm:p-6">
+                <h3 className="text-base sm:text-lg font-semibold mb-1">{card.title}</h3>
                 <p className="text-sm text-gray-600 mb-4">{card.partner}</p>
                 <div className="flex justify-center">
                   <button
@@ -191,7 +191,7 @@ export default function CourseMastersPage() {
       </div>
 
       {/* COURSEMASTERS PROGRAM */}
-      <div className="relative h-[600px] mt-16">
+      <div className="relative h-[520px] sm:h-[600px] mt-12 sm:mt-16">
         <Image
           src="/images/WhatsApp Image 2025-07-30 at 13.39.02_75522a4a.jpg"
           alt="CourseMasters Program"
@@ -200,36 +200,36 @@ export default function CourseMastersPage() {
           unoptimized={true}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent flex items-center">
-          <div className="max-w-2xl px-8 text-white">
-            <h2 className="text-5xl font-bold mb-6 leading-tight">
+          <div className="max-w-2xl px-6 sm:px-8 text-white">
+            <h2 className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
               Learn How to Create<br />Your Own Courses
             </h2>
-            <p className="text-xl mb-8 leading-relaxed max-w-lg">
+            <p className="text-sm sm:text-xl mb-6 sm:mb-8 leading-relaxed max-w-lg">
               Join our CourseMasters Program and learn how to design, package, and sell your own courses. 
               Perfect for company teams and individuals looking to share their expertise.
             </p>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-8 border border-white/20 max-w-md">
-              <h3 className="text-2xl font-semibold mb-4 text-center">Next Cohort</h3>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 sm:p-6 mb-6 sm:mb-8 border border-white/20 max-w-md">
+              <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-center">Next Cohort</h3>
               <div className="grid grid-cols-2 gap-4 text-center">
                 <div className="bg-white/20 rounded-lg p-3">
                   <p className="text-sm opacity-90">Starts</p>
-                  <p className="text-lg font-bold">2nd March 2026</p>
+                  <p className="text-base sm:text-lg font-bold">2nd March 2026</p>
                 </div>
                 <div className="bg-white/20 rounded-lg p-3">
                   <p className="text-sm opacity-90">Ends</p>
-                  <p className="text-lg font-bold">5th June 2026</p>
+                  <p className="text-base sm:text-lg font-bold">5th June 2026</p>
                 </div>
                 <div className="col-span-2 bg-white/20 rounded-lg p-3">
                   <p className="text-sm opacity-90">Duration</p>
-                  <p className="text-lg font-bold">90 Days</p>
+                  <p className="text-base sm:text-lg font-bold">90 Days</p>
                 </div>
               </div>
             </div>
 
             <button
               onClick={handleEnrollClick}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-12 rounded-full text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 sm:py-4 px-8 sm:px-12 rounded-full text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
               Enroll Now
             </button>
@@ -238,14 +238,14 @@ export default function CourseMastersPage() {
       </div>
 
       {/* WHAT WE DO */}
-      <section className="container mx-auto px-4 py-16">
+      <section className="container mx-auto px-4 py-12 sm:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
             <div className="inline-block px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold mb-4">
               Course Production Services
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Your Partner in E-learning Course Development & Instructional Design</h2>
-            <p className="text-lg text-gray-600 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Your Partner in E-learning Course Development & Instructional Design</h2>
+            <p className="text-base sm:text-lg text-gray-600 mb-6">
               We design and develop engaging e-learning courses and train content creators to produce professional-quality learning experiences.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -259,7 +259,7 @@ export default function CourseMastersPage() {
               ))}
             </div>
           </div>
-          <div className="relative w-full h-[360px] sm:h-[420px] rounded-3xl overflow-hidden shadow-xl">
+          <div className="relative w-full h-[260px] sm:h-[420px] rounded-3xl overflow-hidden shadow-xl">
             <Image
               src="/images/course.jpg"
               alt="Course production"
@@ -273,19 +273,19 @@ export default function CourseMastersPage() {
       </section>
 
       {/* OVERVIEW */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 py-12 sm:py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">CourseMasters Overview</h2>
-              <p className="text-lg text-gray-600 mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">CourseMasters Overview</h2>
+              <p className="text-base sm:text-lg text-gray-600 mb-6">
                 CourseMasters is Qraft Academy’s end-to-end e-learning course production service, designed to transform expert knowledge and curriculum into engaging, accessible, and visually compelling digital learning experiences.
               </p>
               <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 text-gray-700 leading-relaxed">
                 We provide full-service support—from instructional design and multimedia production to LMS integration—helping institutions, organizations, and experts deliver high-quality, mobile-ready courses at scale.
               </div>
             </div>
-            <div className="relative w-full h-[320px] sm:h-[380px] rounded-3xl overflow-hidden shadow-xl">
+            <div className="relative w-full h-[240px] sm:h-[380px] rounded-3xl overflow-hidden shadow-xl">
               <Image
                 src="/images/coursesmasters.jpg"
                 alt="CourseMasters overview"
@@ -300,10 +300,10 @@ export default function CourseMastersPage() {
       </section>
 
       {/* VALUE PROPOSITION */}
-      <section className="container mx-auto px-4 py-16">
+      <section className="container mx-auto px-4 py-12 sm:py-16">
         <div className="max-w-4xl mx-auto text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Value Proposition</h2>
-          <p className="text-lg text-gray-600">Built for scale, quality, and impact.</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Our Value Proposition</h2>
+          <p className="text-base sm:text-lg text-gray-600">Built for scale, quality, and impact.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
@@ -323,11 +323,11 @@ export default function CourseMastersPage() {
       </section>
 
       {/* CORE SERVICES */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 py-12 sm:py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Core Services</h2>
-            <p className="text-lg text-gray-600">End-to-end services for high-impact learning.</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Core Services</h2>
+            <p className="text-base sm:text-lg text-gray-600">End-to-end services for high-impact learning.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
@@ -369,11 +369,11 @@ export default function CourseMastersPage() {
               }
             ].map((service) => (
               <div key={service.title} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                <div className="relative h-40">
+                <div className="relative h-36 sm:h-40">
                   <Image src={service.image} alt={service.title} fill className="object-cover" unoptimized={true} />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold mb-4">{service.title}</h3>
                   <ul className="space-y-2 text-gray-700">
                     {service.items.map((item) => (
                       <li key={item} className="flex items-start gap-2">
@@ -390,10 +390,10 @@ export default function CourseMastersPage() {
       </section>
 
       {/* IDEAL FOR */}
-      <section className="container mx-auto px-4 py-16">
+      <section className="container mx-auto px-4 py-12 sm:py-16">
         <div className="max-w-4xl mx-auto text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ideal For</h2>
-          <p className="text-lg text-gray-600">Who we serve best.</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Ideal For</h2>
+          <p className="text-base sm:text-lg text-gray-600">Who we serve best.</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
@@ -412,14 +412,14 @@ export default function CourseMastersPage() {
       </section>
 
       {/* STUDIOS */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 py-12 sm:py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-10">
             <div className="inline-block px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold mb-4">
               CourseMasters Studios
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Purpose-Built Spaces for World-Class E-Learning Content Creation</h2>
-            <p className="text-lg text-gray-600">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Purpose-Built Spaces for World-Class E-Learning Content Creation</h2>
+            <p className="text-base sm:text-lg text-gray-600">
               We operate three dedicated production studios engineered to deliver high-impact digital learning experiences.
             </p>
           </div>
@@ -464,11 +464,11 @@ export default function CourseMastersPage() {
               }
             ].map((studio) => (
               <div key={studio.title} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                <div className="relative h-40">
+                <div className="relative h-36 sm:h-40">
                   <Image src={studio.image} alt={studio.title} fill className="object-cover" unoptimized={true} />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{studio.title}</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2">{studio.title}</h3>
                   <p className="text-sm text-gray-600 mb-4">{studio.subtitle}</p>
                   <ul className="space-y-2 text-gray-700">
                     {studio.items.map((item) => (
@@ -489,11 +489,11 @@ export default function CourseMastersPage() {
       </section>
 
       {/* TEAM & PARTNERS */}
-      <section className="container mx-auto px-4 py-16">
+      <section className="container mx-auto px-4 py-12 sm:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 items-start">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Team and Expertise Portfolio</h2>
-            <p className="text-lg text-gray-600 mb-8">An elite team for world-class e-learning production.</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Our Team and Expertise Portfolio</h2>
+            <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">An elite team for world-class e-learning production.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 'Tugume Andrew — Project Manager | Hybrid Learning Specialist | Instructional Designer | SME',
@@ -512,11 +512,11 @@ export default function CourseMastersPage() {
             </div>
           </div>
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-            <div className="relative h-64">
+            <div className="relative h-48 sm:h-64">
               <Image src="/images/rect3.png" alt="CourseMasters team" fill className="object-cover" unoptimized={true} />
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-semibold mb-3">Partners</h3>
+              <h3 className="text-lg sm:text-xl font-semibold mb-3">Partners</h3>
               <div className="flex flex-wrap gap-3 text-gray-700">
                 {['ASB Records', 'Kibazzi Kraft', 'Kwonkalture Creations', '26 voices'].map((partner) => (
                   <span key={partner} className="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium">
@@ -530,16 +530,16 @@ export default function CourseMastersPage() {
       </section>
 
       {/* CONSULTING */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 py-12 sm:py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 items-center">
-            <div className="relative h-[300px] sm:h-[360px] rounded-3xl overflow-hidden shadow-xl">
+            <div className="relative h-[220px] sm:h-[360px] rounded-3xl overflow-hidden shadow-xl">
               <Image src="/images/image.webp" alt="Consulting" fill className="object-cover" unoptimized={true} />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
             </div>
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Consulting</h2>
-              <p className="text-lg text-gray-600 mb-6">Strategy and advisory services to guide your e-learning vision.</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Consulting</h2>
+              <p className="text-base sm:text-lg text-gray-600 mb-6">Strategy and advisory services to guide your e-learning vision.</p>
               <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
                 <ul className="space-y-3 text-gray-700 mb-6">
                   {[
@@ -557,7 +557,7 @@ export default function CourseMastersPage() {
                   ))}
                 </ul>
                 <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
-                  <div className="text-lg font-semibold text-gray-900">Consulting Rate: $400 per day</div>
+                  <div className="text-base sm:text-lg font-semibold text-gray-900">Consulting Rate: $400 per day</div>
                   <button
                     onClick={handleEmail}
                     className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-6 rounded-full"
@@ -572,10 +572,10 @@ export default function CourseMastersPage() {
       </section>
 
       {/* CONTACT */}
-      <section className="container mx-auto px-4 py-16">
+      <section className="container mx-auto px-4 py-12 sm:py-16">
         <div className="max-w-5xl mx-auto text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Powered by Qraft Academy</h2>
-          <p className="text-lg text-gray-600">Shaping the future of e-learning and education technology in Africa.</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Powered by Qraft Academy</h2>
+          <p className="text-base sm:text-lg text-gray-600">Shaping the future of e-learning and education technology in Africa.</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 items-stretch">
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col justify-between">
