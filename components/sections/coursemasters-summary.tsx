@@ -25,13 +25,13 @@ export default function CourseMastersSummary() {
       <div className="container-custom">
         <div className="text-center mb-10 sm:mb-12 md:mb-16 max-w-4xl mx-auto px-4">
           <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-primary-100 rounded-full text-primary-700 font-semibold text-xs sm:text-sm mb-4 sm:mb-6">
-            📚 CourseMasters Program
+            🏛️ Institutional Learning Systems
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-4 sm:mb-6 leading-tight">
-            Let Us Create Your Online Course
+            Workforce Capability Systems Built for Institutions
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-neutral-600">
-            We build impactful online courses for NGOs, EdTechs, schools, and government organizations. From design to launch, we help you turn expertise into learning experiences.
+            We design and deploy custom digital workforce programs for NGOs, government agencies, development partners, and enterprises. From curriculum design to deployment — structured learning systems that improve performance and productivity.
           </p>
         </div>
 
@@ -96,8 +96,8 @@ export default function CourseMastersSummary() {
         </div>
 
         <div className="text-center mb-8 sm:mb-10">
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-neutral-900 mb-3">Client Courses Portfolio</h3>
-          <p className="text-sm sm:text-base text-neutral-600">A snapshot of courses built for partners and institutions.</p>
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-neutral-900 mb-3">Institutional Partnerships & Impact</h3>
+          <p className="text-sm sm:text-base text-neutral-600">Featured workforce programs delivered for institutions and development partners.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {portfolio.map((card) => (

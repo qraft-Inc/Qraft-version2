@@ -1,9 +1,13 @@
 import Image from 'next/image'
 import React from 'react'
+import Link from 'next/link'
+import { CheckCircle } from 'lucide-react'
 import CourseMastersSummary from '@/components/sections/coursemasters-summary'
 import { DevelopmentTracks } from '@/components/sections/development-tracks'
 import GetInvolved from '@/components/sections/get-involved'
 import TechMastersSection from '@/components/sections/techmasters-section'
+import WhyQraft from '@/components/sections/why-qraft'
+import RevenueModel from '@/components/sections/revenue-model'
 
 export default function Home() {
   return (
@@ -17,35 +21,34 @@ export default function Home() {
             src="/images/hero.png"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60 flex items-center justify-center">
-            <div className="text-center text-white w-full max-w-5xl px-4 sm:px-6 animate-fade-in">
-              <div className="mb-6 sm:mb-8">
-                <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-white/20 backdrop-blur-md rounded-full text-white font-semibold text-xs sm:text-sm mb-4 sm:mb-6 border border-white/30">
-                  🎓 Building the Future-Ready Workforce
-                </div>
-              </div>
-              <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold mb-4 sm:mb-6 md:mb-8 animate-slide-up leading-tight">
-                Welcome to <span className="block sm:inline text-gradient bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-accent-400">Qraft Academy</span>
+            <div className="text-center text-white w-full max-w-6xl px-4 sm:px-6 animate-fade-in">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold mb-4 sm:mb-6 md:mb-8 animate-slide-up leading-tight">
+                We Design Workforce Infrastructure for the Modern Economy
               </h1>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-4 sm:mb-6 font-light tracking-wide text-primary-100">
-                Thrive in the Modern Economy with Integrated Learning Solutions
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-10 md:mb-12 font-light text-white/90 max-w-4xl mx-auto leading-relaxed">
+                We partner with institutions to build structured learning systems, activate talent ecosystems, and strengthen organizational capability at scale.
               </p>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-8 sm:mb-10 md:mb-12 font-normal text-white/90 max-w-2xl mx-auto">
-                Master custom courses, develop future-ready skills, and gain technical expertise across three integrated pillars
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center w-full px-4 sm:px-0">
-                <button className="btn-primary w-full sm:w-auto px-6 sm:px-8 md:px-10 py-3 sm:py-4 text-base sm:text-lg group">
-                  Build Custom Courses
-                  <svg className="inline-block w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              
+              {/* Dual Path Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-stretch sm:items-center mb-8 sm:mb-10 max-w-2xl mx-auto">
+                <a href="/for-organizations" className="btn-primary w-full sm:w-auto px-8 sm:px-10 md:px-12 py-4 sm:py-5 text-base sm:text-lg font-bold group flex items-center justify-center">
+                  For Organizations
+                  <svg className="inline-block w-5 h-5 sm:w-6 sm:h-6 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
-                </button>
-                <button className="w-full sm:w-auto px-6 sm:px-8 md:px-10 py-3 sm:py-4 bg-white/10 backdrop-blur-md text-white text-base sm:text-lg font-semibold rounded-xl hover:bg-white/20 transition-all duration-300 border border-white/30 active:scale-95 sm:hover:scale-105">
-                  Master Future Skills
-                </button>
-                <button className="w-full sm:w-auto px-6 sm:px-8 md:px-10 py-3 sm:py-4 bg-white/10 backdrop-blur-md text-white text-base sm:text-lg font-semibold rounded-xl hover:bg-white/20 transition-all duration-300 border border-white/30 active:scale-95 sm:hover:scale-105">
-                  Learn Tech & AI
-                </button>
+                </a>
+                <a href="/for-individuals" className="w-full sm:w-auto px-8 sm:px-10 md:px-12 py-4 sm:py-5 bg-white text-neutral-900 text-base sm:text-lg font-bold rounded-xl hover:bg-white/90 transition-all duration-300 active:scale-95 sm:hover:scale-105 flex items-center justify-center">
+                  For Individuals
+                  <svg className="inline-block w-5 h-5 sm:w-6 sm:h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
               </div>
+
+              {/* Trust Signal */}
+              <p className="text-sm sm:text-base text-white/80 font-medium">
+                Trusted by NGOs, governments, and institutions across 15+ countries
+              </p>
             </div>
           </div>
           <div className="hidden sm:block absolute bottom-8 md:bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -91,29 +94,29 @@ export default function Home() {
           <div className="container-custom">
             <div className="text-center mb-12 sm:mb-16 max-w-3xl mx-auto px-4">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-4 sm:mb-6 leading-tight">
-                Three Core Pillars of Learning
+                An Integrated Workforce Model
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-neutral-600">
-                Integrated solutions across every stage of your professional journey
+                We operate an integrated system that connects ecosystem activation, institutional transformation, and scalable digital skilling.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-              {/* Pillar 1: CourseMasters */}
-              <div className="card p-8 sm:p-10 bg-gradient-to-br from-primary-50 to-primary-100/50 border-2 border-primary-200 hover:shadow-lg transition-all duration-300 group">
+              {/* Pillar 1: Future of Work Forum */}
+              <div className="card p-8 sm:p-10 bg-gradient-to-br from-accent-50 to-accent-100/50 border-2 border-accent-200 hover:shadow-lg transition-all duration-300 group">
                 <div className="text-5xl sm:text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  📚
+                  🌍
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-display font-bold text-neutral-900 mb-3 group-hover:text-primary-700 transition-colors">
-                  CourseMasters
+                <h3 className="text-2xl sm:text-3xl font-display font-bold text-neutral-900 mb-3 group-hover:text-accent-700 transition-colors">
+                  Future of Work Forum
                 </h3>
                 <p className="text-neutral-700 text-base sm:text-lg leading-relaxed mb-4">
-                  <span className="font-semibold">Custom Course Creation</span>
+                  <span className="font-semibold">Ecosystem Activation & Workforce Intelligence</span>
                 </p>
                 <p className="text-neutral-600 text-sm sm:text-base leading-relaxed mb-6">
-                  We design and deliver high-impact, fully customized learning programs for NGOs, EdTechs, schools, governments, and corporates. Complete learning experiences from curriculum design to deployment.
+                  We convene institutions, employers, and professionals to identify workforce gaps, activate partnerships, and drive strategic workforce transformation.
                 </p>
-                <a href="/coursemasters" className="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors">
+                <a href="/future-of-work-forum" className="inline-flex items-center gap-2 text-accent-600 font-semibold hover:text-accent-700 transition-colors">
                   Learn More
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -121,21 +124,21 @@ export default function Home() {
                 </a>
               </div>
 
-              {/* Pillar 2: Future of Work Skills */}
-              <div className="card p-8 sm:p-10 bg-gradient-to-br from-accent-50 to-accent-100/50 border-2 border-accent-200 hover:shadow-lg transition-all duration-300 group">
+              {/* Pillar 2: CourseMasters */}
+              <div className="card p-8 sm:p-10 bg-gradient-to-br from-primary-50 to-primary-100/50 border-2 border-primary-200 hover:shadow-lg transition-all duration-300 group">
                 <div className="text-5xl sm:text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  🚀
+                  🏛️
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-display font-bold text-neutral-900 mb-3 group-hover:text-accent-700 transition-colors">
-                  Future of Work
+                <h3 className="text-2xl sm:text-3xl font-display font-bold text-neutral-900 mb-3 group-hover:text-primary-700 transition-colors">
+                  Institutional Course Creation
                 </h3>
                 <p className="text-neutral-700 text-base sm:text-lg leading-relaxed mb-4">
-                  <span className="font-semibold">Career & Business Skills</span>
+                  <span className="font-semibold">Custom Learning Systems for Organizations</span>
                 </p>
                 <p className="text-neutral-600 text-sm sm:text-base leading-relaxed mb-6">
-                  Holistic competencies across personal development, productivity, leadership, and strategic business expansion. Grow in impact, influence, and long-term sustainability.
+                  We design and deploy high-impact digital workforce programs for NGOs, government institutions, enterprises, and development partners.
                 </p>
-                <a href="#future-of-work" className="inline-flex items-center gap-2 text-accent-600 font-semibold hover:text-accent-700 transition-colors">
+                <a href="/coursemasters" className="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors">
                   Learn More
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -146,16 +149,16 @@ export default function Home() {
               {/* Pillar 3: TechMasters */}
               <div className="card p-8 sm:p-10 bg-gradient-to-br from-purple-50 to-purple-100/50 border-2 border-purple-200 hover:shadow-lg transition-all duration-300 group">
                 <div className="text-5xl sm:text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  🤖
+                  🚀
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-display font-bold text-neutral-900 mb-3 group-hover:text-purple-700 transition-colors">
-                  TechMasters
+                  TechMasters Online
                 </h3>
                 <p className="text-neutral-700 text-base sm:text-lg leading-relaxed mb-4">
-                  <span className="font-semibold">Modern Technology Skilling</span>
+                  <span className="font-semibold">Scalable Digital & AI Skills for Individuals</span>
                 </p>
                 <p className="text-neutral-600 text-sm sm:text-base leading-relaxed mb-6">
-                  Essential technical competencies for today's digital economy. From AI literacy to data analytics, remote work, and global freelancing readiness.
+                  We equip professionals and entrepreneurs with digital fluency, data literacy, AI capability, and global freelancing readiness.
                 </p>
                 <a href="/courses/techmasters" className="inline-flex items-center gap-2 text-purple-600 font-semibold hover:text-purple-700 transition-colors">
                   Learn More
@@ -188,6 +191,10 @@ export default function Home() {
         </div>
 
         <TechMastersSection />
+
+        <WhyQraft />
+
+        <RevenueModel />
 
         <div className="w-full flex flex-col lg:flex-row">
           <div className="w-full lg:w-1/2 h-64 sm:h-80 md:h-96 lg:h-auto relative overflow-hidden group">
@@ -269,40 +276,77 @@ export default function Home() {
 
         <GetInvolved />
 
-        <div className="w-full py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 bg-gradient-to-br from-primary-50 via-white to-accent-50">
-          <div className="container-custom flex flex-col items-center">
-            <div className="text-center mb-8 sm:mb-10 md:mb-12 max-w-3xl px-4">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-4 sm:mb-6 leading-tight">
-                Future of Work <span className="text-gradient">Forum Initiative</span>
+        {/* Final Dual-Path CTA Section */}
+        <section className="w-full py-16 sm:py-20 md:py-24 lg:py-32 bg-gradient-to-br from-neutral-900 via-primary-900 to-accent-900">
+          <div className="container-custom">
+            <div className="text-center mb-12 sm:mb-16 max-w-4xl mx-auto px-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6 leading-tight">
+                Build Workforce Strength. Unlock Digital Opportunity.
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-neutral-600 mb-6">
-                The Future of Work Forum exists to spread the Future of Work Skills Agenda — ensuring that professionals globally are equipped with the capabilities needed to thrive, lead, and innovate in tomorrow's economy.
+              <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+                Whether you're strengthening an institution or advancing your career, Qraft Academy provides the systems and skills to thrive in the modern economy.
               </p>
             </div>
-            <div className="w-full max-w-5xl h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl sm:shadow-2xl hover:shadow-glow-lg transition-all duration-500 group mb-8 sm:mb-10 md:mb-12">
-              <Image
-                alt="Future of Work Forum"
-                className="object-cover size-full group-hover:scale-105 transition-transform duration-700"
-                height={600}
-                priority
-                quality={100}
-                src="/images/image.webp"
-                width={1200}
-              />
-            </div>
-            <div className="text-center max-w-3xl px-4">
-              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold text-neutral-900 mb-4 sm:mb-6 leading-tight">
-                Join the Movement
-              </h3>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-neutral-600 mb-6 sm:mb-8">
-                As part of the Future of Work Forum, discover how to build resilience, develop strategic influence, and create lasting economic opportunity through our integrated learning programs.
-              </p>
-              <button className="btn-primary w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg">
-                Join the Forum
-              </button>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto px-4">
+              {/* For Organizations Card */}
+              <div className="card p-8 sm:p-10 bg-white/95 backdrop-blur-md hover:shadow-2xl transition-all duration-300 group">
+                <div className="text-5xl mb-6">🏛️</div>
+                <h3 className="text-2xl sm:text-3xl font-display font-bold text-neutral-900 mb-4">
+                  For Organizations
+                </h3>
+                <p className="text-neutral-700 mb-6 leading-relaxed">
+                  Design structured workforce capability systems that strengthen productivity, governance, and digital transformation.
+                </p>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-neutral-700 text-sm">Custom e-learning development</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-neutral-700 text-sm">Workforce transformation programs</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-neutral-700 text-sm">Institutional learning systems</span>
+                  </li>
+                </ul>
+                <Link href="/for-organizations" className="btn-primary w-full text-center py-4 group-hover:scale-105 transition-transform">
+                  Partner With Us
+                </Link>
+              </div>
+
+              {/* For Individuals Card */}
+              <div className="card p-8 sm:p-10 bg-white/95 backdrop-blur-md hover:shadow-2xl transition-all duration-300 group">
+                <div className="text-5xl mb-6">🚀</div>
+                <h3 className="text-2xl sm:text-3xl font-display font-bold text-neutral-900 mb-4">
+                  For Individuals
+                </h3>
+                <p className="text-neutral-700 mb-6 leading-relaxed">
+                  Future-proof your skills with digital, data, and AI capabilities that translate into income and opportunity.
+                </p>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-accent-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-neutral-700 text-sm">TechMasters digital skills programs</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-accent-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-neutral-700 text-sm">Future of Work Forum access</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-accent-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-neutral-700 text-sm">Career & business mastery tracks</span>
+                  </li>
+                </ul>
+                <Link href="/for-individuals" className="btn-primary w-full text-center py-4 bg-accent-600 hover:bg-accent-700 group-hover:scale-105 transition-transform">
+                  Start Learning Today
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       </main>
   )
 }

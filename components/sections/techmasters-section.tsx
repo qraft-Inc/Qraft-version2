@@ -47,7 +47,7 @@ export default function TechMastersSection() {
             TechMasters - Modern Technology Skilling
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-neutral-600">
-            Essential technical competencies for thriving in today's digital economy. Bridge the gap between technical capability and real-world economic opportunity.
+            Essential technical competencies for thriving in today's modern economy. Bridge the gap between technical capability and real-world economic opportunity.
           </p>
         </div>
 
