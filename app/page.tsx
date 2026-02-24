@@ -3,6 +3,7 @@ import React from 'react'
 import CourseMastersSummary from '@/components/sections/coursemasters-summary'
 import { DevelopmentTracks } from '@/components/sections/development-tracks'
 import GetInvolved from '@/components/sections/get-involved'
+import TechMastersSection from '@/components/sections/techmasters-section'
 
 export default function Home() {
   return (
@@ -17,24 +18,32 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60 flex items-center justify-center">
             <div className="text-center text-white w-full max-w-5xl px-4 sm:px-6 animate-fade-in">
+              <div className="mb-6 sm:mb-8">
+                <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-white/20 backdrop-blur-md rounded-full text-white font-semibold text-xs sm:text-sm mb-4 sm:mb-6 border border-white/30">
+                  🎓 Building the Future-Ready Workforce
+                </div>
+              </div>
               <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold mb-4 sm:mb-6 md:mb-8 animate-slide-up leading-tight">
                 Welcome to <span className="block sm:inline text-gradient bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-accent-400">Qraft Academy</span>
               </h1>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-4 sm:mb-6 font-light tracking-wide text-primary-100">
-                Learn. Work. Achieve.
+                Thrive in the Modern Economy with Integrated Learning Solutions
               </p>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-8 sm:mb-10 md:mb-12 font-normal text-white/90">
-                For Employees • Freelancers • Entrepreneurs • Job Seekers
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-8 sm:mb-10 md:mb-12 font-normal text-white/90 max-w-2xl mx-auto">
+                Master custom courses, develop future-ready skills, and gain technical expertise across three integrated pillars
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center w-full sm:w-auto px-4 sm:px-0">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center w-full px-4 sm:px-0">
                 <button className="btn-primary w-full sm:w-auto px-6 sm:px-8 md:px-10 py-3 sm:py-4 text-base sm:text-lg group">
-                  Start Your Journey
+                  Build Custom Courses
                   <svg className="inline-block w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </button>
                 <button className="w-full sm:w-auto px-6 sm:px-8 md:px-10 py-3 sm:py-4 bg-white/10 backdrop-blur-md text-white text-base sm:text-lg font-semibold rounded-xl hover:bg-white/20 transition-all duration-300 border border-white/30 active:scale-95 sm:hover:scale-105">
-                  Explore Courses
+                  Master Future Skills
+                </button>
+                <button className="w-full sm:w-auto px-6 sm:px-8 md:px-10 py-3 sm:py-4 bg-white/10 backdrop-blur-md text-white text-base sm:text-lg font-semibold rounded-xl hover:bg-white/20 transition-all duration-300 border border-white/30 active:scale-95 sm:hover:scale-105">
+                  Learn Tech & AI
                 </button>
               </div>
             </div>
@@ -77,11 +86,108 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Three Pillar Framework Section */}
+        <section className="section-padding bg-gradient-to-b from-white to-primary-50">
+          <div className="container-custom">
+            <div className="text-center mb-12 sm:mb-16 max-w-3xl mx-auto px-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-4 sm:mb-6 leading-tight">
+                Three Core Pillars of Learning
+              </h2>
+              <p className="text-base sm:text-lg md:text-xl text-neutral-600">
+                Integrated solutions across every stage of your professional journey
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+              {/* Pillar 1: CourseMasters */}
+              <div className="card p-8 sm:p-10 bg-gradient-to-br from-primary-50 to-primary-100/50 border-2 border-primary-200 hover:shadow-lg transition-all duration-300 group">
+                <div className="text-5xl sm:text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                  📚
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-display font-bold text-neutral-900 mb-3 group-hover:text-primary-700 transition-colors">
+                  CourseMasters
+                </h3>
+                <p className="text-neutral-700 text-base sm:text-lg leading-relaxed mb-4">
+                  <span className="font-semibold">Custom Course Creation</span>
+                </p>
+                <p className="text-neutral-600 text-sm sm:text-base leading-relaxed mb-6">
+                  We design and deliver high-impact, fully customized learning programs for NGOs, EdTechs, schools, governments, and corporates. Complete learning experiences from curriculum design to deployment.
+                </p>
+                <a href="/coursemasters" className="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors">
+                  Learn More
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
+              </div>
+
+              {/* Pillar 2: Future of Work Skills */}
+              <div className="card p-8 sm:p-10 bg-gradient-to-br from-accent-50 to-accent-100/50 border-2 border-accent-200 hover:shadow-lg transition-all duration-300 group">
+                <div className="text-5xl sm:text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                  🚀
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-display font-bold text-neutral-900 mb-3 group-hover:text-accent-700 transition-colors">
+                  Future of Work
+                </h3>
+                <p className="text-neutral-700 text-base sm:text-lg leading-relaxed mb-4">
+                  <span className="font-semibold">Career & Business Skills</span>
+                </p>
+                <p className="text-neutral-600 text-sm sm:text-base leading-relaxed mb-6">
+                  Holistic competencies across personal development, productivity, leadership, and strategic business expansion. Grow in impact, influence, and long-term sustainability.
+                </p>
+                <a href="#future-of-work" className="inline-flex items-center gap-2 text-accent-600 font-semibold hover:text-accent-700 transition-colors">
+                  Learn More
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
+              </div>
+
+              {/* Pillar 3: TechMasters */}
+              <div className="card p-8 sm:p-10 bg-gradient-to-br from-purple-50 to-purple-100/50 border-2 border-purple-200 hover:shadow-lg transition-all duration-300 group">
+                <div className="text-5xl sm:text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                  🤖
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-display font-bold text-neutral-900 mb-3 group-hover:text-purple-700 transition-colors">
+                  TechMasters
+                </h3>
+                <p className="text-neutral-700 text-base sm:text-lg leading-relaxed mb-4">
+                  <span className="font-semibold">Modern Technology Skilling</span>
+                </p>
+                <p className="text-neutral-600 text-sm sm:text-base leading-relaxed mb-6">
+                  Essential technical competencies for today's digital economy. From AI literacy to data analytics, remote work, and global freelancing readiness.
+                </p>
+                <a href="/courses/techmasters" className="inline-flex items-center gap-2 text-purple-600 font-semibold hover:text-purple-700 transition-colors">
+                  Learn More
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <CourseMastersSummary />
 
         <div className="relative w-full section-padding bg-gradient-to-b from-neutral-50 to-white">
+          <div id="future-of-work" className="container-custom">
+            <div className="mb-12 sm:mb-16 max-w-3xl mx-auto px-4">
+              <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-accent-100 rounded-full text-accent-700 font-semibold text-xs sm:text-sm mb-4 sm:mb-6">
+                🎯 Future of Work Skills Agenda
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-4 sm:mb-6 leading-tight">
+                The Future of Work Forum Spreads the Future of Work Skills Agenda
+              </h2>
+              <p className="text-base sm:text-lg md:text-xl text-neutral-600 mb-6">
+                Through our four integrated learning tracks, we equip professionals and entrepreneurs with holistic, future-ready competencies that drive impact, influence, and long-term sustainability.
+              </p>
+            </div>
+          </div>
           <DevelopmentTracks />
         </div>
+
+        <TechMastersSection />
 
         <div className="w-full flex flex-col lg:flex-row">
           <div className="w-full lg:w-1/2 h-64 sm:h-80 md:h-96 lg:h-auto relative overflow-hidden group">
@@ -167,15 +273,15 @@ export default function Home() {
           <div className="container-custom flex flex-col items-center">
             <div className="text-center mb-8 sm:mb-10 md:mb-12 max-w-3xl px-4">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-4 sm:mb-6 leading-tight">
-                The Future of <span className="text-gradient">Education</span>
+                Future of Work <span className="text-gradient">Forum Initiative</span>
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-neutral-600">
-                Join thousands of learners transforming their careers through innovative education
+              <p className="text-base sm:text-lg md:text-xl text-neutral-600 mb-6">
+                The Future of Work Forum exists to spread the Future of Work Skills Agenda — ensuring that professionals globally are equipped with the capabilities needed to thrive, lead, and innovate in tomorrow's economy.
               </p>
             </div>
             <div className="w-full max-w-5xl h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl sm:shadow-2xl hover:shadow-glow-lg transition-all duration-500 group mb-8 sm:mb-10 md:mb-12">
               <Image
-                alt="Future of Education"
+                alt="Future of Work Forum"
                 className="object-cover size-full group-hover:scale-105 transition-transform duration-700"
                 height={600}
                 priority
@@ -186,13 +292,13 @@ export default function Home() {
             </div>
             <div className="text-center max-w-3xl px-4">
               <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold text-neutral-900 mb-4 sm:mb-6 leading-tight">
-                Join the Future of Work Forum
+                Join the Movement
               </h3>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-neutral-600 mb-6 sm:mb-8">
-                Liberate your potential through innovative learning experiences
+                As part of the Future of Work Forum, discover how to build resilience, develop strategic influence, and create lasting economic opportunity through our integrated learning programs.
               </p>
               <button className="btn-primary w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg">
-                Get Started Now
+                Join the Forum
               </button>
             </div>
           </div>
