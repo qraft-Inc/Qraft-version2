@@ -23,7 +23,8 @@ const Navigation = () => {
   const navItems: NavItem[] = [
     { name: "Home", href: "/" },
     { name: "CourseMasters", href: "/coursemasters" },
-    { name: "Online Courses", href: "https://classroom.qraftacademy.com/" },
+    { name: "Learning Infrastructure", href: "/learning-infrastructure" },
+    { name: "Online Courses", href: "https://lms.qraftacademy.com/" },
     { name: "On-Site Classes", href: "/on-site-classes" },
     { name: "TechMasters", href: "/courses/techmasters" },
     {
