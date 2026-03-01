@@ -40,6 +40,7 @@ const Navigation = () => {
   const pathname = usePathname();
   const currentPath = pathname ?? "/";
   const navRef = useRef<HTMLElement>(null);
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<DropdownKey | null>(null);
@@ -128,6 +129,14 @@ const Navigation = () => {
   }, [currentPath]);
 
   useEffect(() => {
+    return () => {
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
     const handleOutsideClick = (event: MouseEvent | TouchEvent) => {
       if (navRef.current && !navRef.current.contains(event.target as Node)) {
         setOpenMenu(null);
@@ -153,7 +162,26 @@ const Navigation = () => {
   }, []);
 
   const toggleDesktopMenu = (key: DropdownKey) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
     setOpenMenu((prev) => (prev === key ? null : key));
+  };
+
+  const handleDropdownMouseEnter = (key: DropdownKey) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
+    setOpenMenu(key);
+  };
+
+  const handleDropdownMouseLeave = (key: DropdownKey) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
+    hoverTimeoutRef.current = setTimeout(() => {
+      setOpenMenu((prev) => (prev === key ? null : prev));
+    }, 150);
   };
 
   const toggleMobileSubmenu = (key: DropdownKey) => {
@@ -194,10 +222,10 @@ const Navigation = () => {
 
               return (
                 <div
-                  className="relative"
+                  className="relative group"
                   key={item.key}
-                  onMouseEnter={() => setOpenMenu(item.key)}
-                  onMouseLeave={() => setOpenMenu((prev) => (prev === item.key ? null : prev))}
+                  onMouseEnter={() => handleDropdownMouseEnter(item.key)}
+                  onMouseLeave={() => handleDropdownMouseLeave(item.key)}
                 >
                   <button
                     aria-expanded={expanded}
@@ -229,10 +257,12 @@ const Navigation = () => {
 
                   {expanded && (
                     <div
-                      className="absolute left-0 top-full mt-2 w-80 bg-white rounded-2xl shadow-xl z-20 border border-neutral-100"
+                      className="absolute left-0 top-full pt-1 w-80 z-20"
+                      onMouseEnter={() => handleDropdownMouseEnter(item.key)}
+                      onMouseLeave={() => handleDropdownMouseLeave(item.key)}
                       role="menu"
                     >
-                      <div className="p-2">
+                      <div className="bg-white rounded-2xl shadow-xl border border-neutral-100 p-2">
                         {item.items.map((dropdownItem) => {
                           const itemActive = isActiveHref(dropdownItem.href);
                           const itemClass = `block px-4 py-3 text-sm font-medium transition-all duration-200 rounded-xl ${
