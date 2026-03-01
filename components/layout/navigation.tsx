@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 
 interface NavItem {
@@ -17,6 +18,7 @@ interface NavItem {
 }
 
 const Navigation = () => {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
@@ -45,13 +47,16 @@ const Navigation = () => {
     setOpenDropdown(openDropdown === itemName ? null : itemName);
   };
 
+  // Filter out Home link when on home page
+  const filteredNavItems = navItems.filter(item => !(item.name === "Home" && pathname === "/"));
+
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-neutral-200 shadow-sm">
       <div className="container-custom">
         <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-1 lg:space-x-2">
-            {navItems.map((item) =>
+            {filteredNavItems.map((item) =>
               item.dropdown ? (
                 <div className="relative group" key={item.name}>
                   <Link
@@ -159,7 +164,7 @@ const Navigation = () => {
 
           {/* Mobile Navigation Items */}
           <div className="px-4 py-2 overflow-y-auto max-h-[calc(100vh-80px)] bg-white">
-            {navItems.map((item) => (
+            {filteredNavItems.map((item) => (
               <div key={item.name} className="mb-2">
                 {item.dropdown ? (
                   <div>
