@@ -73,6 +73,7 @@ const Navigation = () => {
         items: [
           { label: "Online Courses", href: "https://lms.qraftacademy.com/", external: true },
           { label: "On-Site Classes", href: "/on-site-classes" },
+          { label: "Modern Work Fund", href: "/modern-work-fund" },
         ],
       },
       {
