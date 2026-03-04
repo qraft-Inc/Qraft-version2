@@ -25,37 +25,6 @@ const config = withPlugins([[withBundleAnalyzer({ enabled: env.ANALYZE })]], {
       { source: "/ping", destination: "/api/health" },
     ]
   },
-  async headers() {
-    return [
-      {
-        source: '/_next/static/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-      {
-        source: '/:path*.css',
-        headers: [
-          {
-            key: 'Content-Type',
-            value: 'text/css',
-          },
-        ],
-      },
-      {
-        source: '/:path*.js',
-        headers: [
-          {
-            key: 'Content-Type',
-            value: 'application/javascript',
-          },
-        ],
-      },
-    ]
-  },
   eslint: {
     ignoreDuringBuilds: true,
   },
