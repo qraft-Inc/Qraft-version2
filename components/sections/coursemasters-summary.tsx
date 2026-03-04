@@ -10,7 +10,7 @@ const portfolio = [
   {
     title: 'Business and Human Rights E-Learning Course',
     partner: 'Enabel, EU, Ministry Of Gender, Labour And Economic Devt',
-    img: '/images/WhatsApp Image 2025-08-04 at 16.26.03_2aeab8e2.jpg'
+    img: '/images/WhatsApp%20Image%202025-08-04%20at%2016.26.03_2aeab8e2.jpg'
   },
   {
     title: 'French - D4GW Understanding Digital Rights Course',
@@ -38,7 +38,7 @@ export default function CourseMastersSummary() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 items-stretch mb-12 sm:mb-16">
           <div className="relative rounded-2xl overflow-hidden min-h-[320px] sm:min-h-[380px] lg:min-h-[440px]">
             <Image
-              src="/images/WhatsApp Image 2025-07-30 at 13.39.02_75522a4a.jpg"
+              src="/images/WhatsApp%20Image%202025-07-30%20at%2013.39.02_75522a4a.jpg"
               alt="CourseMasters program"
               fill
               className="object-cover"

@@ -5,22 +5,22 @@ const tracks = [
   {
     title: 'Personal Development, Quality Of Life And Wellbeing',
     description: 'Quality of life, wellbeing, resilience, and purposeful growth. Foundational financial literacy and personal systems for long-term success.',
-    href: '/courses/personal-development',
+    href: '/courses/home',
   },
   {
     title: 'Productivity And Professional Development',
     description: 'Performance optimization, digital productivity, communication, and continuous career advancement for professional excellence.',
-    href: '/courses/professional-development',
+    href: '/courses/workmasters',
   },
   {
     title: 'Leadership Development, Governance, Policies And Advocacy',
     description: 'Strategic leadership, policy fluency, ethical governance, and the ability to influence systems and drive meaningful change.',
-    href: '/courses/leadership-development',
+    href: '/future-of-work-forum',
   },
   {
     title: 'Strategic Organizational And Business Expansion',
     description: 'Business development, sustainable scaling, partnerships, revenue growth, and institutional strengthening for scalable impact.',
-    href: '/courses/strategic-organizational-expansion',
+    href: '/for-organizations',
   }
 ];
 

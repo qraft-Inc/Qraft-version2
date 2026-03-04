@@ -272,7 +272,7 @@ export default function Home() {
                 <p className="text-neutral-600 text-sm sm:text-base leading-relaxed mb-6">
                   Course development and learning infrastructure for organizations.
                 </p>
-                <a href="/services" className="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors">
+                <a href="/for-organizations" className="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors">
                   Learn More
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -379,7 +379,7 @@ export default function Home() {
               className="object-cover size-full group-hover:scale-110 transition-transform duration-700"
               height={600}
               priority
-              src="/images/WhatsApp Image 2025-07-03 at 19.35.13_a0b68414.jpg"
+              src="/images/WhatsApp%20Image%202025-07-03%20at%2019.35.13_a0b68414.jpg"
               width={800}
             />
             <div className="absolute inset-0 bg-gradient-to-l from-accent-600/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

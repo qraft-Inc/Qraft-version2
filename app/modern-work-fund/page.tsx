@@ -55,13 +55,13 @@ export default function ModernWorkFundPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
               <a 
-                href="/apply/modern-work-fund" 
+                href="/contact?topic=modern-work-fund-application" 
                 className="btn-primary bg-white text-primary-700 hover:bg-white/90 px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300"
               >
                 Apply for a Grant
               </a>
               <a 
-                href="/resources/modern-work-fund-guidelines" 
+                href="/modern-work-fund#faq" 
                 className="px-8 py-4 bg-white/10 backdrop-blur-md text-white text-lg font-semibold rounded-xl hover:bg-white/20 transition-all duration-300 border border-white/30"
               >
                 Download Guidelines
@@ -407,7 +407,7 @@ export default function ModernWorkFundPage() {
             </h2>
             <div className="space-y-4 mb-8">
               {[
-                { step: 1, title: 'Complete the application form', desc: '/apply/modern-work-fund' },
+                { step: 1, title: 'Complete the application form', desc: '/contact?topic=modern-work-fund-application' },
                 { step: 2, title: 'Upload required documents', desc: 'workplan, budget, organization profile, partner letters, delivery timeline (where applicable)' },
                 { step: 3, title: 'Submit before the deadline', desc: 'Applications received after the deadline will not be reviewed' },
                 { step: 4, title: 'Shortlisted applicants may be contacted', desc: 'for verification or clarification' },
@@ -432,7 +432,7 @@ export default function ModernWorkFundPage() {
 
             <div className="text-center">
               <a 
-                href="/apply/modern-work-fund" 
+                href="/contact?topic=modern-work-fund-application" 
                 className="btn-primary bg-primary-600 text-white hover:bg-primary-700 px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 inline-block"
               >
                 Apply for a Grant

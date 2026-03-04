@@ -38,11 +38,11 @@ const Footer = () => {
           <div className="space-y-4 sm:space-y-6">
             <h3 className="font-display font-bold text-lg sm:text-xl text-white">Quick Links</h3>
             <ul className="space-y-2 sm:space-y-3">
-              <li><Link className="text-primary-100 active:text-white sm:hover:text-white transition-colors duration-200 flex items-center gap-2 group text-sm sm:text-base" href="/courses">
+              <li><Link className="text-primary-100 active:text-white sm:hover:text-white transition-colors duration-200 flex items-center gap-2 group text-sm sm:text-base" href="/courses/home">
                 <span className="w-1 h-1 rounded-full bg-primary-300 group-active:w-2 sm:group-hover:w-2 transition-all duration-200"></span>
                 Courses
               </Link></li>
-              <li><Link className="text-primary-100 active:text-white sm:hover:text-white transition-colors duration-200 flex items-center gap-2 group text-sm sm:text-base" href="/programs">
+              <li><Link className="text-primary-100 active:text-white sm:hover:text-white transition-colors duration-200 flex items-center gap-2 group text-sm sm:text-base" href="/for-individuals">
                 <span className="w-1 h-1 rounded-full bg-primary-300 group-active:w-2 sm:group-hover:w-2 transition-all duration-200"></span>
                 Programs
               </Link></li>

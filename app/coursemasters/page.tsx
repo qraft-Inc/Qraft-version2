@@ -154,7 +154,7 @@ export default function CourseMastersPage() {
             {
               title: 'Business and Human Rights E-Learning Course',
               partner: 'Enabel, EU, Ministry Of Gender, Labour And Economic Devt',
-              img: '/images/WhatsApp Image 2025-08-04 at 16.26.03_2aeab8e2.jpg'
+              img: '/images/WhatsApp%20Image%202025-08-04%20at%2016.26.03_2aeab8e2.jpg'
             },
             {
               title: 'French - D4GW Understanding Digital Rights Course',
@@ -193,7 +193,7 @@ export default function CourseMastersPage() {
       {/* COURSEMASTERS PROGRAM */}
       <div className="relative h-[520px] sm:h-[600px] mt-12 sm:mt-16">
         <Image
-          src="/images/WhatsApp Image 2025-07-30 at 13.39.02_75522a4a.jpg"
+          src="/images/WhatsApp%20Image%202025-07-30%20at%2013.39.02_75522a4a.jpg"
           alt="CourseMasters Program"
           fill
           className="object-cover"
@@ -360,7 +360,7 @@ export default function CourseMastersPage() {
               },
               {
                 title: 'Platform Integration & Support',
-                image: '/images/WhatsApp Image 2025-07-03 at 19.35.13_a0b68414.jpg',
+                image: '/images/WhatsApp%20Image%202025-07-03%20at%2019.35.13_a0b68414.jpg',
                 items: [
                   'Deployment on LMS (Moodle, TalentLMS, custom platforms)',
                   'User experience testing and localization services',
@@ -453,7 +453,7 @@ export default function CourseMastersPage() {
               {
                 title: 'Live-Action Course Video Production Studio',
                 subtitle: 'Capturing Real Learning in Action',
-                image: '/images/WhatsApp Image 2025-07-30 at 13.39.02_75522a4a.jpg',
+                image: '/images/WhatsApp%20Image%202025-07-30%20at%2013.39.02_75522a4a.jpg',
                 items: [
                   'Presenter-led course recordings',
                   'Green screen and controlled studio shoots',
