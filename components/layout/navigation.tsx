@@ -63,7 +63,7 @@ const Navigation = () => {
             label: "Learning Infrastructure (LMS & Learning Systems)",
             href: "/learning-infrastructure",
           },
-          { label: "Consulting", href: "/consulting" },
+          { label: "Modern Work Fund", href: "/modern-work-fund" },
         ],
       },
       {
@@ -73,7 +73,7 @@ const Navigation = () => {
         items: [
           { label: "Online Courses", href: "https://lms.qraftacademy.com/", external: true },
           { label: "On-Site Classes", href: "/on-site-classes" },
-          { label: "Modern Work Fund", href: "/modern-work-fund" },
+          { label: "Consulting", href: "/consulting" },
         ],
       },
       {
