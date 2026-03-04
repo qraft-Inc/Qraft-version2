@@ -1,6 +1,19 @@
 [build]
   command = "npm run build"
 
+[build.environment]
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/_next/static/*"
+  to = "/_next/static/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/_next/image*"
+  to = "/_next/image:splat"
+  status = 200
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
