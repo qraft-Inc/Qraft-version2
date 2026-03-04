@@ -331,7 +331,7 @@ export default function Home() {
               <p className="text-base sm:text-lg md:text-xl text-neutral-600 mb-6 sm:mb-8 leading-relaxed">
                 Your Skill Is Your Career. Whether you're an employee advancing your career, a freelancer expanding your services, an entrepreneur building your business, or a job seeker entering the workforce—transform your passion into expertise with our comprehensive learning programs.
               </p>
-              <a href="https://lms.qraftacademy.com/" className="btn-primary w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg group inline-flex items-center justify-center">
+              <a href="https://lms.qraftacademy.com/" target="_blank" rel="noopener noreferrer" className="btn-primary w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg group inline-flex items-center justify-center">
                 Join Qraft Academy
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
