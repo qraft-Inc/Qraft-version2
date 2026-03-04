@@ -214,7 +214,7 @@ const FutureOfWorkForumPage = () => {
                 <h4 className="text-lg font-bold text-slate-900">{member.name}</h4>
                 <p className="text-slate-600 mt-1">{member.position}</p>
                 {member.position === "Chairman of the Board" && (
-                  <div className="mt-3 inline-block bg-gold-100 text-gold-800 px-3 py-1 rounded-full text-sm font-semibold">
+                  <div className="mt-3 inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-semibold">
                     👑 Chairman
                   </div>
                 )}
