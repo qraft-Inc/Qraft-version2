@@ -40,6 +40,13 @@ export default function ModernWorkFundPage() {
       <section className="relative py-20 sm:py-24 md:py-32 bg-gradient-to-br from-primary-600 via-primary-700 to-accent-600">
         <div className="container-custom px-4">
           <div className="max-w-4xl mx-auto text-center text-white">
+            <div className="mb-6 text-sm sm:text-base text-white/90">
+              <Link href="/" className="hover:text-white transition-colors">Home</Link>
+              <span className="mx-2 text-white/70">→</span>
+              <Link href="/future-of-work-forum" className="hover:text-white transition-colors">Future of Work Forum</Link>
+              <span className="mx-2 text-white/70">→</span>
+              <span className="text-white font-semibold">Modern Work Fund</span>
+            </div>
             <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-white font-semibold text-sm mb-6 border border-white/30">
               <Target className="w-4 h-4 inline-block mr-2" />
               Organization Grants
@@ -53,12 +60,21 @@ export default function ModernWorkFundPage() {
             <p className="text-lg sm:text-xl mb-10 leading-relaxed opacity-95 max-w-3xl mx-auto">
               The Qraft Modern Work Fund invests in organizations building practical, market-relevant training programs that lead to real work outcomes—jobs, contracts, income growth, and stronger business performance. We fund partners who can deliver structured programs, connect learners to opportunity, and report measurable results.
             </p>
+            <p className="text-base sm:text-lg mb-10 text-white/90">
+              The Modern Work Fund is a funding program under the Future of Work Forum.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
               <a 
                 href="/contact?topic=modern-work-fund-application" 
                 className="btn-primary bg-white text-primary-700 hover:bg-white/90 px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300"
               >
                 Apply for a Grant
+              </a>
+              <a 
+                href="/future-of-work-forum" 
+                className="px-8 py-4 bg-white/10 backdrop-blur-md text-white text-lg font-semibold rounded-xl hover:bg-white/20 transition-all duration-300 border border-white/30"
+              >
+                Go to Forum
               </a>
               <a 
                 href="/modern-work-fund#faq" 

@@ -165,6 +165,12 @@ const FutureOfWorkForumPage = () => {
         <p className="text-lg text-slate-700 mb-8 max-w-2xl">
           An organization under Qraft Academy hosting a one-week conference in Kampala to manage modern workforce development. Empowering economies, enhancing careers, and fostering innovation.
         </p>
+        <a
+          href="/modern-work-fund"
+          className="inline-flex items-center rounded-lg bg-blue-600 px-6 py-3 text-white font-semibold hover:bg-blue-700 transition"
+        >
+          Explore the Modern Work Fund
+        </a>
       </section>
 
       {/* Mission Section */}

@@ -24,6 +24,8 @@
     "baseUrl": ".",
     "types": [
       "node",
+      "react",
+      "react-dom",
       "jest",
       "@testing-library/jest-dom"
     ],

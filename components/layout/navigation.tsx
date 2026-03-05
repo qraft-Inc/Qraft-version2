@@ -63,7 +63,6 @@ const Navigation = () => {
             label: "Learning Infrastructure (LMS & Learning Systems)",
             href: "/learning-infrastructure",
           },
-          { label: "Modern Work Fund", href: "/modern-work-fund" },
         ],
       },
       {
@@ -86,6 +85,7 @@ const Navigation = () => {
         ],
       },
       { type: "link", label: "Future of Work Forum", href: "/future-of-work-forum" },
+      { type: "link", label: "Modern Work Fund", href: "/modern-work-fund" },
       { type: "link", label: "About", href: "/about" },
       {
         type: "link",
