@@ -13,6 +13,7 @@ interface FormData {
 
 const images = [
   '/images/ttra.jpg',
+  'https://res.cloudinary.com/dwa3soopc/image/upload/v1779659947/coursemasters/COURSE_TELEPROMPTER_mfatk0.jpg',
   '/images/coursesmasters.jpg',
   '/images/course.jpg'
 ];
@@ -351,7 +352,7 @@ export default function CourseMastersPage() {
               },
               {
                 title: 'Digital Authoring & Publishing',
-                image: '/images/image.webp',
+                image: 'https://www.easygenerator.com/wp-content/uploads/2026/03/Top-SCORM-compliant-authoring-tools-v2.png',
                 items: [
                   'Authoring using tools like Articulate 360, Rise, and Adobe Captivate',
                   'Responsive e-learning modules for mobile and desktop',
@@ -360,7 +361,7 @@ export default function CourseMastersPage() {
               },
               {
                 title: 'Platform Integration & Support',
-                image: '/images/WhatsApp%20Image%202025-07-03%20at%2019.35.13_a0b68414.jpg',
+                image: 'https://codigital.ec/storage/2022/06/que-es-moodle.jpg',
                 items: [
                   'Deployment on LMS (Moodle, TalentLMS, custom platforms)',
                   'User experience testing and localization services',
@@ -428,7 +429,7 @@ export default function CourseMastersPage() {
               {
                 title: 'Course Audio Studio',
                 subtitle: 'Professional Voice, Script, and Sound for Seamless Learning',
-                image: '/images/ttra.jpg',
+                image: 'https://res.cloudinary.com/dwa3soopc/image/upload/v1779656895/coursemasters/coursemasters_audio_studio_cq9zxq.jpg',
                 items: [
                   'Script Writing & Curriculum Adaptation',
                   'Voice-over Recording',
@@ -440,7 +441,7 @@ export default function CourseMastersPage() {
               {
                 title: 'Instructional Animation & Motion Graphics Studio',
                 subtitle: 'Bringing Concepts to Life',
-                image: '/images/course.jpg',
+                image: 'https://res.cloudinary.com/dwa3soopc/image/upload/v1779657762/coursemasters/Real_life_image_of_an_202605250022_hsmvk2.jpg',
                 items: [
                   'Storyboarding, scripting, and synced narration',
                   '2D & 3D animations for educational content',
@@ -453,7 +454,7 @@ export default function CourseMastersPage() {
               {
                 title: 'Live-Action Course Video Production Studio',
                 subtitle: 'Capturing Real Learning in Action',
-                image: '/images/WhatsApp%20Image%202025-07-30%20at%2013.39.02_75522a4a.jpg',
+                image: 'https://res.cloudinary.com/dwa3soopc/image/upload/v1779657282/coursemasters/coursemasters_video_studio_peuauv.jpg',
                 items: [
                   'Presenter-led course recordings',
                   'Green screen and controlled studio shoots',
