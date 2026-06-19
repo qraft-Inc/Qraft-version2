@@ -229,6 +229,55 @@ export default function Home() {
                 </Link>
               </div>
             </div>
+
+            {/* Partners & Clients Logos */}
+            <div className="mt-16 sm:mt-20 pt-12 sm:pt-16 border-t border-neutral-200">
+              <p className="text-center text-sm font-semibold uppercase tracking-widest text-neutral-400 mb-10">
+                Trusted by our partners &amp; clients
+              </p>
+              {(() => {
+                  const row1 = [
+                    { src: "https://www.enabel.be/app/uploads/2023/04/Enabel_Logo_Color_RGB-1.jpg", alt: "Enabel", fill: true },
+                    { src: "https://innovationvillage.africa/wp-content/uploads/2024/05/Innovation-Village-New-Logo-2048x844-1.png", alt: "Innovation Village" },
+                    { src: "https://cdn.prod.website-files.com/62074f85df1c01befa19b0b6/6208fa86b3a3550aced179a4_Element%201logo-web-.png", alt: "Partner 3" },
+                    { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUbPbci_KDAXm5-yrAq1yorcbhGlv6Lp8CQcYOwm8i6A&s=10", alt: "Partner 4", fill: true, zoom: true },
+                  ];
+                  const row2 = [
+                    { src: "https://mbale.ucu.ac.ug/wp-content/uploads/2026/05/logo-scaled.png", alt: "Uganda Christian University", fill: true },
+                    { src: "https://media.licdn.com/dms/image/v2/D4D0BAQG2FIk0qG6YBg/company-logo_200_200/company-logo_200_200/0/1737731218388?e=2147483647&v=beta&t=-f2cdT64fP4ODIU3aIs8li-qqwTe-FfrELOk_PODJx0", alt: "Partner 6", fill: true, zoom: true },
+                    { src: "https://res.cloudinary.com/dwa3soopc/image/upload/v1781785206/frankmar_vknyzg.jpg", alt: "Frankmar", fill: true },
+                    { src: "https://res.cloudinary.com/dwa3soopc/image/upload/v1781785938/chariot_leadership_hersrs.jpg", alt: "Chariot Leadership", fill: true, zoom: true },
+                  ];
+                  const LogoCard = ({ logo, i }: { logo: typeof row1[0], i: number }) => (
+                    <div
+                      key={i}
+                      className="flex-shrink-0 w-28 h-14 sm:w-36 sm:h-16 bg-neutral-100 rounded-xl border border-neutral-200 flex items-center justify-center hover:bg-neutral-50 hover:border-primary-200 transition-all duration-200 overflow-hidden"
+                    >
+                      <img
+                        src={logo.src}
+                        alt={logo.alt}
+                        className={`w-full h-full object-contain ${logo.fill ? "" : "p-2 sm:p-3"} ${logo.zoom ? "scale-150" : ""}`}
+                      />
+                    </div>
+                  );
+                  return (
+                    <div className="flex flex-col gap-4">
+                      {/* Row 1 — scrolls left */}
+                      <div className="overflow-hidden w-full [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+                        <div className="flex items-center gap-6 sm:gap-10 w-max" style={{ animation: "marquee 24s linear infinite" }}>
+                          {[...row1, ...row1].map((logo, i) => <LogoCard key={i} logo={logo} i={i} />)}
+                        </div>
+                      </div>
+                      {/* Row 2 — scrolls right */}
+                      <div className="overflow-hidden w-full [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+                        <div className="flex items-center gap-6 sm:gap-10 w-max" style={{ animation: "marquee 24s linear infinite reverse" }}>
+                          {[...row2, ...row2].map((logo, i) => <LogoCard key={i} logo={logo} i={i} />)}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })()}
+            </div>
           </div>
         </section>
 
