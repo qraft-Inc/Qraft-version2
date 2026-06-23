@@ -497,17 +497,27 @@ export default function CourseMastersPage() {
             <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">An elite team for world-class e-learning production.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
-                'Tugume Andrew — Project Manager | Hybrid Learning Specialist | Instructional Designer | SME',
-                'Mrs Kevin Patience Oyella — Voice-over & Script Lead',
-                'Caesar Mwaka — Art Director / Storyboarder and Illustrator',
-                'Mwesigwa Benjamin — Graphics Designer',
-                'Pius Kibazzi — Videographer / Video Editor',
-                'Rashid Kasule — Motion Graphics Animator',
-                'Andrew Okwir — Audio Engineer / Music Producer',
-                'Peter Ojwang — Video Lighting & Sound Engineer'
+                { name: 'Tugume Andrew', role: 'Project Manager | Hybrid Learning Specialist | Instructional Designer | SME', image: null },
+                { name: 'Mrs Kevin Patience Oyella', role: 'Voice-over & Script Lead', image: 'https://res.cloudinary.com/dwa3soopc/image/upload/v1782197435/IMG_2691_tkwq8q.jpg' },
+                { name: 'Caesar Mwaka', role: 'Art Director / Storyboarder and Illustrator', image: null },
+                { name: 'Pius Kibazzi', role: 'Videographer / Video Editor', image: 'https://res.cloudinary.com/dwa3soopc/image/upload/v1782197435/IMG_2705_wi5axd.jpg' },
+                { name: 'Rashid Kasule', role: 'Motion Graphics Animator', image: null },
+                { name: 'Andrew Okwir', role: 'Audio Engineer / Music Producer', image: null },
               ].map((member) => (
-                <div key={member} className="bg-white rounded-xl shadow-sm border border-gray-100 p-5 text-gray-700">
-                  {member}
+                <div key={member.name} className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                  <div className="h-40 sm:h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
+                    {member.image ? (
+                      <img src={member.image} alt={member.name} className="w-full h-full object-cover object-top" />
+                    ) : (
+                      <div className="w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 text-2xl font-bold">
+                        {member.name.split(' ').filter(w => /^[A-Z]/.test(w)).slice(0, 2).map(w => w[0]).join('')}
+                      </div>
+                    )}
+                  </div>
+                  <div className="p-5">
+                    <p className="font-semibold text-neutral-900">{member.name}</p>
+                    <p className="text-sm text-gray-500 mt-1">{member.role}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -519,9 +529,15 @@ export default function CourseMastersPage() {
             <div className="p-6">
               <h3 className="text-lg sm:text-xl font-semibold mb-3">Partners</h3>
               <div className="flex flex-wrap gap-3 text-gray-700">
-                {['ASB Records', 'Kibazzi Kraft', 'Kwonkalture Creations', '26 voices'].map((partner) => (
-                  <span key={partner} className="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium">
-                    {partner}
+                {[
+                  { name: 'ASB Records', logo: null },
+                  { name: 'Kibazzi Kraft', logo: null },
+                  { name: 'Kwonkalture Creations', logo: null },
+                  { name: '26 voices', logo: 'https://images.ctfassets.net/tq92n9tmpo3b/1bngJDsNPxk6opl8lF0eOa/a2e155f2271bede67fb314cf6e6e278c/KB.png' },
+                ].map((partner) => (
+                  <span key={partner.name} className="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium flex items-center gap-2">
+                    {partner.logo && <img src={partner.logo} alt={partner.name} className="h-5 w-auto object-contain" />}
+                    {partner.name}
                   </span>
                 ))}
               </div>
