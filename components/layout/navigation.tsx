@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
-type DropdownKey = "services" | "programs" | "platforms";
+type DropdownKey = "services" | "programs" | "platforms" | "institutions" | "capital";
 
 type NavLinkItem = {
   label: string;
@@ -48,6 +48,8 @@ const Navigation = () => {
     services: false,
     programs: false,
     platforms: false,
+    institutions: false,
+    capital: false,
   });
 
   const navItems: NavItem[] = useMemo(
@@ -59,10 +61,7 @@ const Navigation = () => {
         label: "Services",
         items: [
           { label: "CourseMasters (Course Development)", href: "/coursemasters" },
-          {
-            label: "Learning Infrastructure (LMS & Learning Systems)",
-            href: "/learning-infrastructure",
-          },
+          { label: "SystemMasters™ (Systems Transformation)", href: "/building-systems" },
         ],
       },
       {
@@ -72,7 +71,7 @@ const Navigation = () => {
         items: [
           { label: "Online Courses", href: "https://lms.qraftacademy.com/", external: true },
           { label: "On-Site Classes", href: "/on-site-classes" },
-          { label: "Consulting", href: "/consulting" },
+          { label: "Freelance Business Accelerator", href: "/freelance-business-accelerator" },
         ],
       },
       {
@@ -80,12 +79,28 @@ const Navigation = () => {
         key: "platforms",
         label: "Platforms",
         items: [
+          { label: "Learning Infrastructure (LMS & Learning Systems)", href: "/learning-infrastructure" },
           { label: "TechMasters", href: "/courses/techmasters" },
-          { label: "Platforms for Workers", href: "/platforms" },
         ],
       },
-      { type: "link", label: "Future of Work Forum", href: "/future-of-work-forum" },
-      { type: "link", label: "Modern Work Fund", href: "/modern-work-fund" },
+      {
+        type: "dropdown",
+        key: "institutions",
+        label: "Institutions",
+        items: [
+          { label: "Future of Work Forum", href: "/future-of-work-forum" },
+          { label: "Chariot Leadership Institute", href: "/chariot-leadership-institute" },
+        ],
+      },
+      {
+        type: "dropdown",
+        key: "capital",
+        label: "Capital",
+        items: [
+          { label: "CapitalMasters™", href: "/capitalmasters" },
+          { label: "Modern Work Fund", href: "/modern-work-fund" },
+        ],
+      },
       { type: "link", label: "About", href: "/about" },
       {
         type: "link",
@@ -121,7 +136,7 @@ const Navigation = () => {
 
   const closeAllMenus = () => {
     setOpenMenu(null);
-    setMobileSubOpen({ services: false, programs: false, platforms: false });
+    setMobileSubOpen({ services: false, programs: false, platforms: false, institutions: false, capital: false });
   };
 
   useEffect(() => {

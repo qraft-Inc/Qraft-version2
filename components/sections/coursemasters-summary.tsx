@@ -1,37 +1,19 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-const portfolio = [
-  {
-    title: 'D4GW Understanding Digital Rights Course',
-    partner: 'Enabel, Belgian Development Agency',
-    img: '/images/Understanding Digital Rights D4GW.png'
-  },
-  {
-    title: 'Business and Human Rights E-Learning Course',
-    partner: 'Enabel, EU, Ministry Of Gender, Labour And Economic Devt',
-    img: '/images/WhatsApp%20Image%202025-08-04%20at%2016.26.03_2aeab8e2.jpg'
-  },
-  {
-    title: 'French - D4GW Understanding Digital Rights Course',
-    partner: 'Enabel, Belgian Development Agency',
-    img: '/images/Understanding Digital Rights D4GW_11zon.png'
-  }
-];
-
 export default function CourseMastersSummary() {
   return (
     <section className="section-padding bg-gradient-to-b from-neutral-50 to-white">
       <div className="container-custom">
         <div className="text-center mb-10 sm:mb-12 md:mb-16 max-w-4xl mx-auto px-4">
           <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-primary-100 rounded-full text-primary-700 font-semibold text-xs sm:text-sm mb-4 sm:mb-6">
-            🏛️ Institutional Learning Systems
+            📖 CourseMasters™
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-4 sm:mb-6 leading-tight">
-            Workforce Capability Systems Built for Institutions
+            Create, Package, and Launch Your Course
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-neutral-600">
-            We design and deploy custom digital workforce programs for NGOs, government agencies, development partners, and enterprises. From curriculum design to deployment — structured learning systems that improve performance and productivity.
+            Join our CourseMasters program to design, produce, and launch your own digital course — or let our team handle the full production for your organization.
           </p>
         </div>
 
@@ -95,39 +77,6 @@ export default function CourseMastersSummary() {
           </div>
         </div>
 
-        <div className="text-center mb-8 sm:mb-10">
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-neutral-900 mb-3">Institutional Partnerships & Impact</h3>
-          <p className="text-sm sm:text-base text-neutral-600">Featured workforce programs delivered for institutions and development partners.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-          {portfolio.map((card) => (
-            <div key={card.title} className="bg-white rounded-2xl shadow-lg overflow-hidden">
-              <Image
-                src={card.img}
-                alt={card.title}
-                width={400}
-                height={240}
-                className="w-full h-auto"
-                unoptimized={true}
-              />
-              <div className="p-6">
-                <h4 className="text-base sm:text-lg font-semibold mb-2 text-neutral-900">{card.title}</h4>
-                <p className="text-xs sm:text-sm text-neutral-600 mb-4">{card.partner}</p>
-                <a
-                  href="https://ulearn.enabel.be/"
-                  className="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  View course
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

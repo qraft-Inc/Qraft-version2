@@ -31,7 +31,7 @@ const Footer = () => {
               <span className="text-xl sm:text-2xl font-display font-bold text-white">Qraft Academy</span>
             </div>
             <p className="text-primary-100 leading-relaxed text-sm sm:text-base">
-              Empowering the next generation through innovative education and career development.
+              Shaping the future of Work and Leadership through Continuous Learning, System Building, and Strategic Capital Management.
             </p>
           </div>
 
@@ -41,6 +41,10 @@ const Footer = () => {
               <li><Link className="text-primary-100 active:text-white sm:hover:text-white transition-colors duration-200 flex items-center gap-2 group text-sm sm:text-base" href="/courses/home">
                 <span className="w-1 h-1 rounded-full bg-primary-300 group-active:w-2 sm:group-hover:w-2 transition-all duration-200"></span>
                 Courses
+              </Link></li>
+              <li><Link className="text-primary-100 active:text-white sm:hover:text-white transition-colors duration-200 flex items-center gap-2 group text-sm sm:text-base" href="/capitalmasters">
+                <span className="w-1 h-1 rounded-full bg-primary-300 group-active:w-2 sm:group-hover:w-2 transition-all duration-200"></span>
+                CapitalMasters™
               </Link></li>
               <li><Link className="text-primary-100 active:text-white sm:hover:text-white transition-colors duration-200 flex items-center gap-2 group text-sm sm:text-base" href="/for-individuals">
                 <span className="w-1 h-1 rounded-full bg-primary-300 group-active:w-2 sm:group-hover:w-2 transition-all duration-200"></span>
