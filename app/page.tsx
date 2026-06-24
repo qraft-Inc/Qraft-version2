@@ -2,7 +2,6 @@ import Image from 'next/image'
 import React from 'react'
 import Link from 'next/link'
 import { CheckCircle } from 'lucide-react'
-import CourseMastersSummary from '@/components/sections/coursemasters-summary'
 import { DevelopmentTracks } from '@/components/sections/development-tracks'
 import GetInvolved from '@/components/sections/get-involved'
 import TechMastersSection from '@/components/sections/techmasters-section'
@@ -334,126 +333,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Who We Work With Section */}
-        <section className="section-padding bg-white">
-          <div className="container-custom">
-            <div className="text-center mb-12 sm:mb-16 max-w-3xl mx-auto px-4">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-4 sm:mb-6 leading-tight">
-                Who We Work With
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {/* Organizations Card */}
-              <div className="card p-8 sm:p-10 bg-gradient-to-br from-primary-50 to-primary-100/50 border-2 border-primary-200 hover:shadow-xl transition-all duration-300 group">
-                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">🏛️</div>
-                <h3 className="text-2xl sm:text-3xl font-display font-bold text-neutral-900 mb-4 group-hover:text-primary-700 transition-colors">
-                  For Organizations
-                </h3>
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-neutral-700">Institutional learning systems</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-neutral-700">Custom workforce programs</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-neutral-700">LMS deployment & reporting</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-neutral-700">Digital transformation initiatives</span>
-                  </li>
-                </ul>
-                <Link href="/for-organizations" className="btn-primary w-full text-center py-4 group-hover:scale-105 transition-transform">
-                  Partner With Us
-                </Link>
-              </div>
-
-              {/* Individuals Card */}
-              <div className="card p-8 sm:p-10 bg-gradient-to-br from-accent-50 to-accent-100/50 border-2 border-accent-200 hover:shadow-xl transition-all duration-300 group">
-                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">🚀</div>
-                <h3 className="text-2xl sm:text-3xl font-display font-bold text-neutral-900 mb-4 group-hover:text-accent-700 transition-colors">
-                  For Individuals
-                </h3>
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-accent-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-neutral-700">TechMasters programs</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-accent-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-neutral-700">AI & digital skills</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-accent-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-neutral-700">Remote work readiness</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-accent-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-neutral-700">Career & business growth</span>
-                  </li>
-                </ul>
-                <Link href="/for-individuals" className="btn-primary w-full text-center py-4 bg-accent-600 hover:bg-accent-700 group-hover:scale-105 transition-transform">
-                  Start Learning Today
-                </Link>
-              </div>
-            </div>
-
-            {/* Partners & Clients Logos */}
-            <div className="mt-16 sm:mt-20 pt-12 sm:pt-16 border-t border-neutral-200">
-              <p className="text-center text-sm font-semibold uppercase tracking-widest text-neutral-400 mb-10">
-                Trusted by our partners &amp; clients
-              </p>
-              {(() => {
-                  const row1 = [
-                    { src: "https://www.enabel.be/app/uploads/2023/04/Enabel_Logo_Color_RGB-1.jpg", alt: "Enabel", fill: true },
-                    { src: "https://innovationvillage.africa/wp-content/uploads/2024/05/Innovation-Village-New-Logo-2048x844-1.png", alt: "Innovation Village" },
-                    { src: "https://cdn.prod.website-files.com/62074f85df1c01befa19b0b6/6208fa86b3a3550aced179a4_Element%201logo-web-.png", alt: "Partner 3" },
-                    { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUbPbci_KDAXm5-yrAq1yorcbhGlv6Lp8CQcYOwm8i6A&s=10", alt: "Partner 4", fill: true, zoom: true },
-                  ];
-                  const row2 = [
-                    { src: "https://mbale.ucu.ac.ug/wp-content/uploads/2026/05/logo-scaled.png", alt: "Uganda Christian University", fill: true },
-                    { src: "https://media.licdn.com/dms/image/v2/D4D0BAQG2FIk0qG6YBg/company-logo_200_200/company-logo_200_200/0/1737731218388?e=2147483647&v=beta&t=-f2cdT64fP4ODIU3aIs8li-qqwTe-FfrELOk_PODJx0", alt: "Partner 6", fill: true, zoom: true },
-                    { src: "https://res.cloudinary.com/dwa3soopc/image/upload/v1781785206/frankmar_vknyzg.jpg", alt: "Frankmar", fill: true },
-                    { src: "https://res.cloudinary.com/dwa3soopc/image/upload/v1781785938/chariot_leadership_hersrs.jpg", alt: "Chariot Leadership", fill: true, zoom: true },
-                  ];
-                  const LogoCard = ({ logo, i }: { logo: typeof row1[0], i: number }) => (
-                    <div
-                      key={i}
-                      className="flex-shrink-0 w-28 h-14 sm:w-36 sm:h-16 bg-neutral-100 rounded-xl border border-neutral-200 flex items-center justify-center hover:bg-neutral-50 hover:border-primary-200 transition-all duration-200 overflow-hidden"
-                    >
-                      <img
-                        src={logo.src}
-                        alt={logo.alt}
-                        className={`w-full h-full object-contain ${logo.fill ? "" : "p-2 sm:p-3"} ${logo.zoom ? "scale-150" : ""}`}
-                      />
-                    </div>
-                  );
-                  return (
-                    <div className="flex flex-col gap-4">
-                      {/* Row 1 — scrolls left */}
-                      <div className="overflow-hidden w-full [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-                        <div className="flex items-center gap-6 sm:gap-10 w-max" style={{ animation: "marquee 24s linear infinite" }}>
-                          {[...row1, ...row1].map((logo, i) => <LogoCard key={i} logo={logo} i={i} />)}
-                        </div>
-                      </div>
-                      {/* Row 2 — scrolls right */}
-                      <div className="overflow-hidden w-full [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-                        <div className="flex items-center gap-6 sm:gap-10 w-max" style={{ animation: "marquee 24s linear infinite reverse" }}>
-                          {[...row2, ...row2].map((logo, i) => <LogoCard key={i} logo={logo} i={i} />)}
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })()}
-            </div>
-          </div>
-        </section>
-
         {/* Integrated Model - Simplified */}
         <section className="section-padding bg-gradient-to-b from-white to-primary-50">
           <div className="container-custom">
@@ -543,7 +422,54 @@ export default function Home() {
           </div>
         </section>
 
-        <CourseMastersSummary />
+        {/* Partners & Clients Logos */}
+        <section className="py-12 sm:py-16 bg-white border-t border-neutral-100">
+          <div className="container-custom px-4">
+            <p className="text-center text-xs font-bold uppercase tracking-widest text-neutral-400 mb-8">
+              Trusted by our partners &amp; clients
+            </p>
+            {(() => {
+              const row1 = [
+                { src: "https://www.enabel.be/app/uploads/2023/04/Enabel_Logo_Color_RGB-1.jpg", alt: "Enabel", fill: true },
+                { src: "https://innovationvillage.africa/wp-content/uploads/2024/05/Innovation-Village-New-Logo-2048x844-1.png", alt: "Innovation Village" },
+                { src: "https://cdn.prod.website-files.com/62074f85df1c01befa19b0b6/6208fa86b3a3550aced179a4_Element%201logo-web-.png", alt: "Partner 3" },
+                { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUbPbci_KDAXm5-yrAq1yorcbhGlv6Lp8CQcYOwm8i6A&s=10", alt: "Partner 4", fill: true, zoom: true },
+              ];
+              const row2 = [
+                { src: "https://mbale.ucu.ac.ug/wp-content/uploads/2026/05/logo-scaled.png", alt: "Uganda Christian University", fill: true },
+                { src: "https://media.licdn.com/dms/image/v2/D4D0BAQG2FIk0qG6YBg/company-logo_200_200/company-logo_200_200/0/1737731218388?e=2147483647&v=beta&t=-f2cdT64fP4ODIU3aIs8li-qqwTe-FfrELOk_PODJx0", alt: "Partner 6", fill: true, zoom: true },
+                { src: "https://res.cloudinary.com/dwa3soopc/image/upload/v1781785206/frankmar_vknyzg.jpg", alt: "Frankmar", fill: true },
+                { src: "https://res.cloudinary.com/dwa3soopc/image/upload/v1781785938/chariot_leadership_hersrs.jpg", alt: "Chariot Leadership", fill: true, zoom: true },
+              ];
+              const LogoCard = ({ logo, i }: { logo: typeof row1[0], i: number }) => (
+                <div
+                  key={i}
+                  className="flex-shrink-0 w-28 h-14 sm:w-36 sm:h-16 bg-neutral-100 rounded-xl border border-neutral-200 flex items-center justify-center hover:bg-neutral-50 hover:border-primary-200 transition-all duration-200 overflow-hidden"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className={`w-full h-full object-contain ${logo.fill ? "" : "p-2 sm:p-3"} ${logo.zoom ? "scale-150" : ""}`}
+                  />
+                </div>
+              );
+              return (
+                <div className="flex flex-col gap-4">
+                  <div className="overflow-hidden w-full [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+                    <div className="flex items-center gap-6 sm:gap-10 w-max" style={{ animation: "marquee 24s linear infinite" }}>
+                      {[...row1, ...row1].map((logo, i) => <LogoCard key={i} logo={logo} i={i} />)}
+                    </div>
+                  </div>
+                  <div className="overflow-hidden w-full [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+                    <div className="flex items-center gap-6 sm:gap-10 w-max" style={{ animation: "marquee 24s linear infinite reverse" }}>
+                      {[...row2, ...row2].map((logo, i) => <LogoCard key={i} logo={logo} i={i} />)}
+                    </div>
+                  </div>
+                </div>
+              );
+            })()}
+          </div>
+        </section>
 
         <TechMastersSection />
 
@@ -586,11 +512,14 @@ export default function Home() {
           <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-8 md:p-12 lg:p-16 order-2 lg:order-1">
             <div className="max-w-xl w-full">
               <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-accent-100 rounded-full text-accent-700 font-semibold text-xs sm:text-sm mb-4 sm:mb-6">
-                💬 Success Stories
+                🚀 TechMasters Apprenticeship — Success Stories
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-6 sm:mb-8 leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-3 sm:mb-4 leading-tight">
                 Hear From Our Graduates
               </h2>
+              <p className="text-sm sm:text-base text-neutral-500 mb-6 sm:mb-8 leading-relaxed">
+                Through our TechMasters Apprenticeship we build <span className="font-semibold text-neutral-700">Tech Skills</span>, <span className="font-semibold text-neutral-700">Tech Products</span>, and help graduates <span className="font-semibold text-neutral-700">Launch Tech Companies</span>.
+              </p>
               <div className="card-glass p-6 sm:p-8 mb-6">
                 <div className="flex gap-1 mb-3 sm:mb-4">
                   {[...Array(5)].map((_, i) => (
@@ -608,7 +537,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-bold text-base sm:text-lg text-neutral-900">Collin</p>
-                    <p className="text-xs sm:text-sm text-neutral-600">Software Engineer Graduate</p>
+                    <p className="text-xs sm:text-sm text-neutral-600">TechMasters Apprenticeship Graduate · Software Engineer</p>
                   </div>
                 </div>
               </div>
