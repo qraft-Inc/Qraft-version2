@@ -207,8 +207,8 @@ export default function BuildingSystemsPage() {
       {/* Hero — photo background with gradient overlay */}
       <section className="relative py-20 sm:py-24 md:py-32 overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&q=80&fit=crop&crop=center"
-          alt="Systems transformation workshop"
+          src="https://res.cloudinary.com/dwa3soopc/image/upload/v1782394221/Ultra-realistic_corporate_consulting_hero_image__202606251629_y8uwm9.jpg"
+          alt="SystemMasters — Systems Transformation"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-primary-700/90 via-primary-700/80 to-accent-600/80" />

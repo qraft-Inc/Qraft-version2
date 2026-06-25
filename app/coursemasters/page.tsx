@@ -262,7 +262,7 @@ export default function CourseMastersPage() {
           </div>
           <div className="relative w-full h-[260px] sm:h-[420px] rounded-3xl overflow-hidden shadow-xl">
             <Image
-              src="/images/course.jpg"
+              src="https://res.cloudinary.com/dwa3soopc/image/upload/v1782396153/Screenshot_2025-07-17_at_21.01.33_bhpdiq.png"
               alt="Course production"
               fill
               className="object-cover"
