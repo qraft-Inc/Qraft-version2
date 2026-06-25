@@ -61,7 +61,7 @@ const Navigation = () => {
         label: "Services",
         items: [
           { label: "CourseMasters (Course Development)", href: "/coursemasters" },
-          { label: "SystemMasters™ (Systems Transformation)", href: "/building-systems" },
+          { label: "SystemMasters™ (Systems Transformation)", href: "/SystemMasters" },
         ],
       },
       {

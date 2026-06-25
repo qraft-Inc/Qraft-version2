@@ -149,7 +149,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <a href="/building-systems" className="mt-auto inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-500 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 text-sm group-hover:shadow-lg group-hover:shadow-primary-900/50">
+                <a href="/SystemMasters" className="mt-auto inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-500 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 text-sm group-hover:shadow-lg group-hover:shadow-primary-900/50">
                   Explore SystemMasters
                   <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
                 </a>
@@ -322,7 +322,7 @@ export default function Home() {
             </div>
 
             <div className="text-center">
-              <a href="/building-systems" className="inline-flex items-center gap-3 bg-accent-600 hover:bg-accent-500 text-white font-bold px-8 py-4 rounded-xl transition-all duration-200 text-base shadow-lg shadow-accent-900/50">
+              <a href="/SystemMasters" className="inline-flex items-center gap-3 bg-accent-600 hover:bg-accent-500 text-white font-bold px-8 py-4 rounded-xl transition-all duration-200 text-base shadow-lg shadow-accent-900/50">
                 Explore SystemMasters™
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
