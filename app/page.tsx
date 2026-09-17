@@ -1,6 +1,19 @@
+import { type Metadata } from 'next'
 import Image from 'next/image'
 import React from 'react'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: "Qraft Academy | Work and Leadership Excellence",
+  description: "Achieve excellence in Work and Leadership through Continuous Learning, System Building, and Strategic Capital Management. Based in Kampala, Uganda.",
+  openGraph: {
+    title: "Qraft Academy | Work and Leadership Excellence",
+    description: "Achieve excellence in Work and Leadership through Continuous Learning, System Building, and Strategic Capital Management.",
+    url: "https://qraftacademy.com",
+    siteName: "Qraft Academy",
+    type: "website",
+  },
+};
 import { CheckCircle } from 'lucide-react'
 import { DevelopmentTracks } from '@/components/sections/development-tracks'
 import GetInvolved from '@/components/sections/get-involved'

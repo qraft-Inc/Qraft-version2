@@ -1,6 +1,16 @@
+import { type Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CheckCircle, ArrowRight } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: "For Organizations | Custom Learning & Workforce Programs | Qraft Academy",
+  description: "Qraft Academy helps organizations build custom e-learning programs, workforce transformation systems, and institutional learning infrastructure that drive measurable performance.",
+  openGraph: {
+    title: "For Organizations | Custom Learning & Workforce Programs | Qraft Academy",
+    description: "Custom e-learning, workforce capability programs, and institutional learning systems for NGOs, government agencies, enterprises, and development partners.",
+  },
+};
 
 const services = [
   {

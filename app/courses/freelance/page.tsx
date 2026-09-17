@@ -1,4 +1,14 @@
+import { type Metadata } from 'next';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+  title: "Accelerate Your Freelance Success | Qraft Academy",
+  description: "Build a profitable freelance business with Qraft Academy's practical programs covering freelancing, consulting, remote work, and BPO opportunities for African professionals.",
+  openGraph: {
+    title: "Accelerate Your Freelance Success | Qraft Academy",
+    description: "Practical freelancing, consulting, and remote work programs for professionals and graduates in Africa.",
+  },
+};
 
 import { Button } from '@/components/ui/button';
 import { Benefits } from './_components/benefits';

@@ -1,6 +1,16 @@
+import { type Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CheckCircle, ArrowRight, Zap, Users, Award, TrendingUp } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: "For Individuals | Skills, Career & Business Programs | Qraft Academy",
+  description: "Build in-demand tech skills, grow your freelance business, and unlock career and financial opportunities with Qraft Academy's programs for individuals and professionals.",
+  openGraph: {
+    title: "For Individuals | Skills, Career & Business Programs | Qraft Academy",
+    description: "Tech skills, freelancing, work readiness, and financial capability programs for professionals, graduates, and entrepreneurs.",
+  },
+};
 
 const techSkills = [
   'Digital workflow mastery',

@@ -1,744 +1,758 @@
 'use client';
 
-import React, { ChangeEvent, FormEvent } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { trackEvent } from '@/lib/analytics';
 
-interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  company: string;
-  message: string;
+const WHATSAPP_NUMBER = '256755017384';
+
+function openWhatsApp(message: string, context: string) {
+  trackEvent('coursemasters_whatsapp_click', { context });
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
 }
 
-const images = [
-  '/images/ttra.jpg',
-  'https://res.cloudinary.com/dwa3soopc/image/upload/v1779659947/coursemasters/COURSE_TELEPROMPTER_mfatk0.jpg',
-  '/images/coursesmasters.jpg',
-  '/images/course.jpg'
+function trackAssessmentClick(location: string) {
+  trackEvent('coursemasters_assessment_click', { location });
+}
+
+function trackCaseStudyView(study: string) {
+  trackEvent('coursemasters_case_study_view', { study });
+}
+
+const PILLARS = [
+  {
+    number: '01',
+    tag: 'BUILD',
+    title: 'We Build Your Digital Courses',
+    text: 'You provide the knowledge. We design, develop, test and deploy the learning experience.',
+    price: 'From UGX 15M',
+    href: '#flagship',
+    cta: 'Explore Course Development'
+  },
+  {
+    number: '02',
+    tag: 'PLATFORM',
+    title: 'We Build Your Moodle LMS',
+    text: 'Create a professional environment to host courses, enrol learners, track progress, administer assessments and issue certificates.',
+    price: 'From UGX 5M',
+    href: '#lms-offer',
+    cta: 'Explore Moodle LMS'
+  },
+  {
+    number: '03',
+    tag: 'CAPABILITY',
+    title: 'We Teach You to Build',
+    text: 'Equip your people to design, develop and deploy quality digital courses internally.',
+    price: 'From UGX 3M / participant',
+    href: '#capability-offer',
+    cta: 'Explore CourseMasters Training'
+  },
+  {
+    number: '04',
+    tag: 'SCALE',
+    title: 'We Help You Maintain & Grow',
+    text: 'Keep your digital-learning ecosystem working through updates, LMS administration, learner analytics, technical support and new content.',
+    price: 'Annual support from UGX 3M',
+    href: '#support',
+    cta: 'Explore Support'
+  }
+];
+
+const PROBLEM_CARDS = [
+  {
+    title: 'Knowledge trapped in documents',
+    text: 'Policies, manuals, curricula and technical resources often remain difficult to access and apply.'
+  },
+  {
+    title: 'Repeated training costs',
+    text: 'Organizations repeatedly spend on venues, facilitators, travel and delivery.'
+  },
+  {
+    title: 'Inconsistent learning',
+    text: 'Training quality can vary across facilitators, locations and cohorts.'
+  },
+  {
+    title: 'Limited reach',
+    text: 'Physical delivery restricts when, where and how many people can learn.'
+  }
+];
+
+const FLAGSHIP_INCLUDED = [
+  'Content analysis & learning architecture',
+  'Instructional design & storyboarding',
+  'Professional multimedia development',
+  'Interactive learning activities',
+  'Knowledge checks & final assessment',
+  'Moodle/LMS implementation',
+  'Testing & quality assurance',
+  'Two consolidated review cycles',
+  'Deployment & handover'
+];
+
+const VALUE_ITEMS = [
+  { title: 'Engaged Learners', text: 'Interactive multimedia learning experiences.' },
+  { title: 'Consistent Quality', text: 'Standardized learning across cohorts and locations.' },
+  { title: 'Cost Efficiency', text: 'Reuse learning instead of rebuilding the same training repeatedly.' },
+  { title: 'Wider Reach', text: 'Make learning accessible across locations and schedules.' },
+  { title: 'Long-Term Value', text: 'Update, reuse and scale your learning assets.' },
+  { title: 'Measurable Learning', text: 'Track participation, completion and learner progress.' }
+];
+
+const BUILD_STEPS = [
+  'Content Analysis',
+  'Learning Architecture',
+  'Instructional Design',
+  'Storyboarding',
+  'Multimedia Development',
+  'Interactive Digital Course',
+  'Assessment',
+  'LMS Deployment',
+  'Testing',
+  'Handover'
+];
+
+const WORK_STEPS = ['Discover', 'Design', 'Develop', 'Deploy', 'Validate', 'Scale'];
+
+const CASE_STUDIES = [
+  {
+    title: 'D4GW — Understanding Digital Rights',
+    client: 'Enabel / Belgian Development Agency',
+    delivered: 'Digital course development, instructional design, multimedia, interactive learning, assessment, Moodle deployment and localization.',
+    img: '/images/Understanding Digital Rights D4GW.png'
+  },
+  {
+    title: 'Business & Human Rights',
+    client: 'Enabel / EU / Ministry of Gender, Labour and Economic Development',
+    delivered: 'Technical institutional knowledge transformed into structured digital learning.',
+    img: '/images/WhatsApp%20Image%202025-08-04%20at%2016.26.03_2aeab8e2.jpg'
+  },
+  {
+    title: 'French D4GW',
+    client: 'Enabel / Belgian Development Agency',
+    delivered: 'French localization and deployment to expand learner accessibility.',
+    img: '/images/Understanding Digital Rights D4GW_11zon.png'
+  }
+];
+
+const LMS_TIERS = [
+  {
+    tag: 'STARTER',
+    tier: 'LAUNCH',
+    price: 'From UGX 5M',
+    items: ['Basic Moodle setup', 'Basic branding', 'User configuration', 'Certificate setup', 'Admin orientation'],
+    popular: false
+  },
+  {
+    tag: 'PROFESSIONAL',
+    tier: 'MANAGE',
+    price: 'From UGX 10M',
+    items: ['Branded organizational LMS', 'Roles & permissions', 'Multiple courses', 'Reporting', 'Administrator training'],
+    popular: true
+  },
+  {
+    tag: 'ENTERPRISE',
+    tier: 'SCALE',
+    price: 'From UGX 20M+',
+    items: ['Advanced customization', 'Complex user structures', 'Integrations', 'Extended support', 'Institutional learning architecture'],
+    popular: false
+  }
+];
+
+const PRODUCTION_SKILLS = [
+  'Instructional Design',
+  'Learning Architecture',
+  'Storyboarding',
+  'Graphic Design',
+  'Voice-over',
+  'Animation',
+  'Video Production',
+  'Interactive Authoring',
+  'LMS Implementation',
+  'Quality Assurance'
+];
+
+const PRODUCTION_PHOTOS = [
+  'https://res.cloudinary.com/dwa3soopc/image/upload/v1779656895/coursemasters/coursemasters_audio_studio_cq9zxq.jpg',
+  'https://res.cloudinary.com/dwa3soopc/image/upload/v1779657762/coursemasters/Real_life_image_of_an_202605250022_hsmvk2.jpg',
+  'https://res.cloudinary.com/dwa3soopc/image/upload/v1779657282/coursemasters/coursemasters_video_studio_peuauv.jpg',
+  '/images/rect3.png'
+];
+
+const SUPPORT_ITEMS = [
+  'Course updates',
+  'LMS administration',
+  'Technical support',
+  'Content refresh',
+  'New modules',
+  'Multimedia updates',
+  'Learner analytics',
+  'Administrator support',
+  'Annual maintenance'
+];
+
+const FAQS = [
+  {
+    q: 'How much does it cost to develop an online course?',
+    a: 'CourseMasters™ digital course development starts from UGX 15M. Our flagship Standard package is UGX 20M for a standard course of up to six modules and approximately 2–3 learning hours. Complex institutional programmes are scoped separately.'
+  },
+  {
+    q: 'How long does course development take?',
+    a: 'A Standard CourseMasters project typically takes approximately 8–12 weeks, depending on content readiness, complexity and client feedback.'
+  },
+  {
+    q: 'Do we need an LMS already?',
+    a: 'No. CourseMasters can develop your course for an existing LMS or establish a Moodle learning platform for your organization.'
+  },
+  {
+    q: 'Can you work with our existing manuals and training materials?',
+    a: 'Yes. CourseMasters is specifically designed to transform existing institutional knowledge — including manuals, policies, curricula, technical materials and facilitator resources — into structured digital learning.'
+  },
+  {
+    q: 'Can you train our internal team instead?',
+    a: 'Yes. CourseMasters offers both individual course-creator training and institutional team bootcamps.'
+  },
+  {
+    q: 'Can courses be multilingual?',
+    a: 'Yes. Localization and additional languages can be scoped into the engagement.'
+  },
+  {
+    q: 'Do you provide support after launch?',
+    a: 'Yes. Annual support can include LMS administration, technical support, course updates, analytics, new modules and content maintenance.'
+  }
 ];
 
 export default function CourseMastersPage() {
-  const [currentSlide, setCurrentSlide] = React.useState(0);
-  const [showEnrollForm, setShowEnrollForm] = React.useState(false);
-  const [formData, setFormData] = React.useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    message: ''
-  });
-
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % images.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const handleWhatsApp = () => {
-    const phoneNumber = '+256755017384';
-    const message = 'Hello! I am interested in learning more about CourseMasters services.';
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-  };
-
-  const handleEmail = () => {
-    window.location.href = '/coursemasters/build-your-course';
-  };
-
-  const handleEnrollClick = () => {
-    setShowEnrollForm(true);
-  };
-
-  const handleCloseForm = () => {
-    setShowEnrollForm(false);
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      message: ''
-    });
-  };
-
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your interest! We will contact you soon.');
-    handleCloseForm();
-  };
-
   return (
-    <>
-      {/* HERO SECTION */}
-      <div className="relative h-[70vh] min-h-[520px] sm:h-[85vh] sm:min-h-[620px]">
-        {images.map((src, index) => (
-          <div
-            key={src}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <Image
-              src={src}
-              alt="Course Masters slideshow"
-              fill
-              className="object-cover"
-              unoptimized={true}
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
-            <div className="absolute inset-0 flex items-end lg:items-center">
-              <div className="w-full max-w-2xl px-5 sm:px-10 pb-8 lg:pb-0 text-white">
-                <div className="bg-black/50 backdrop-blur-md rounded-2xl p-5 sm:p-8 shadow-2xl border border-white/20">
-                  <p className="text-[0.65rem] sm:text-sm uppercase tracking-[0.3em] text-white/70">CourseMasters</p>
-                  <h2 className="text-2xl sm:text-4xl font-bold mt-3 mb-3 leading-tight">
-                    Let Us Create Your Online Course
-                  </h2>
-                  <p className="text-sm sm:text-lg text-white/90 mb-5 sm:mb-6">
-                    We specialize in creating impactful online courses for NGOs, EdTechs, schools, and government organizations. Whether you&apos;re looking to educate, empower, or innovate, we can help you bring your vision to life.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <button
-                      onClick={handleWhatsApp}
-                      className="bg-green-600 hover:bg-green-700 text-white font-medium py-2.5 px-6 rounded-xl flex items-center justify-center gap-2"
-                      suppressHydrationWarning
-                    >
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893 0-3.189-1.248-6.189-3.515-8.452" />
-                      </svg>
-                      WhatsApp
-                    </button>
-                    <button
-                      onClick={handleEmail}
-                      className="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-medium py-2.5 px-6 rounded-xl flex items-center justify-center gap-2"
-                      suppressHydrationWarning
-                    >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                      Build Your Course
-                    </button>
-                  </div>
-                </div>
+    <main className="min-h-screen bg-white">
+      {/* 1. HERO */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950">
+        <div className="container-custom py-16 sm:py-20 lg:py-28">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div className="text-white">
+              <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.3em] text-amber-400 mb-4">
+                CourseMasters™ by Qraft Academy
+              </p>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold leading-tight mb-5">
+                Turn Your Organization&apos;s Knowledge Into Scalable Digital Learning
+              </h1>
+              <p className="text-base sm:text-lg text-slate-300 mb-8 max-w-xl">
+                Transform your policies, curricula, manuals, technical knowledge and training programmes into professional digital courses — with the platforms, capabilities and support to deliver learning at scale.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 mb-5">
+                <Link
+                  href="/coursemasters/assessment"
+                  onClick={() => trackAssessmentClick('hero')}
+                  className="btn-primary text-center px-7 py-3.5 text-base"
+                >
+                  Book a Free Digital Learning Assessment
+                </Link>
+                <a
+                  href="#solutions"
+                  className="px-7 py-3.5 text-base font-semibold text-center rounded-xl border border-white/30 text-white hover:bg-white/10 transition"
+                >
+                  Explore Our Solutions
+                </a>
               </div>
+              <p className="text-xs sm:text-sm uppercase tracking-widest text-slate-400">
+                Digital Courses • Moodle LMS • Team Capability • Ongoing Support
+              </p>
+            </div>
+            <div className="relative h-[280px] sm:h-[360px] lg:h-[440px] rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+              <Image
+                src="https://res.cloudinary.com/dwa3soopc/image/upload/v1779659947/coursemasters/COURSE_TELEPROMPTER_mfatk0.jpg"
+                alt="CourseMasters production in progress"
+                fill
+                className="object-cover"
+                unoptimized
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      </section>
 
-      {/* COURSE PORTFOLIO SECTION */}
-      <div className="bg-gray-50">
-        <div className="container mx-auto px-4 py-12 sm:py-16">
-          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-600">Portfolio</p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3">Client Courses Portfolio</h2>
-            <p className="text-sm sm:text-base text-gray-600 mt-3">
-              A snapshot of courses built for partners and institutions.
-            </p>
+      {/* 2. TRUST STRIP */}
+      <section className="bg-slate-50 border-b border-slate-100">
+        <div className="container-custom py-10 sm:py-12">
+          <p className="text-center text-sm sm:text-base font-semibold text-slate-700 mb-8">
+            Digital learning solutions for organizations that need knowledge to travel further.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {[
+              { title: 'Institutional Experience', text: 'Digital learning developed for organizational programmes.' },
+              { title: 'End-to-End Capability', text: 'From content analysis to deployment.' },
+              { title: 'Built for Scale', text: 'Reusable learning that reaches people repeatedly.' }
+            ].map((item) => (
+              <div key={item.title} className="text-center px-4">
+                <p className="font-semibold text-slate-900 mb-1">{item.title}</p>
+                <p className="text-sm text-slate-600">{item.text}</p>
+              </div>
+            ))}
           </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
-          {[
-            {
-              title: 'D4GW Understanding Digital Rights Course',
-              partner: 'Enabel, Belgian Development Agency',
-              img: '/images/Understanding Digital Rights D4GW.png'
-            },
-            {
-              title: 'Business and Human Rights E-Learning Course',
-              partner: 'Enabel, EU, Ministry Of Gender, Labour And Economic Devt',
-              img: '/images/WhatsApp%20Image%202025-08-04%20at%2016.26.03_2aeab8e2.jpg'
-            },
-            {
-              title: 'French - D4GW Understanding Digital Rights Course',
-              partner: 'Enabel, Belgian Development Agency',
-              img: '/images/Understanding Digital Rights D4GW_11zon.png'
-            }
-          ].map((card, i) => (
-            <div key={i} className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
-              <Image
-                src={card.img}
-                alt={card.title}
-                width={400}
-                height={225}
-                className="w-full h-auto"
-                unoptimized={true}
-              />
-              <div className="p-5 sm:p-6">
-                <h3 className="text-base sm:text-lg font-semibold mb-1">{card.title}</h3>
-                <p className="text-sm text-gray-600 mb-4">{card.partner}</p>
-                <div className="flex justify-center">
+        </div>
+      </section>
+
+      {/* 3. THE PROBLEM */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900 mb-3">
+              Your Organization Already Has the Knowledge.
+            </h2>
+            <p className="text-lg sm:text-xl text-slate-600">But is it reaching everyone who needs it?</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {PROBLEM_CARDS.map((card) => (
+              <div key={card.title} className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
+                <h3 className="font-semibold text-slate-900 mb-2 text-lg">{card.title}</h3>
+                <p className="text-sm text-slate-600">{card.text}</p>
+              </div>
+            ))}
+          </div>
+          <p className="max-w-3xl mx-auto text-center text-lg sm:text-xl font-semibold text-slate-900 mt-12">
+            CourseMasters™ transforms institutional knowledge into structured digital learning that can be delivered consistently, repeatedly and at scale.
+          </p>
+        </div>
+      </section>
+
+      {/* 4. THE NEW COURSEMASTERS MODEL */}
+      <section id="solutions" className="section-padding bg-slate-50">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900 mb-3">
+              One Digital Learning Partner. Four Ways We Help.
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            {PILLARS.map((pillar) => (
+              <div key={pillar.tag} className="bg-white rounded-2xl border border-slate-100 shadow-sm p-7 sm:p-8 flex flex-col">
+                <div className="flex items-baseline gap-3 mb-3">
+                  <span className="text-3xl font-display font-bold text-slate-200">{pillar.number}</span>
+                  <span className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-600">{pillar.tag}</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-display font-bold text-slate-900 mb-2">{pillar.title}</h3>
+                <p className="text-slate-600 mb-5 flex-1">{pillar.text}</p>
+                <p className="text-amber-600 font-bold mb-4">{pillar.price}</p>
+                <a href={pillar.href} className="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center gap-1">
+                  {pillar.cta} →
+                </a>
+              </div>
+            ))}
+          </div>
+          <div className="bg-slate-900 rounded-2xl p-8 sm:p-10 text-center text-white">
+            <h3 className="text-xl sm:text-2xl font-display font-bold mb-2">Need the complete system?</h3>
+            <p className="text-slate-300 mb-1">Digital Courses + Moodle LMS + Team Capability + Ongoing Support</p>
+            <p className="text-amber-400 font-bold mb-6">Custom institutional engagements from UGX 30M+</p>
+            <Link
+              href="/coursemasters/assessment?interest=complete-system"
+              onClick={() => trackAssessmentClick('complete_system')}
+              className="btn-primary inline-block px-7 py-3.5"
+            >
+              Discuss Your Digital Learning System →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. FLAGSHIP OFFER */}
+      <section id="flagship" className="section-padding">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center mb-10">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.3em] text-blue-600 mb-3">Our Flagship Offer</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900 mb-2">CourseMasters™ Standard</h2>
+            <p className="text-lg sm:text-xl text-slate-600">One complete digital course. Ready to deploy.</p>
+          </div>
+          <div className="max-w-4xl mx-auto bg-slate-900 rounded-3xl p-8 sm:p-12 text-white">
+            <div className="text-center mb-10">
+              <p className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-amber-400">UGX 20,000,000</p>
+              <p className="text-sm sm:text-base uppercase tracking-[0.25em] text-slate-400 mt-2">Per Standard Course</p>
+            </div>
+            <div className="grid grid-cols-3 gap-4 mb-10 text-center">
+              <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <p className="text-xl sm:text-2xl font-bold text-amber-400">Up to 6</p>
+                <p className="text-xs sm:text-sm text-slate-300 mt-1">Modules</p>
+              </div>
+              <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <p className="text-xl sm:text-2xl font-bold text-amber-400">2–3 hrs</p>
+                <p className="text-xs sm:text-sm text-slate-300 mt-1">Learning Content</p>
+              </div>
+              <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <p className="text-xl sm:text-2xl font-bold text-amber-400">8–12 wks</p>
+                <p className="text-xs sm:text-sm text-slate-300 mt-1">Indicative Delivery</p>
+              </div>
+            </div>
+            <h4 className="font-semibold mb-4 text-slate-200 uppercase tracking-wide text-sm">Included</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 mb-10">
+              {FLAGSHIP_INCLUDED.map((item) => (
+                <div key={item} className="flex items-start gap-2">
+                  <span className="text-amber-400 font-bold">✓</span>
+                  <span className="text-slate-200 text-sm sm:text-base">{item}</span>
+                </div>
+              ))}
+            </div>
+            <div className="text-center">
+              <Link
+                href="/coursemasters/assessment?interest=flagship-course"
+                onClick={() => trackEvent('coursemasters_flagship_interest', { location: 'flagship_section' })}
+                className="btn-primary inline-block px-8 py-3.5"
+              >
+                Assess My Course Idea
+              </Link>
+              <p className="text-xs sm:text-sm text-slate-400 mt-4 max-w-xl mx-auto">
+                Final scope and investment depend on content volume, complexity, multimedia requirements, languages and technical integrations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. VALUE SECTION */}
+      <section className="section-padding bg-slate-50">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900">
+              More Than a Course. A Long-Term Learning Asset.
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 mb-16">
+            {VALUE_ITEMS.map((item) => (
+              <div key={item.title}>
+                <h3 className="font-semibold text-slate-900 mb-1">{item.title}</h3>
+                <p className="text-sm text-slate-600">{item.text}</p>
+              </div>
+            ))}
+          </div>
+          <div className="bg-slate-900 rounded-3xl py-14 sm:py-20 px-6 text-center">
+            <p className="text-2xl sm:text-4xl md:text-5xl font-display font-bold text-white leading-tight">YOUR CONTENT.</p>
+            <p className="text-2xl sm:text-4xl md:text-5xl font-display font-bold text-white leading-tight">OUR EXPERTISE.</p>
+            <p className="text-2xl sm:text-4xl md:text-5xl font-display font-bold text-amber-400 leading-tight">REAL IMPACT.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. HOW A COURSE IS BUILT */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900 mb-3">
+              From Your Content to a Ready-to-Use Digital Learning Experience
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            {BUILD_STEPS.map((step, i) => (
+              <div key={step} className="bg-white rounded-xl border border-slate-100 shadow-sm p-4 text-center min-h-[92px] flex flex-col justify-center">
+                <p className="text-xs font-bold text-blue-600 mb-1">{String(i + 1).padStart(2, '0')}</p>
+                <p className="text-sm font-semibold text-slate-900">{step}</p>
+              </div>
+            ))}
+          </div>
+          <p className="max-w-3xl mx-auto text-center text-lg font-semibold text-slate-900 mt-12">
+            You bring the subject-matter knowledge. We bring the instructional design, multimedia, technology and production expertise.
+          </p>
+        </div>
+      </section>
+
+      {/* 8. PROOF / CASE STUDIES */}
+      <section id="proof" className="section-padding bg-slate-50">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900">We&apos;ve Already Done This.</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {CASE_STUDIES.map((cs) => (
+              <div key={cs.title} className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden flex flex-col">
+                <div className="relative h-44">
+                  <Image src={cs.img} alt={cs.title} fill className="object-cover" unoptimized />
+                </div>
+                <div className="p-6 flex flex-col flex-1">
+                  <h3 className="font-semibold text-slate-900 mb-1">{cs.title}</h3>
+                  <p className="text-sm text-blue-600 font-medium mb-3">Client: {cs.client}</p>
+                  <p className="text-sm text-slate-600 mb-5 flex-1">{cs.delivered}</p>
                   <button
-                    onClick={() => window.open('https://ulearn.enabel.be/', '_blank')}
-                    className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-full"
-                    suppressHydrationWarning
+                    onClick={() => {
+                      trackCaseStudyView(cs.title);
+                      window.open('https://ulearn.enabel.be/', '_blank');
+                    }}
+                    className="text-blue-600 font-semibold hover:text-blue-700 text-left"
                   >
-                    View Course
+                    View Case Study →
                   </button>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-        </div>
-      </div>
+      </section>
 
-      {/* COURSEMASTERS PROGRAM */}
-      <div className="relative h-[520px] sm:h-[600px] mt-12 sm:mt-16">
-        <Image
-          src="/images/WhatsApp%20Image%202025-07-30%20at%2013.39.02_75522a4a.jpg"
-          alt="CourseMasters Program"
-          fill
-          className="object-cover"
-          unoptimized={true}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent flex items-center">
-          <div className="max-w-2xl px-6 sm:px-8 text-white">
-            <h2 className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
-              Learn How to Create<br />Your Own Courses
+      {/* 9. MID-FUNNEL CTA */}
+      <section className="section-padding">
+        <div className="container-custom max-w-3xl text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900 mb-3">
+            What Knowledge Could Your Organization Digitize?
+          </h2>
+          <p className="text-slate-600 mb-1">
+            Policies? Training manuals? Staff induction? Technical programmes? Partner training? Professional development?
+          </p>
+          <p className="text-slate-900 font-semibold mb-8">You don&apos;t need to know exactly what the solution should look like.</p>
+          <p className="text-slate-600 mb-6">We&apos;ll help you identify the opportunity.</p>
+          <Link
+            href="/coursemasters/assessment"
+            onClick={() => trackAssessmentClick('mid_funnel')}
+            className="btn-primary inline-block px-8 py-3.5"
+          >
+            Book a Free Digital Learning Assessment
+          </Link>
+        </div>
+      </section>
+
+      {/* 10. MOODLE OFFER */}
+      <section id="lms-offer" className="section-padding bg-slate-50">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900 mb-3">
+              Don&apos;t Have an LMS? We&apos;ll Build It.
             </h2>
-            <p className="text-sm sm:text-xl mb-6 sm:mb-8 leading-relaxed max-w-lg">
-              Join our CourseMasters Program and learn how to design, package, and sell your own courses. 
-              Perfect for company teams and individuals looking to share their expertise.
-            </p>
-
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 sm:p-6 mb-6 sm:mb-8 border border-white/20 max-w-md">
-              <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-center">Next Cohort</h3>
-              <div className="grid grid-cols-2 gap-4 text-center">
-                <div className="bg-white/20 rounded-lg p-3">
-                  <p className="text-sm opacity-90">Starts</p>
-                  <p className="text-base sm:text-lg font-bold">2nd March 2026</p>
-                </div>
-                <div className="bg-white/20 rounded-lg p-3">
-                  <p className="text-sm opacity-90">Ends</p>
-                  <p className="text-base sm:text-lg font-bold">5th June 2026</p>
-                </div>
-                <div className="col-span-2 bg-white/20 rounded-lg p-3">
-                  <p className="text-sm opacity-90">Duration</p>
-                  <p className="text-base sm:text-lg font-bold">90 Days</p>
-                </div>
-              </div>
-            </div>
-
-            <button
-              onClick={handleEnrollClick}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 sm:py-4 px-8 sm:px-12 rounded-full text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-            >
-              Enroll Now
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* WHAT WE DO */}
-      <section className="container mx-auto px-4 py-12 sm:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <div>
-            <div className="inline-block px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold mb-4">
-              Course Production Services
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Your Partner in E-learning Course Development & Instructional Design</h2>
-            <p className="text-base sm:text-lg text-gray-600 mb-6">
-              We design and develop engaging e-learning courses and train content creators to produce professional-quality learning experiences.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                'Design and develop engaging e-learning courses',
-                'Train content creators to produce professional-quality'
-              ].map((item) => (
-                <div key={item} className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
-                  <p className="text-gray-700 font-medium">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="relative w-full h-[260px] sm:h-[420px] rounded-3xl overflow-hidden shadow-xl">
-            <Image
-              src="https://res.cloudinary.com/dwa3soopc/image/upload/v1782396153/Screenshot_2025-07-17_at_21.01.33_bhpdiq.png"
-              alt="Course production"
-              fill
-              className="object-cover"
-              unoptimized={true}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
-          </div>
-        </div>
-      </section>
-
-      {/* OVERVIEW */}
-      <section className="bg-gray-50 py-12 sm:py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
-            <div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">CourseMasters Overview</h2>
-              <p className="text-base sm:text-lg text-gray-600 mb-6">
-                CourseMasters is Qraft Academy’s end-to-end e-learning course production service, designed to transform expert knowledge and curriculum into engaging, accessible, and visually compelling digital learning experiences.
-              </p>
-              <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 text-gray-700 leading-relaxed">
-                We provide full-service support—from instructional design and multimedia production to LMS integration—helping institutions, organizations, and experts deliver high-quality, mobile-ready courses at scale.
-              </div>
-            </div>
-            <div className="relative w-full h-[240px] sm:h-[380px] rounded-3xl overflow-hidden shadow-xl">
-              <Image
-                src="/images/coursesmasters.jpg"
-                alt="CourseMasters overview"
-                fill
-                className="object-cover"
-                unoptimized={true}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* VALUE PROPOSITION */}
-      <section className="container mx-auto px-4 py-12 sm:py-16">
-        <div className="max-w-4xl mx-auto text-center mb-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Our Value Proposition</h2>
-          <p className="text-base sm:text-lg text-gray-600">Built for scale, quality, and impact.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            { title: 'Fullstack Course Production', text: 'From needs analysis to final deployment.' },
-            { title: 'Multiple Production Teams', text: 'Ability to handle multiple projects simultaneously.' },
-            { title: 'Flexible Collaboration', text: 'We work and co-create with your team.' },
-            { title: 'SCORM & LMS-Ready Outputs', text: 'Courses can be deployed on any modern LMS.' },
-            { title: 'Low-Bandwidth Optimization', text: 'Ideal for African and global contexts.' },
-            { title: 'Quality at Scale', text: 'Consistent delivery across multiple programs.' }
-          ].map((item) => (
-            <div key={item.title} className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-              <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-              <p className="text-gray-700">{item.text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CORE SERVICES */}
-      <section className="bg-gray-50 py-12 sm:py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Core Services</h2>
-            <p className="text-base sm:text-lg text-gray-600">End-to-end services for high-impact learning.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                title: 'Course Design & Development',
-                image: '/images/hero.png',
-                items: [
-                  'Instructional design based on adult learning principles',
-                  'Content scripting, storyboarding, and curriculum alignment',
-                  'Accessibility and inclusion-focused approach'
-                ]
-              },
-              {
-                title: 'Multimedia Production',
-                image: '/images/rect3.png',
-                items: [
-                  'Audio-visual recording and editing (voiceovers, video, animations)',
-                  'Interactive assets including simulations and knowledge checks',
-                  'Studio or on-location production services'
-                ]
-              },
-              {
-                title: 'Digital Authoring & Publishing',
-                image: 'https://www.easygenerator.com/wp-content/uploads/2026/03/Top-SCORM-compliant-authoring-tools-v2.png',
-                items: [
-                  'Authoring using tools like Articulate 360, Rise, and Adobe Captivate',
-                  'Responsive e-learning modules for mobile and desktop',
-                  'SCORM-compliant and LMS-ready exports'
-                ]
-              },
-              {
-                title: 'Platform Integration & Support',
-                image: 'https://codigital.ec/storage/2022/06/que-es-moodle.jpg',
-                items: [
-                  'Deployment on LMS (Moodle, TalentLMS, custom platforms)',
-                  'User experience testing and localization services',
-                  'Post-deployment updates and analytics tracking'
-                ]
-              }
-            ].map((service) => (
-              <div key={service.title} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                <div className="relative h-36 sm:h-40">
-                  <Image src={service.image} alt={service.title} fill className="object-cover" unoptimized={true} />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg sm:text-xl font-semibold mb-4">{service.title}</h3>
-                  <ul className="space-y-2 text-gray-700">
-                    {service.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2">
-                        <span className="mt-1 h-2 w-2 rounded-full bg-blue-600" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* IDEAL FOR */}
-      <section className="container mx-auto px-4 py-12 sm:py-16">
-        <div className="max-w-4xl mx-auto text-center mb-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Ideal For</h2>
-          <p className="text-base sm:text-lg text-gray-600">Who we serve best.</p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            'Corporate Learning & Development Teams',
-            'NGOs, Development Agencies & International Organizations',
-            'Educators & Academic Professionals',
-            'Subject Matter Experts & Thought Leaders',
-            'Universities, Colleges & Training Institutions',
-            'Government & Public Sector Programs'
-          ].map((item) => (
-            <div key={item} className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-gray-700 font-medium">
-              {item}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* STUDIOS */}
-      <section className="bg-gray-50 py-12 sm:py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-10">
-            <div className="inline-block px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold mb-4">
-              CourseMasters Studios
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Purpose-Built Spaces for World-Class E-Learning Content Creation</h2>
-            <p className="text-base sm:text-lg text-gray-600">
-              We operate three dedicated production studios engineered to deliver high-impact digital learning experiences.
+            <p className="text-lg sm:text-xl text-blue-600 font-semibold mb-3">CourseMasters™ Moodle LMS</p>
+            <p className="text-slate-600">
+              Create a branded environment where your organization can deliver courses, enrol learners, administer assessments, monitor completion, issue certificates and manage learning over time.
             </p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: 'Course Audio Studio',
-                subtitle: 'Professional Voice, Script, and Sound for Seamless Learning',
-                image: 'https://res.cloudinary.com/dwa3soopc/image/upload/v1779656895/coursemasters/coursemasters_audio_studio_cq9zxq.jpg',
-                items: [
-                  'Script Writing & Curriculum Adaptation',
-                  'Voice-over Recording',
-                  'Audio Mixing & Mastering',
-                  'Custom Music & Sound Effects',
-                  'Multilingual & Inclusive Narration'
-                ]
-              },
-              {
-                title: 'Instructional Animation & Motion Graphics Studio',
-                subtitle: 'Bringing Concepts to Life',
-                image: 'https://res.cloudinary.com/dwa3soopc/image/upload/v1779657762/coursemasters/Real_life_image_of_an_202605250022_hsmvk2.jpg',
-                items: [
-                  'Storyboarding, scripting, and synced narration',
-                  '2D & 3D animations for educational content',
-                  'Explainer videos & animated infographics',
-                  'Whiteboard-style visualizations',
-                  'Animated transitions & overlays',
-                  'Interactive visual cues and interface animations'
-                ]
-              },
-              {
-                title: 'Live-Action Course Video Production Studio',
-                subtitle: 'Capturing Real Learning in Action',
-                image: 'https://res.cloudinary.com/dwa3soopc/image/upload/v1779657282/coursemasters/coursemasters_video_studio_peuauv.jpg',
-                items: [
-                  'Presenter-led course recordings',
-                  'Green screen and controlled studio shoots',
-                  'Field-based documentary-style footage',
-                  'Multi-angle camera setups, lighting, and sound',
-                  'Post-production: editing, B-roll, motion graphics, and subtitles'
-                ]
-              }
-            ].map((studio) => (
-              <div key={studio.title} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                <div className="relative h-36 sm:h-40">
-                  <Image src={studio.image} alt={studio.title} fill className="object-cover" unoptimized={true} />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg sm:text-xl font-semibold mb-2">{studio.title}</h3>
-                  <p className="text-sm text-gray-600 mb-4">{studio.subtitle}</p>
-                  <ul className="space-y-2 text-gray-700">
-                    {studio.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2">
-                        <span className="mt-1 h-2 w-2 rounded-full bg-blue-600" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="max-w-4xl mx-auto mt-10 text-center text-gray-700">
-            Our specialized studios ensure that every element—voice, visuals, and video—is crafted to the highest standards of quality, accessibility, and instructional value.
-          </div>
-        </div>
-      </section>
-
-      {/* TEAM & PARTNERS */}
-      <section className="container mx-auto px-4 py-12 sm:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 items-start">
-          <div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Our Team and Expertise Portfolio</h2>
-            <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">An elite team for world-class e-learning production.</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[
-                { name: 'Tugume Andrew', role: 'Project Manager | Hybrid Learning Specialist | Instructional Designer | SME', image: null },
-                { name: 'Mrs Kevin Patience Oyella', role: 'Voice-over & Script Lead', image: 'https://res.cloudinary.com/dwa3soopc/image/upload/v1782197435/IMG_2691_tkwq8q.jpg' },
-                { name: 'Caesar Mwaka', role: 'Art Director / Storyboarder and Illustrator', image: null },
-                { name: 'Pius Kibazzi', role: 'Videographer / Video Editor', image: 'https://res.cloudinary.com/dwa3soopc/image/upload/v1782197435/IMG_2705_wi5axd.jpg' },
-                { name: 'Rashid Kasule', role: 'Motion Graphics Animator', image: null },
-                { name: 'Andrew Okwir', role: 'Audio Engineer / Music Producer', image: null },
-              ].map((member) => (
-                <div key={member.name} className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                  <div className="h-40 sm:h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
-                    {member.image ? (
-                      <img src={member.image} alt={member.name} className="w-full h-full object-cover object-top" />
-                    ) : (
-                      <div className="w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 text-2xl font-bold">
-                        {member.name.split(' ').filter(w => /^[A-Z]/.test(w)).slice(0, 2).map(w => w[0]).join('')}
-                      </div>
-                    )}
-                  </div>
-                  <div className="p-5">
-                    <p className="font-semibold text-neutral-900">{member.name}</p>
-                    <p className="text-sm text-gray-500 mt-1">{member.role}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-            <div className="relative h-48 sm:h-64">
-              <Image src="/images/rect3.png" alt="CourseMasters team" fill className="object-cover" unoptimized={true} />
-            </div>
-            <div className="p-6">
-              <h3 className="text-lg sm:text-xl font-semibold mb-3">Partners</h3>
-              <div className="flex flex-wrap gap-3 text-gray-700">
-                {[
-                  { name: 'ASB Records', logo: null },
-                  { name: 'Kibazzi Kraft', logo: null },
-                  { name: 'Kwonkalture Creations', logo: null },
-                  { name: '26 voices', logo: 'https://images.ctfassets.net/tq92n9tmpo3b/1bngJDsNPxk6opl8lF0eOa/a2e155f2271bede67fb314cf6e6e278c/KB.png' },
-                ].map((partner) => (
-                  <span key={partner.name} className="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium flex items-center gap-2">
-                    {partner.logo && <img src={partner.logo} alt={partner.name} className="h-5 w-auto object-contain" />}
-                    {partner.name}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {LMS_TIERS.map((tier) => (
+              <div
+                key={tier.tag}
+                className={`relative bg-white rounded-2xl border p-7 flex flex-col ${
+                  tier.popular ? 'border-blue-600 shadow-lg ring-2 ring-blue-100' : 'border-slate-100 shadow-sm'
+                }`}
+              >
+                {tier.popular && (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    MOST POPULAR
                   </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CONSULTING */}
-      <section className="bg-gray-50 py-12 sm:py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 items-center">
-            <div className="relative h-[220px] sm:h-[360px] rounded-3xl overflow-hidden shadow-xl">
-              <Image src="/images/image.webp" alt="Consulting" fill className="object-cover" unoptimized={true} />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
-            </div>
-            <div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Consulting</h2>
-              <p className="text-base sm:text-lg text-gray-600 mb-6">Strategy and advisory services to guide your e-learning vision.</p>
-              <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
-                <ul className="space-y-3 text-gray-700 mb-6">
-                  {[
-                    'Needs assessment and instructional strategy',
-                    'Curriculum design and multimedia production advisory',
-                    'Platform and technology recommendations',
-                    'Monitoring & Evaluation (M&E) strategy',
-                    'Accessibility and inclusion reviews',
-                    'Capacity building for internal content teams'
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-2">
-                      <span className="mt-1 h-2 w-2 rounded-full bg-blue-600" />
-                      <span>{item}</span>
+                )}
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-600 mb-1">{tier.tag}</p>
+                <h3 className="text-xl font-display font-bold text-slate-900 mb-2">{tier.tier}</h3>
+                <p className="text-amber-600 font-bold mb-5">{tier.price}</p>
+                <ul className="space-y-2 mb-6 flex-1">
+                  {tier.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
+                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0" />
+                      {item}
                     </li>
                   ))}
                 </ul>
-                <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
-                  <div className="text-base sm:text-lg font-semibold text-gray-900">Consulting Rate: $400 per day</div>
-                  <button
-                    onClick={handleEmail}
-                    className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-6 rounded-full"
-                  >
-                    Request a Consult
-                  </button>
-                </div>
               </div>
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <Link
+              href="/coursemasters/assessment?interest=moodle-lms"
+              onClick={() => trackEvent('coursemasters_lms_interest', { location: 'lms_section' })}
+              className="btn-primary inline-block px-8 py-3.5"
+            >
+              Assess My LMS Requirements
+            </Link>
+            <p className="text-xs sm:text-sm text-slate-500 mt-4 max-w-xl mx-auto">
+              Hosting, domain registration, premium plugins, third-party licences and specialized integrations are scoped separately.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 11. CAPABILITY / DIY OFFER */}
+      <section id="capability-offer" className="section-padding">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900">
+              Want to Build Courses Yourself?
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-8 flex flex-col">
+              <h3 className="text-xl font-display font-bold text-slate-900 mb-1">Individual Course Creator Programme</h3>
+              <p className="text-sm text-slate-500 mb-4">For trainers, consultants, lecturers, subject-matter experts and professionals.</p>
+              <p className="text-2xl font-display font-bold text-amber-600 mb-5">UGX 3,000,000 / participant</p>
+              <p className="text-sm font-semibold text-slate-700 mb-2">Learn to:</p>
+              <ul className="space-y-1.5 mb-6 flex-1">
+                {['Course idea & learner definition', 'Learning architecture', 'Module design', 'Storyboarding', 'Multimedia planning', 'Assessment design', 'Course building', 'Deployment'].map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-sm font-semibold text-slate-900 mb-6">
+                Leave with a practical digital course prototype — not just course-creation theory.
+              </p>
+              <Link
+                href="/coursemasters/assessment?interest=individual-training"
+                onClick={() => trackEvent('coursemasters_training_interest', { offer: 'individual' })}
+                className="btn-primary text-center px-6 py-3"
+              >
+                Join CourseMasters
+              </Link>
+            </div>
+            <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-8 flex flex-col">
+              <h3 className="text-xl font-display font-bold text-slate-900 mb-1">Institutional CourseMasters™ Bootcamp</h3>
+              <p className="text-sm text-slate-500 mb-4">For HR, L&amp;D, programme, communications, academic and technical teams.</p>
+              <p className="text-2xl font-display font-bold text-amber-600 mb-1">UGX 15M / organization</p>
+              <p className="text-sm text-slate-500 mb-5">3–5 Day Practical Bootcamp</p>
+              <ul className="space-y-1.5 mb-6 flex-1">
+                {['Team-based course development', 'Tools, templates & checklists', 'Moodle/course-authoring workflow', 'Prototype development', 'Optional mentorship'].map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/coursemasters/assessment?interest=team-bootcamp"
+                onClick={() => trackEvent('coursemasters_training_interest', { offer: 'institutional' })}
+                className="btn-primary text-center px-6 py-3"
+              >
+                Train My Team
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CONTACT */}
-      <section className="container mx-auto px-4 py-12 sm:py-16">
-        <div className="max-w-5xl mx-auto text-center mb-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Powered by Qraft Academy</h2>
-          <p className="text-base sm:text-lg text-gray-600">Shaping the future of e-learning and education technology in Africa.</p>
+      {/* 12. PRODUCTION CAPABILITY */}
+      <section className="section-padding bg-slate-50">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900">
+              One Engagement. A Multidisciplinary Team Behind It.
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-10">
+            {PRODUCTION_SKILLS.map((skill) => (
+              <div key={skill} className="bg-white rounded-xl border border-slate-100 shadow-sm py-4 px-3 text-center">
+                <p className="text-sm font-semibold text-slate-700">{skill}</p>
+              </div>
+            ))}
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {PRODUCTION_PHOTOS.map((src) => (
+              <div key={src} className="relative h-36 sm:h-44 rounded-xl overflow-hidden">
+                <Image src={src} alt="CourseMasters production" fill className="object-cover" unoptimized />
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 items-stretch">
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col justify-between">
+      </section>
+
+      {/* 13. HOW WE WORK */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center mb-3">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900">How We Work</h2>
+          </div>
+          <p className="max-w-2xl mx-auto text-center text-sm text-slate-500 mb-12">
+            The ten-step process above explains how a course is produced. This framework explains how CourseMasters works with you, the client.
+          </p>
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4">
+            {WORK_STEPS.map((step, i) => (
+              <div key={step} className="flex items-center gap-3">
+                <div className="bg-slate-900 text-white rounded-xl px-6 py-4 text-center min-w-[120px]">
+                  <p className="text-xs text-amber-400 font-bold mb-1">{String(i + 1).padStart(2, '0')}</p>
+                  <p className="font-semibold">{step}</p>
+                </div>
+                {i < WORK_STEPS.length - 1 && <span className="hidden sm:block text-slate-300 text-lg">→</span>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 14. SUPPORT & SCALE */}
+      <section id="support" className="section-padding bg-slate-50">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
             <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-blue-600 font-semibold">Contact</p>
-              <p className="mt-4 text-lg font-semibold text-gray-900">Let&apos;s build something great together.</p>
-              <div className="mt-4 space-y-2 text-gray-700">
-                <p>📞 +256 755017384</p>
-                <p>📧 <a className="text-blue-600 hover:text-blue-700" href="mailto:drew@qraftacademy.com">drew@qraftacademy.com</a></p>
-                <p>🌐 qraftacademy.com</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4">
+                Keep Your Digital Learning Working.
+              </h2>
+              <div className="grid grid-cols-2 gap-x-6 gap-y-2 mb-6">
+                {SUPPORT_ITEMS.map((item) => (
+                  <p key={item} className="text-sm text-slate-600 flex items-start gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0" />
+                    {item}
+                  </p>
+                ))}
               </div>
             </div>
-            <div className="mt-6 flex flex-col sm:flex-row gap-3">
-              <button
-                onClick={handleWhatsApp}
-                className="bg-green-600 hover:bg-green-700 text-white font-medium py-2.5 px-6 rounded-full"
+            <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-8 text-center">
+              <p className="text-sm font-semibold uppercase tracking-widest text-slate-500 mb-2">Annual Support</p>
+              <p className="text-2xl sm:text-3xl font-display font-bold text-amber-600 mb-6">From UGX 3M–10M+ / year</p>
+              <Link
+                href="/coursemasters/assessment?interest=ongoing-support"
+                onClick={() => trackAssessmentClick('support')}
+                className="btn-primary inline-block px-6 py-3"
               >
-                WhatsApp Us
-              </button>
-              <button
-                onClick={handleEmail}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-6 rounded-full"
-              >
-                Start a Project
-              </button>
-            </div>
-          </div>
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-            <div className="relative h-48 sm:h-56">
-              <Image src="/images/rect3.png" alt="Kampala Uganda" fill className="object-cover" unoptimized={true} />
-            </div>
-            <div className="p-6 text-gray-700">
-              <p className="font-semibold">Location</p>
-              <p className="mt-2">Kampala, Uganda</p>
-              <p>Plot 4–10 Kiwana Road, Bukoto, Kampala, Uganda</p>
+                Discuss Ongoing Support
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ENROLL FORM MODAL */}
-      {showEnrollForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6">
-              <div className="flex justify-between items-center mb-6">
-                <h3 className="text-2xl font-bold text-gray-800">Enroll in CourseMasters Program</h3>
-                <button
-                  onClick={handleCloseForm}
-                  className="text-gray-500 hover:text-gray-700 transition-colors"
-                >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12"/>
-                  </svg>
-                </button>
-              </div>
-
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Enter your full name"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Enter your email address"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Enter your phone number"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">Company/Organization</label>
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Enter your company name (optional)"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Additional Information</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={4}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Tell us about your course creation goals..."
-                  />
-                </div>
-
-                <div className="flex gap-3 pt-4">
-                  <button
-                    type="button"
-                    onClick={handleCloseForm}
-                    className="w-1/2 bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-md font-semibold transition"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="submit"
-                    className="w-1/2 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-semibold transition"
-                  >
-                    Submit
-                  </button>
-                </div>
-              </form>
-            </div>
+      {/* 15. FAQ */}
+      <section id="faq" className="section-padding">
+        <div className="container-custom max-w-3xl">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900">Frequently Asked Questions</h2>
+          </div>
+          <div className="space-y-3">
+            {FAQS.map((faq) => (
+              <details key={faq.q} className="group bg-white rounded-xl border border-slate-100 shadow-sm p-5 sm:p-6">
+                <summary className="font-semibold text-slate-900 cursor-pointer list-none flex items-center justify-between gap-4">
+                  {faq.q}
+                  <span className="text-blue-600 shrink-0 group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <p className="text-sm sm:text-base text-slate-600 mt-3">{faq.a}</p>
+              </details>
+            ))}
           </div>
         </div>
-      )}
-    </>
+      </section>
+
+      {/* 16. FINAL CONVERSION SECTION */}
+      <section className="section-padding bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950 text-white">
+        <div className="container-custom max-w-3xl text-center">
+          <h2 className="text-xl sm:text-2xl font-display font-bold mb-3">Not Sure What to Digitize First?</h2>
+          <p className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-amber-400 mb-6 leading-tight">
+            Start With a Complimentary Digital Learning Opportunity Assessment.
+          </p>
+          <p className="text-slate-300 mb-3 max-w-xl mx-auto">
+            In a short discovery session, we&apos;ll assess your existing training content, target learners, delivery challenges, LMS situation and digital-learning opportunities.
+          </p>
+          <p className="text-slate-200 font-semibold mb-8">
+            You&apos;ll receive an initial recommendation on the most suitable way forward.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
+            <Link
+              href="/coursemasters/assessment"
+              onClick={() => trackAssessmentClick('final_cta')}
+              className="btn-primary px-8 py-3.5 text-center"
+            >
+              Book My Free Assessment
+            </Link>
+            <button
+              onClick={() =>
+                openWhatsApp('Hello! I would like to talk to CourseMasters about a digital learning project.', 'final_cta')
+              }
+              className="px-8 py-3.5 text-center font-semibold rounded-xl border border-white/30 text-white hover:bg-white/10 transition"
+            >
+              Talk to CourseMasters on WhatsApp
+            </button>
+          </div>
+          <p className="text-xs sm:text-sm text-slate-400">
+            +256 755 017 384 · <a className="underline hover:text-white" href="mailto:drew@qraftacademy.com">drew@qraftacademy.com</a> · Kampala, Uganda
+          </p>
+        </div>
+      </section>
+    </main>
   );
 }

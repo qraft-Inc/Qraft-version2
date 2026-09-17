@@ -2,9 +2,12 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About | Qraft Academy",
-  description:
-    "Learn about Qraft Academy and our mission to shape the future of work through education, technology, and finance.",
+  title: "About Qraft Academy | Our Mission, Vision & Story",
+  description: "Qraft Academy is building the future of Work and Leadership in Africa through Continuous Learning, System Building, and Strategic Capital Management. Based in Kampala, Uganda.",
+  openGraph: {
+    title: "About Qraft Academy | Our Mission, Vision & Story",
+    description: "Learn about Qraft Academy's mission to shape the future of Work and Leadership through education, systems, and capital.",
+  },
 };
 
 export default function AboutPage() {

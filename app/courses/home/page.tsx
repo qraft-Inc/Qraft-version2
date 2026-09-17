@@ -1,5 +1,15 @@
+import { type Metadata } from 'next';
 import Image from 'next/image';
 import React from 'react';
+
+export const metadata: Metadata = {
+  title: "Courses | Future of Work & Skills | Qraft Academy",
+  description: "Explore Qraft Academy's course catalog — TechMasters apprenticeships, CourseMasters course creation, WorkMasters work readiness, and CapitalMasters financial programs.",
+  openGraph: {
+    title: "Courses | Future of Work & Skills | Qraft Academy",
+    description: "Explore Qraft Academy's full course catalog for professionals, graduates, and organizations.",
+  },
+};
 
 import { Button } from '@/components/ui/button';
 import { AvailableCourses } from './_components/available-courses';

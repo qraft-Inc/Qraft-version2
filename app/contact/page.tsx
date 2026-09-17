@@ -2,9 +2,12 @@ import { Metadata } from "next";
 import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact | Qraft Academy",
-  description:
-    "Contact Qraft Academy for course development, learning infrastructure, and workforce transformation support.",
+  title: "Contact Qraft Academy | Get in Touch",
+  description: "Contact Qraft Academy for governance systems, course development, learning infrastructure, and workforce transformation support. Based in Bukoto, Kampala, Uganda.",
+  openGraph: {
+    title: "Contact Qraft Academy | Get in Touch",
+    description: "Reach Qraft Academy by phone, WhatsApp, or email. We are based in Bukoto, Kampala, Uganda.",
+  },
 };
 
 export default function ContactPage() {
