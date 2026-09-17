@@ -117,7 +117,7 @@ const CASE_STUDIES = [
   {
     title: 'D4GW — Understanding Digital Rights',
     client: 'Enabel / Belgian Development Agency',
-    delivered: 'Digital course development, instructional design, multimedia, interactive learning, assessment, Moodle deployment and localization.',
+    delivered: 'Digital course development, instructional design, multimedia, interactive learning, assessment, Moodle deployment, and English and French localization for wider learner accessibility.',
     img: '/images/Understanding Digital Rights D4GW.png'
   },
   {
@@ -127,10 +127,10 @@ const CASE_STUDIES = [
     img: '/images/WhatsApp%20Image%202025-08-04%20at%2016.26.03_2aeab8e2.jpg'
   },
   {
-    title: 'French D4GW',
-    client: 'Enabel / Belgian Development Agency',
-    delivered: 'French localization and deployment to expand learner accessibility.',
-    img: '/images/Understanding Digital Rights D4GW_11zon.png'
+    title: 'Decent Work & Social Protection (DWSP)',
+    client: 'Enabel',
+    delivered: 'Six-module bilingual digital learning course developed for Enabel.',
+    img: 'https://res.cloudinary.com/dwa3soopc/image/upload/v1782317227/DWSP_COVER_11zon_1_bg4v9r.png'
   }
 ];
 
@@ -244,7 +244,7 @@ export default function CourseMastersPage() {
                   onClick={() => trackAssessmentClick('hero')}
                   className="btn-primary text-center px-7 py-3.5 text-base"
                 >
-                  Book a Free Digital Learning Assessment
+                  Take a Free Digital Learning Assessment
                 </Link>
                 <a
                   href="#solutions"
@@ -501,7 +501,7 @@ export default function CourseMastersPage() {
             onClick={() => trackAssessmentClick('mid_funnel')}
             className="btn-primary inline-block px-8 py-3.5"
           >
-            Book a Free Digital Learning Assessment
+            Take a Free Digital Learning Assessment
           </Link>
         </div>
       </section>
@@ -726,7 +726,7 @@ export default function CourseMastersPage() {
             Start With a Complimentary Digital Learning Opportunity Assessment.
           </p>
           <p className="text-slate-300 mb-3 max-w-xl mx-auto">
-            In a short discovery session, we&apos;ll assess your existing training content, target learners, delivery challenges, LMS situation and digital-learning opportunities.
+            In a few minutes, tell us about your existing training content, target learners, delivery challenges, LMS situation and digital-learning opportunities.
           </p>
           <p className="text-slate-200 font-semibold mb-8">
             You&apos;ll receive an initial recommendation on the most suitable way forward.
@@ -737,7 +737,7 @@ export default function CourseMastersPage() {
               onClick={() => trackAssessmentClick('final_cta')}
               className="btn-primary px-8 py-3.5 text-center"
             >
-              Book My Free Assessment
+              Take My Free Assessment
             </Link>
             <button
               onClick={() =>
