@@ -1,6 +1,7 @@
 import cn from "classnames";
 import type { Metadata } from "next";
 import Image from 'next/image';
+import Link from 'next/link';
 import React from "react";
 import "@/styles/tailwind.css";
 import Footer from "@/components/layout/footer";
@@ -61,7 +62,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
-      className={cn(baronNeue.variable, lato.variable, "font-body antialiased")}
+      className={cn(baronNeue.variable, lato.variable, "font-body antialiased scroll-smooth")}
       lang="en"
       suppressHydrationWarning
     >
@@ -74,7 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {/* Header Bar */}
           <div className="gradient-primary text-white py-3 sm:py-4 px-4 shadow-lg">
             <div className="container-custom flex items-center justify-center">
-              <div className="flex items-center gap-3 sm:gap-4 group cursor-pointer">
+              <Link href="/" aria-label="Qraft Academy home" className="flex items-center gap-3 sm:gap-4 group cursor-pointer">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-1.5 sm:p-2 group-active:scale-110 sm:group-hover:scale-110 transition-all duration-300 shadow-lg flex-shrink-0">
                   <Image
                     src="https://res.cloudinary.com/dwa3soopc/image/upload/v1741593598/WhatsApp_Image_2025-02-23_at_00.01.59-removebg-preview_d20kvk.png"
@@ -86,7 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   />
                 </div>
                 <span className="text-lg sm:text-xl md:text-2xl font-display font-bold">Qraft Academy</span>
-              </div>
+              </Link>
             </div>
           </div>
           <Navigation />

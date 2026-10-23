@@ -1,17 +1,18 @@
 import { Metadata } from "next";
-import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
+import { MapPin, Mail, MessageCircle } from "lucide-react";
+import ProposalRequestForm from "@/components/forms/proposal-request-form";
 
 export const metadata: Metadata = {
-  title: "Contact Qraft Academy | Get in Touch",
+  title: "Request an Institutional Proposal | Qraft Academy",
   description: "Contact Qraft Academy for governance systems, course development, learning infrastructure, and workforce transformation support. Based in Bukoto, Kampala, Uganda.",
   openGraph: {
-    title: "Contact Qraft Academy | Get in Touch",
-    description: "Reach Qraft Academy by phone, WhatsApp, or email. We are based in Bukoto, Kampala, Uganda.",
+    title: "Request an Institutional Proposal | Qraft Academy",
+    description: "Request an institutional proposal or book a capability consultation. Qraft Academy is based in Bukoto, Kampala, Uganda.",
   },
 };
 
 export default function ContactPage() {
-  const whatsappUrl = "https://wa.me/256767769569?text=" + encodeURIComponent("Hi, I’d like to get in touch with Qraft Academy.");
+  const whatsappUrl = "https://wa.me/256767769569?text=" + encodeURIComponent("Hi, I’d like to discuss an institutional engagement with Qraft Academy.");
 
   return (
     <main className="min-h-screen">
@@ -19,17 +20,36 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="section-padding bg-gradient-to-br from-primary-600 to-accent-600">
         <div className="container-custom text-center text-white max-w-4xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-6">Contact Qraft Academy</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-6">Partner With Qraft Academy</h1>
           <p className="text-lg sm:text-xl mb-10 leading-relaxed opacity-95">
-            Let’s discuss how we can support your learning systems, course production, and workforce growth strategy.
+            Request an institutional proposal or book a capability consultation. Tell us about your organization, solution of interest, and project scope — we respond with a structured proposal aligned to your procurement requirements.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-primary bg-white text-primary-700 hover:bg-white/90 px-8 py-4 text-lg font-bold">
-              Chat on WhatsApp
+            <a href="#rfp" className="btn-primary bg-white text-primary-700 hover:bg-white/90 px-8 py-4 text-lg font-bold">
+              Request Institutional Proposal
             </a>
-            <a href="mailto:drew@qraftacademy.com" className="px-8 py-4 bg-white/10 backdrop-blur-md text-white text-lg font-semibold rounded-xl hover:bg-white/20 transition-all duration-300 border border-white/30">
-              Send an Email
+            <a href="mailto:drew@qraftacademy.com?subject=Capability%20Consultation%20Request" className="px-8 py-4 bg-white/10 backdrop-blur-md text-white text-lg font-semibold rounded-xl hover:bg-white/20 transition-all duration-300 border border-white/30">
+              Book Capability Consultation
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Proposal Request Form */}
+      <section id="rfp" className="section-padding bg-neutral-50 scroll-mt-24">
+        <div className="container-custom px-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-neutral-900 mb-4">
+                Request an Institutional Proposal
+              </h2>
+              <p className="text-neutral-600 text-base sm:text-lg">
+                For INGOs and development partners, corporate and financial institutions, and mid-market enterprises.
+              </p>
+            </div>
+            <div className="card p-6 sm:p-8 md:p-10">
+              <ProposalRequestForm />
+            </div>
           </div>
         </div>
       </section>
@@ -39,7 +59,7 @@ export default function ContactPage() {
         <div className="container-custom px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl sm:text-3xl font-display font-bold text-neutral-900 mb-10 text-center">
-              Get in Touch
+              Institutional Inquiries
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
 

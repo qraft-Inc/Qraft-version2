@@ -43,9 +43,9 @@ const PILLARS = [
     tag: 'CAPABILITY',
     title: 'We Teach You to Build',
     text: 'Equip your people to design, develop and deploy quality digital courses internally.',
-    price: 'From UGX 3M / participant',
-    href: '#capability-offer',
-    cta: 'Explore CourseMasters Training'
+    price: 'UGX 15M / organization',
+    href: '/solutions/talentmasters#coursemasters-clinic',
+    cta: 'View the Clinic on TalentMasters™'
   },
   {
     number: '04',
@@ -209,7 +209,7 @@ const FAQS = [
   },
   {
     q: 'Can you train our internal team instead?',
-    a: 'Yes. CourseMasters offers both individual course-creator training and institutional team bootcamps.'
+    a: 'Yes. The Institutional CourseMasters™ Clinic, delivered through TalentMasters™, equips your HR, L&D and programme teams to design and build digital learning in-house, with optional ongoing mentorship.'
   },
   {
     q: 'Can courses be multilingual?',
@@ -556,64 +556,6 @@ export default function CourseMastersPage() {
             <p className="text-xs sm:text-sm text-slate-500 mt-4 max-w-xl mx-auto">
               Hosting, domain registration, premium plugins, third-party licences and specialized integrations are scoped separately.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 11. CAPABILITY / DIY OFFER */}
-      <section id="capability-offer" className="section-padding">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900">
-              Want to Build Courses Yourself?
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-8 flex flex-col">
-              <h3 className="text-xl font-display font-bold text-slate-900 mb-1">Individual Course Creator Programme</h3>
-              <p className="text-sm text-slate-500 mb-4">For trainers, consultants, lecturers, subject-matter experts and professionals.</p>
-              <p className="text-2xl font-display font-bold text-amber-600 mb-5">UGX 3,000,000 / participant</p>
-              <p className="text-sm font-semibold text-slate-700 mb-2">Learn to:</p>
-              <ul className="space-y-1.5 mb-6 flex-1">
-                {['Course idea & learner definition', 'Learning architecture', 'Module design', 'Storyboarding', 'Multimedia planning', 'Assessment design', 'Course building', 'Deployment'].map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <p className="text-sm font-semibold text-slate-900 mb-6">
-                Leave with a practical digital course prototype — not just course-creation theory.
-              </p>
-              <Link
-                href="/coursemasters/assessment?interest=individual-training"
-                onClick={() => trackEvent('coursemasters_training_interest', { offer: 'individual' })}
-                className="btn-primary text-center px-6 py-3"
-              >
-                Join CourseMasters
-              </Link>
-            </div>
-            <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-8 flex flex-col">
-              <h3 className="text-xl font-display font-bold text-slate-900 mb-1">Institutional CourseMasters™ Bootcamp</h3>
-              <p className="text-sm text-slate-500 mb-4">For HR, L&amp;D, programme, communications, academic and technical teams.</p>
-              <p className="text-2xl font-display font-bold text-amber-600 mb-1">UGX 15M / organization</p>
-              <p className="text-sm text-slate-500 mb-5">3–5 Day Practical Bootcamp</p>
-              <ul className="space-y-1.5 mb-6 flex-1">
-                {['Team-based course development', 'Tools, templates & checklists', 'Moodle/course-authoring workflow', 'Prototype development', 'Optional mentorship'].map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/coursemasters/assessment?interest=team-bootcamp"
-                onClick={() => trackEvent('coursemasters_training_interest', { offer: 'institutional' })}
-                className="btn-primary text-center px-6 py-3"
-              >
-                Train My Team
-              </Link>
-            </div>
           </div>
         </div>
       </section>

@@ -31,38 +31,46 @@ const Footer = () => {
               <span className="text-xl sm:text-2xl font-display font-bold text-white">Qraft Academy</span>
             </div>
             <p className="text-primary-100 leading-relaxed text-sm sm:text-base">
-              Shaping the future of Work and Leadership through Continuous Learning, System Building, and Strategic Capital Management.
+              Digital learning infrastructure for development partners and retained L&amp;D departments for growing enterprises across East Africa.
             </p>
           </div>
 
           <div className="space-y-4 sm:space-y-6">
-            <h3 className="font-display font-bold text-lg sm:text-xl text-white">Quick Links</h3>
+            <h3 className="font-display font-bold text-lg sm:text-xl text-white">Solutions</h3>
             <ul className="space-y-2 sm:space-y-3">
-              <li><Link className="text-primary-100 active:text-white sm:hover:text-white transition-colors duration-200 flex items-center gap-2 group text-sm sm:text-base" href="/courses/home">
+              <li><Link className="text-primary-100 active:text-white sm:hover:text-white transition-colors duration-200 flex items-center gap-2 group text-sm sm:text-base" href="/#coursemasters">
                 <span className="w-1 h-1 rounded-full bg-primary-300 group-active:w-2 sm:group-hover:w-2 transition-all duration-200"></span>
-                Courses
+                CourseMasters™
               </Link></li>
-              <li><Link className="text-primary-100 active:text-white sm:hover:text-white transition-colors duration-200 flex items-center gap-2 group text-sm sm:text-base" href="/capitalmasters">
+              <li><Link className="text-primary-100 active:text-white sm:hover:text-white transition-colors duration-200 flex items-center gap-2 group text-sm sm:text-base" href="/solutions/talentmasters">
                 <span className="w-1 h-1 rounded-full bg-primary-300 group-active:w-2 sm:group-hover:w-2 transition-all duration-200"></span>
-                CapitalMasters™
+                TalentMasters™
               </Link></li>
-              <li><Link className="text-primary-100 active:text-white sm:hover:text-white transition-colors duration-200 flex items-center gap-2 group text-sm sm:text-base" href="/for-individuals">
+              <li><Link className="text-primary-100 active:text-white sm:hover:text-white transition-colors duration-200 flex items-center gap-2 group text-sm sm:text-base" href="/#partners">
                 <span className="w-1 h-1 rounded-full bg-primary-300 group-active:w-2 sm:group-hover:w-2 transition-all duration-200"></span>
-                Programs
+                Institutional Impact
               </Link></li>
               <li><Link className="text-primary-100 active:text-white sm:hover:text-white transition-colors duration-200 flex items-center gap-2 group text-sm sm:text-base" href="/about">
                 <span className="w-1 h-1 rounded-full bg-primary-300 group-active:w-2 sm:group-hover:w-2 transition-all duration-200"></span>
                 About Us
               </Link></li>
-              <li><Link className="text-primary-100 active:text-white sm:hover:text-white transition-colors duration-200 flex items-center gap-2 group text-sm sm:text-base" href="/contact">
+              <li><Link className="text-primary-100 active:text-white sm:hover:text-white transition-colors duration-200 flex items-center gap-2 group text-sm sm:text-base" href="/#rfp">
                 <span className="w-1 h-1 rounded-full bg-primary-300 group-active:w-2 sm:group-hover:w-2 transition-all duration-200"></span>
-                Contact
+                Request Institutional Proposal
               </Link></li>
             </ul>
           </div>
 
           <div className="space-y-4 sm:space-y-6">
-            <h3 className="font-display font-bold text-lg sm:text-xl text-white">Connect With Us</h3>
+            <h3 className="font-display font-bold text-lg sm:text-xl text-white">Institutional Inquiries</h3>
+            <address className="not-italic text-primary-100 text-sm sm:text-base leading-relaxed">
+              Bukoto, Church Street<br />
+              Plot 4–10 Kiwana Road<br />
+              Kampala, Uganda
+            </address>
+            <a className="block text-primary-100 sm:hover:text-white transition-colors text-sm sm:text-base break-all" href="mailto:drew@qraftacademy.com">
+              drew@qraftacademy.com
+            </a>
             <div className="flex gap-2 sm:gap-3">
               <a className="text-white active:bg-white/20 sm:hover:bg-white/20 transition-all duration-200 p-2 sm:p-3 rounded-xl bg-white/10 backdrop-blur-sm active:scale-95 sm:hover:scale-110 touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center" href="https://www.facebook.com/yourpage">
                 <Facebook className="size-4 sm:size-5" />
@@ -84,7 +92,7 @@ const Footer = () => {
 
           {isClient ? <div className="space-y-4 sm:space-y-6">
               <h3 className="font-display font-bold text-lg sm:text-xl text-white">Stay Updated</h3>
-              <p className="text-primary-100 text-xs sm:text-sm">Subscribe to our newsletter for the latest updates.</p>
+              <p className="text-primary-100 text-xs sm:text-sm">Institutional briefings on digital learning infrastructure and workforce capability.</p>
               <div className="flex flex-col gap-2 sm:gap-3">
                 <input
                   className="px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-white/50 text-neutral-800 w-full bg-white/95 backdrop-blur-sm placeholder:text-neutral-500 text-sm sm:text-base min-h-[44px]"
@@ -99,7 +107,10 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-white/20 mt-8 sm:mt-10 md:mt-12 pt-6 sm:pt-8 text-center text-primary-100 text-xs sm:text-sm">
-          <p>© {new Date().getFullYear()} Qraft Academy. All rights reserved. Empowering futures through education.</p>
+          <p>© {new Date().getFullYear()} Qraft Academy · RATA QRAFT SOLUTIONS LTD. All rights reserved.</p>
+          <p className="mt-2 text-primary-200">
+            Company Reg. No. 80020003642591 · TIN 1044677290 · Bukoto, Kampala, Uganda
+          </p>
         </div>
       </div>
     </footer>

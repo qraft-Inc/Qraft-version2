@@ -2,7 +2,7 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "Qraft Academy",
-  description: "Future of Work Forum and Edtech Solutions",
+  description: "Digital Learning Infrastructure & Retained Corporate Capability",
   logo: {
     dark: "/images/logos/dark.svg",
     light: "/images/logos/light.svg",
@@ -48,18 +48,14 @@ export const seoKeywords =  [
   "online learning",
   "e-learning platforms",
   "digital education",
-  "remote learning",
-  "virtual classrooms",
   "adaptive learning",
   "personalized learning",
   "educational technology trends",
-  "future of work forum",
   "future of work",
   "workplace automation",
   "remote work",
   "digital skills",
   "automation technology",
-  "gig economy",
   "telecommuting",
   "workplace flexibility",
   "research",
@@ -74,8 +70,6 @@ export const seoKeywords =  [
   "Tech blog",
   "Andrew Tugume", "educational apps",
   "learning management systems",
-  "online courses",
-  "distance education",
   "blended learning",
   "virtual reality in education",
   "artificial intelligence in education",
@@ -87,5 +81,13 @@ export const seoKeywords =  [
   "remote collaboration",
   "flexible work arrangements",
   "work-life balance",
-  "innovation research"
+  "innovation research",
+  "instructional design",
+  "SCORM xAPI e-learning development",
+  "corporate L&D outsourcing",
+  "workforce capability development",
+  "retained L&D-as-a-Service",
+  "outsourced training department",
+  "MEAL learning systems",
+  "East Africa workforce transformation"
 ]
