@@ -25,7 +25,7 @@ const PILLARS = [
     tag: 'BUILD',
     title: 'We Build Your Digital Courses',
     text: 'You provide the knowledge. We design, develop, test and deploy the learning experience.',
-    price: 'From UGX 15M',
+    price: 'From $4,300',
     href: '#flagship',
     cta: 'Explore Course Development'
   },
@@ -34,7 +34,7 @@ const PILLARS = [
     tag: 'PLATFORM',
     title: 'We Build Your Moodle LMS',
     text: 'Create a professional environment to host courses, enrol learners, track progress, administer assessments and issue certificates.',
-    price: 'From UGX 5M',
+    price: 'From $1,450',
     href: '#lms-offer',
     cta: 'Explore Moodle LMS'
   },
@@ -43,7 +43,7 @@ const PILLARS = [
     tag: 'CAPABILITY',
     title: 'We Teach You to Build',
     text: 'Equip your people to design, develop and deploy quality digital courses internally.',
-    price: 'UGX 15M / organization',
+    price: '$4,300 / organization',
     href: '/solutions/talentmasters#coursemasters-clinic',
     cta: 'View the Clinic on TalentMasters™'
   },
@@ -52,7 +52,7 @@ const PILLARS = [
     tag: 'SCALE',
     title: 'We Help You Maintain & Grow',
     text: 'Keep your digital-learning ecosystem working through updates, LMS administration, learner analytics, technical support and new content.',
-    price: 'Annual support from UGX 3M',
+    price: 'Annual support from $850',
     href: '#support',
     cta: 'Explore Support'
   }
@@ -138,21 +138,21 @@ const LMS_TIERS = [
   {
     tag: 'STARTER',
     tier: 'LAUNCH',
-    price: 'From UGX 5M',
+    price: 'From $1,450',
     items: ['Basic Moodle setup', 'Basic branding', 'User configuration', 'Certificate setup', 'Admin orientation'],
     popular: false
   },
   {
     tag: 'PROFESSIONAL',
     tier: 'MANAGE',
-    price: 'From UGX 10M',
+    price: 'From $2,850',
     items: ['Branded organizational LMS', 'Roles & permissions', 'Multiple courses', 'Reporting', 'Administrator training'],
     popular: true
   },
   {
     tag: 'ENTERPRISE',
     tier: 'SCALE',
-    price: 'From UGX 20M+',
+    price: 'From $5,700+',
     items: ['Advanced customization', 'Complex user structures', 'Integrations', 'Extended support', 'Institutional learning architecture'],
     popular: false
   }
@@ -193,7 +193,7 @@ const SUPPORT_ITEMS = [
 const FAQS = [
   {
     q: 'How much does it cost to develop an online course?',
-    a: 'CourseMasters™ digital course development starts from UGX 15M. Our flagship Standard package is UGX 20M for a standard course of up to six modules and approximately 2–3 learning hours. Complex institutional programmes are scoped separately.'
+    a: 'CourseMasters™ digital course development starts from $4,300. Our flagship Standard package is $5,700 for a standard course of up to six modules and approximately 2–3 learning hours. Complex institutional programmes are scoped separately.'
   },
   {
     q: 'How long does course development take?',
@@ -343,7 +343,7 @@ export default function CourseMastersPage() {
           <div className="bg-slate-900 rounded-2xl p-8 sm:p-10 text-center text-white">
             <h3 className="text-xl sm:text-2xl font-display font-bold mb-2">Need the complete system?</h3>
             <p className="text-slate-300 mb-1">Digital Courses + Moodle LMS + Team Capability + Ongoing Support</p>
-            <p className="text-amber-400 font-bold mb-6">Custom institutional engagements from UGX 30M+</p>
+            <p className="text-amber-400 font-bold mb-6">Custom institutional engagements from $8,550+</p>
             <Link
               href="/coursemasters/assessment?interest=complete-system"
               onClick={() => trackAssessmentClick('complete_system')}
@@ -365,7 +365,7 @@ export default function CourseMastersPage() {
           </div>
           <div className="max-w-4xl mx-auto bg-slate-900 rounded-3xl p-8 sm:p-12 text-white">
             <div className="text-center mb-10">
-              <p className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-amber-400">UGX 20,000,000</p>
+              <p className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-amber-400">$5,700</p>
               <p className="text-sm sm:text-base uppercase tracking-[0.25em] text-slate-400 mt-2">Per Standard Course</p>
             </div>
             <div className="grid grid-cols-3 gap-4 mb-10 text-center">
@@ -627,7 +627,7 @@ export default function CourseMastersPage() {
             </div>
             <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-8 text-center">
               <p className="text-sm font-semibold uppercase tracking-widest text-slate-500 mb-2">Annual Support</p>
-              <p className="text-2xl sm:text-3xl font-display font-bold text-amber-600 mb-6">From UGX 3M–10M+ / year</p>
+              <p className="text-2xl sm:text-3xl font-display font-bold text-amber-600 mb-6">From $850–$2,850+ / year</p>
               <Link
                 href="/coursemasters/assessment?interest=ongoing-support"
                 onClick={() => trackAssessmentClick('support')}

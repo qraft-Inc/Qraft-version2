@@ -7,12 +7,12 @@ import { PARTNERSHIP_HREF } from '@/lib/proposal';
 export const metadata: Metadata = {
   title: { absolute: 'TalentMasters™ | Retained L&D-as-a-Service for Growing Enterprises' },
   description:
-    'Outsourced Learning & Development department for mid-market businesses in Uganda and East Africa, delivered with TeachNations Uganda, Networth Consult, AniScholar, and Qraft Academy’s Tech Talent Studio. 90-day operational audits, monthly execution sprints, and onboarding engines from UGX 3.5M/month.',
+    'Outsourced Learning & Development department for mid-market businesses in Uganda and East Africa, delivered with TeachNations Uganda, Networth Consult, AniScholar, and Qraft Academy’s Tech Talent Studio. 90-day operational audits, monthly execution sprints, and onboarding engines from $1,000/month.',
   alternates: { canonical: 'https://qraftacademy.com/solutions/talentmasters' },
   openGraph: {
     title: 'TalentMasters™ | Retained L&D-as-a-Service for Growing Enterprises',
     description:
-      'Your turnkey modern L&D department: 90-day operational leak audits, 30-day onboarding engines, and monthly execution sprints from UGX 3.5M/month.',
+      'Your turnkey modern L&D department: 90-day operational leak audits, 30-day onboarding engines, and monthly execution sprints from $1,000/month.',
     url: 'https://qraftacademy.com/solutions/talentmasters',
   },
 };
@@ -28,17 +28,17 @@ const costColumns: CostColumn[] = [
   {
     title: 'The In-House Trap',
     items: [
-      'L&D Director: UGX 8M – 12M/mo',
-      'Content Designer: UGX 4M – 6M/mo',
-      'Training Officer: UGX 2M – 4M/mo',
+      'L&D Director: $2,300 – $3,450/mo',
+      'Content Designer: $1,150 – $1,700/mo',
+      'Training Officer: $550 – $1,150/mo',
       'Payroll Tax, NSSF, Medical & Gear',
     ],
-    total: 'UGX 14M – 22M+ every month',
+    total: '$4,000 – $6,300+ every month',
   },
   {
     title: 'The Traditional Seminar Drain',
     items: [
-      'UGX 10M – 20M per weekend retreat',
+      '$2,850 – $5,700 per weekend retreat',
       'Huge venue & per diem bills',
       '80%+ knowledge decay in 30 days',
       'Zero ongoing reinforcement',
@@ -48,7 +48,7 @@ const costColumns: CostColumn[] = [
   {
     title: 'The TalentMasters™ Retainer',
     items: [
-      'Predictable UGX 3.5M / month',
+      'Predictable $1,000 / month',
       'Zero payroll tax or overhead',
       'Continuous monthly reinforcement',
       'Permanent digital onboarding assets',
@@ -185,7 +185,7 @@ type Tier = {
 const tiers: Tier[] = [
   {
     name: 'Foundation Retainer',
-    price: 'UGX 3.5M',
+    price: '$1,000',
     target: '30–80 staff',
     features: [
       '1 Monthly 10X Execution Sprint (up to 20 pax)',
@@ -196,7 +196,7 @@ const tiers: Tier[] = [
   },
   {
     name: 'Enterprise Accelerator',
-    price: 'UGX 6.5M – 7.5M',
+    price: '$1,850 – $2,150',
     target: '80–250+ staff',
     features: [
       '2 Monthly Execution Sprints (across tech, leadership, or OHS tracks)',
@@ -243,7 +243,7 @@ export default function TalentMastersPage() {
               </Link>
             </div>
             <p className="mt-8 text-sm text-white/70">
-              Retainers from <strong className="text-white">UGX 3.5M / month</strong>
+              Retainers from <strong className="text-white">$1,000 / month</strong>
             </p>
           </div>
         </div>
@@ -362,7 +362,7 @@ export default function TalentMastersPage() {
           </div>
 
           <blockquote className="mt-10 max-w-4xl mx-auto text-center rounded-2xl border-2 border-accent-200 bg-accent-50 p-6 sm:p-8 text-lg sm:text-xl font-semibold text-neutral-900 leading-relaxed">
-            You save over UGX 100M annually while getting an entire multidisciplinary team of curriculum architects, data experts, and executive facilitators on tap.
+            You save over $28,500 annually while getting an entire multidisciplinary team of curriculum architects, data experts, and executive facilitators on tap.
           </blockquote>
         </div>
       </section>
@@ -488,7 +488,7 @@ export default function TalentMastersPage() {
               </ul>
             </div>
             <div className="rounded-2xl bg-accent-50 border border-accent-100 p-6 text-center">
-              <p className="text-2xl font-display font-bold text-accent-700">UGX 15M</p>
+              <p className="text-2xl font-display font-bold text-accent-700">$4,300</p>
               <p className="text-sm text-neutral-600 mb-1">per organization</p>
               <p className="text-sm text-neutral-500 mb-5">3–5 day clinic</p>
               <Link href="#diagnostic" className="inline-flex w-full justify-center px-6 py-3 rounded-xl bg-accent-600 hover:bg-accent-700 text-white font-semibold transition-colors">
