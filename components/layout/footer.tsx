@@ -42,6 +42,10 @@ const Footer = () => {
                 <span className="w-1 h-1 rounded-full bg-primary-300 group-active:w-2 sm:group-hover:w-2 transition-all duration-200"></span>
                 CourseMasters™
               </Link></li>
+              <li><Link className="text-primary-100 active:text-white sm:hover:text-white transition-colors duration-200 flex items-center gap-2 group text-sm sm:text-base" href="/coursemasters/cms-development">
+                <span className="w-1 h-1 rounded-full bg-primary-300 group-active:w-2 sm:group-hover:w-2 transition-all duration-200"></span>
+                CMS &amp; Digital Publishing
+              </Link></li>
               <li><Link className="text-primary-100 active:text-white sm:hover:text-white transition-colors duration-200 flex items-center gap-2 group text-sm sm:text-base" href="/solutions/talentmasters">
                 <span className="w-1 h-1 rounded-full bg-primary-300 group-active:w-2 sm:group-hover:w-2 transition-all duration-200"></span>
                 TalentMasters™

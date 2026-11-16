@@ -3,6 +3,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { trackEvent } from '@/lib/analytics';
+import { CMS_PAGE_HREF, cmsEnquiryHref } from '@/lib/cms';
+import CourseMastersCapabilities from '@/components/sections/coursemasters/capabilities';
 
 const WHATSAPP_NUMBER = '256755017384';
 
@@ -19,7 +21,19 @@ function trackCaseStudyView(study: string) {
   trackEvent('coursemasters_case_study_view', { study });
 }
 
-const PILLARS = [
+interface Pillar {
+  number: string;
+  tag: string;
+  title: string;
+  text: string;
+  price: string;
+  href: string;
+  cta: string;
+  featured?: boolean;
+  solutions?: string[];
+}
+
+const PILLARS: Pillar[] = [
   {
     number: '01',
     tag: 'BUILD',
@@ -40,6 +54,27 @@ const PILLARS = [
   },
   {
     number: '03',
+    tag: 'PUBLISH',
+    title: 'CMS Development & Digital Publishing',
+    text: 'We build modern, mobile-friendly content management platforms that help organisations publish, organise, update and share their content without depending on developers for everyday changes.',
+    price: 'From $1,500',
+    href: CMS_PAGE_HREF,
+    cta: 'Learn More About CMS Development',
+    featured: true,
+    solutions: [
+      'Digital magazines and online publications',
+      'Newsletter and editorial websites',
+      'Research and knowledge repositories',
+      'Digital resource libraries',
+      'Journals, reports and publication archives',
+      'Institutional content portals',
+      'Multilingual publishing platforms',
+      'Searchable article and PDF archives',
+      'CMS integrations with existing websites and learning platforms'
+    ]
+  },
+  {
+    number: '04',
     tag: 'CAPABILITY',
     title: 'We Teach You to Build',
     text: 'Equip your people to design, develop and deploy quality digital courses internally.',
@@ -48,7 +83,7 @@ const PILLARS = [
     cta: 'View the Clinic on TalentMasters™'
   },
   {
-    number: '04',
+    number: '05',
     tag: 'SCALE',
     title: 'We Help You Maintain & Grow',
     text: 'Keep your digital-learning ecosystem working through updates, LMS administration, learner analytics, technical support and new content.',
@@ -212,6 +247,10 @@ const FAQS = [
     a: 'Yes. The Institutional CourseMasters™ Clinic, delivered through TalentMasters™, equips your HR, L&D and programme teams to design and build digital learning in-house, with optional ongoing mentorship.'
   },
   {
+    q: 'Do you also build websites, digital magazines or content platforms?',
+    a: 'Yes. CourseMasters™ CMS Development & Digital Publishing builds digital magazines, publication archives, resource libraries and institutional CMS platforms, with packages from $1,500. These can be combined with course development and Moodle LMS in one engagement.'
+  },
+  {
     q: 'Can courses be multilingual?',
     a: 'Yes. Localization and additional languages can be scoped into the engagement.'
   },
@@ -233,10 +272,10 @@ export default function CourseMastersPage() {
                 CourseMasters™ by Qraft Academy
               </p>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold leading-tight mb-5">
-                Turn Your Organization&apos;s Knowledge Into Scalable Digital Learning
+                Turn Your Knowledge and Content Into Digital Experiences That Work.
               </h1>
               <p className="text-base sm:text-lg text-slate-300 mb-8 max-w-xl">
-                Transform your policies, curricula, manuals, technical knowledge and training programmes into professional digital courses — with the platforms, capabilities and support to deliver learning at scale.
+                We design digital courses, build learning platforms and develop content publishing systems that help organisations educate audiences, share knowledge and manage their digital content.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 mb-5">
                 <Link
@@ -254,7 +293,7 @@ export default function CourseMastersPage() {
                 </a>
               </div>
               <p className="text-xs sm:text-sm uppercase tracking-widest text-slate-400">
-                Digital Courses • Moodle LMS • Team Capability • Ongoing Support
+                Digital Courses • Moodle LMS • CMS &amp; Digital Publishing • Team Capability • Ongoing Support
               </p>
             </div>
             <div className="relative h-[280px] sm:h-[360px] lg:h-[440px] rounded-3xl overflow-hidden shadow-2xl border border-white/10">
@@ -276,7 +315,7 @@ export default function CourseMastersPage() {
       <section className="bg-slate-50 border-b border-slate-100">
         <div className="container-custom py-10 sm:py-12">
           <p className="text-center text-sm sm:text-base font-semibold text-slate-700 mb-8">
-            Digital learning solutions for organizations that need knowledge to travel further.
+            Digital learning and publishing solutions for organizations that need knowledge to travel further.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
@@ -316,33 +355,70 @@ export default function CourseMastersPage() {
         </div>
       </section>
 
+      {/* 3b. CREATE → DELIVER → PUBLISH */}
+      <CourseMastersCapabilities id="capabilities" tone="muted" />
+
       {/* 4. THE NEW COURSEMASTERS MODEL */}
-      <section id="solutions" className="section-padding bg-slate-50">
+      <section id="solutions" className="section-padding">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900 mb-3">
-              One Digital Learning Partner. Four Ways We Help.
+              Everything You Need to Create, Deliver and Publish Knowledge.
             </h2>
+            <p className="text-slate-600 sm:text-lg">Five services. Commission one, or combine them into a single engagement.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            {PILLARS.map((pillar) => (
-              <div key={pillar.tag} className="bg-white rounded-2xl border border-slate-100 shadow-sm p-7 sm:p-8 flex flex-col">
-                <div className="flex items-baseline gap-3 mb-3">
-                  <span className="text-3xl font-display font-bold text-slate-200">{pillar.number}</span>
-                  <span className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-600">{pillar.tag}</span>
+            {PILLARS.map((pillar) =>
+              pillar.featured ? (
+                <div
+                  key={pillar.tag}
+                  className="md:col-span-2 bg-white rounded-2xl border-2 border-blue-600 shadow-sm p-7 sm:p-8 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-6 lg:gap-10"
+                >
+                  <div className="flex flex-col">
+                    <div className="flex items-baseline gap-3 mb-3">
+                      <span className="text-3xl font-display font-bold text-slate-200">{pillar.number}</span>
+                      <span className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-600">{pillar.tag}</span>
+                      <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-700">New</span>
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-display font-bold text-slate-900 mb-2">{pillar.title}</h3>
+                    <p className="text-slate-600 mb-5 flex-1">{pillar.text}</p>
+                    <p className="text-amber-600 font-bold mb-4">{pillar.price}</p>
+                    <Link
+                      href={pillar.href}
+                      onClick={() => trackEvent('coursemasters_cms_learn_more', { location: 'services' })}
+                      className="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center gap-1"
+                    >
+                      {pillar.cta} →
+                    </Link>
+                  </div>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 content-start lg:border-l lg:border-slate-100 lg:pl-10">
+                    {pillar.solutions?.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
+                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-display font-bold text-slate-900 mb-2">{pillar.title}</h3>
-                <p className="text-slate-600 mb-5 flex-1">{pillar.text}</p>
-                <p className="text-amber-600 font-bold mb-4">{pillar.price}</p>
-                <a href={pillar.href} className="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center gap-1">
-                  {pillar.cta} →
-                </a>
-              </div>
-            ))}
+              ) : (
+                <div key={pillar.tag} className="bg-white rounded-2xl border border-slate-100 shadow-sm p-7 sm:p-8 flex flex-col">
+                  <div className="flex items-baseline gap-3 mb-3">
+                    <span className="text-3xl font-display font-bold text-slate-200">{pillar.number}</span>
+                    <span className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-600">{pillar.tag}</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-display font-bold text-slate-900 mb-2">{pillar.title}</h3>
+                  <p className="text-slate-600 mb-5 flex-1">{pillar.text}</p>
+                  <p className="text-amber-600 font-bold mb-4">{pillar.price}</p>
+                  <a href={pillar.href} className="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center gap-1">
+                    {pillar.cta} →
+                  </a>
+                </div>
+              )
+            )}
           </div>
           <div className="bg-slate-900 rounded-2xl p-8 sm:p-10 text-center text-white">
             <h3 className="text-xl sm:text-2xl font-display font-bold mb-2">Need the complete system?</h3>
-            <p className="text-slate-300 mb-1">Digital Courses + Moodle LMS + Team Capability + Ongoing Support</p>
+            <p className="text-slate-300 mb-1">Digital Courses + Moodle LMS + CMS &amp; Digital Publishing + Team Capability + Ongoing Support</p>
             <p className="text-amber-400 font-bold mb-6">Custom institutional engagements from $8,550+</p>
             <Link
               href="/coursemasters/assessment?interest=complete-system"
@@ -459,6 +535,9 @@ export default function CourseMastersPage() {
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900">We&apos;ve Already Done This.</h2>
           </div>
+          <h3 className="text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 mb-5">
+            Digital Courses &amp; Learning Platforms
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {CASE_STUDIES.map((cs) => (
               <div key={cs.title} className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden flex flex-col">
@@ -481,6 +560,18 @@ export default function CourseMastersPage() {
                 </div>
               </div>
             ))}
+          </div>
+          <h3 className="text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 mt-12 mb-5">Digital Publishing</h3>
+          <div className="bg-white rounded-2xl border border-dashed border-slate-300 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <p className="font-semibold text-slate-900 mb-1">Digital Magazine Concept Demonstration</p>
+              <p className="text-sm text-slate-600">
+                See an illustrative concept of the reader experience our Digital Magazine &amp; Publication CMS is designed to deliver.
+              </p>
+            </div>
+            <Link href={CMS_PAGE_HREF} className="shrink-0 text-blue-600 font-semibold hover:text-blue-700">
+              View the concept →
+            </Link>
           </div>
         </div>
       </section>
@@ -690,6 +781,16 @@ export default function CourseMastersPage() {
               Talk to CourseMasters on WhatsApp
             </button>
           </div>
+          <p className="text-sm text-slate-300 mb-6">
+            Planning a digital magazine, publication archive or CMS?{' '}
+            <Link
+              href={cmsEnquiryHref()}
+              onClick={() => trackEvent('coursemasters_cms_cta_click', { location: 'overview_final_cta' })}
+              className="font-semibold text-amber-400 underline underline-offset-4 hover:text-amber-300"
+            >
+              Get a CMS proposal
+            </Link>
+          </p>
           <p className="text-xs sm:text-sm text-slate-400">
             +256 755 017 384 · <a className="underline hover:text-white" href="mailto:drew@qraftacademy.com">drew@qraftacademy.com</a> · Kampala, Uganda
           </p>

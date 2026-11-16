@@ -74,6 +74,7 @@ const offers: Offer[] = [
       'Interactive SCORM / xAPI modules with scenario assessments & voiceovers',
       'Turnkey lightweight LMS deployment with real-time MEAL analytics dashboards',
       'Offline-ready and low-bandwidth mobile optimization',
+      'CMS development, digital magazines & searchable publication archives',
     ],
     cta: 'Inquire About CourseMasters',
     accent: {
