@@ -227,7 +227,7 @@ export default function TalentMastersPage() {
               Retained L&amp;D-as-a-Service | A Multi-Disciplinary Capability Consortium
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 leading-tight">
-              Your Turnkey Modern L&amp;D Department For Less Than The Cost of a Single Junior Hire
+              Modern Workforce Development For Employees, Managers And Executives
             </h1>
             <p className="text-lg sm:text-xl mb-10 leading-relaxed text-white/85 max-w-3xl mx-auto">
               Delivered in joint capability partnership with <strong className="text-white">TeachNations Uganda</strong>,{' '}
