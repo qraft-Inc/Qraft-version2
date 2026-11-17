@@ -7,11 +7,11 @@ import ProposalRequestForm from '@/components/forms/proposal-request-form'
 import { proposalHrefFor } from '@/lib/proposal'
 
 export const metadata: Metadata = {
-  title: "Qraft Academy | Digital Learning Infrastructure & Retained Corporate Capability",
-  description: "Production-grade e-learning systems for development partners and turnkey, retained Learning & Development departments for growing enterprises across East Africa.",
+  title: "Qraft Academy | Digital Learning Infrastructure & Modern Workforce Development",
+  description: "Production-grade e-learning systems for development partners and practical workforce development for employees, managers and executives across East Africa.",
   openGraph: {
-    title: "Qraft Academy | Digital Learning Infrastructure & Retained Corporate Capability",
-    description: "CourseMasters™ digital learning infrastructure and TalentMasters™ retained L&D-as-a-Service for institutions and enterprises across East Africa.",
+    title: "Qraft Academy | Digital Learning Infrastructure & Modern Workforce Development",
+    description: "CourseMasters™ digital learning infrastructure and TalentMasters™ modern workforce development for institutions and enterprises across East Africa.",
     url: "https://qraftacademy.com",
     siteName: "Qraft Academy",
     type: "website",
@@ -57,6 +57,7 @@ type Offer = {
   value: string;
   deliverables: string[];
   cta: string;
+  ctaHref?: string;
   accent: { badge: string; icon: string; button: string; border: string };
   learnMore?: { href: string; label: string };
 };
@@ -88,24 +89,26 @@ const offers: Offer[] = [
   {
     id: 'talentmasters',
     name: 'TalentMasters™',
-    category: 'Retained L&D-as-a-Service',
-    tagline: 'Your Turnkey Outsourced Training & Capability Department',
-    audience: 'Mid-Market Companies (50–300 staff), Regional Enterprises, Fast-Growing Firms',
-    value: 'Continuous, predictable workforce upskilling for less than the cost of a single junior HR hire.',
+    category: 'Modern Workforce Development',
+    tagline: 'Practical corporate training, leadership development, and ongoing workforce improvement programmes for employees, managers, and executives.',
+    audience: 'Companies, NGOs, healthcare and public institutions that want better employees, stronger managers and more productive teams',
+    value: 'From one-time workshops to 90-day improvement programmes and annual workforce partnerships.',
     deliverables: [
-      'Quarterly Training Needs Assessment (TNA) tied to operational KPIs',
-      'Automated 30-60-90 day digital onboarding workflows for new hires',
-      'Ready-Made Corporate Clinics (Power BI / Analytics, Applied Workplace AI, Operational Execution)',
-      'Custom Needs-Based Programs built to resolve diagnosed departmental bottlenecks',
+      'Free Workforce Needs Assessment to identify the right starting point',
+      'Corporate training workshops (half-day to two-day)',
+      '90-Day Workforce Performance Accelerator for one priority challenge',
+      'Annual four-quarter workforce partnerships for employees, managers and executives',
+      'Workplace wellbeing, care economy and healthcare workforce programmes',
     ],
-    cta: 'Inquire About TalentMasters Retainers',
+    cta: 'Explore TalentMasters',
+    ctaHref: '/solutions/talentmasters',
     accent: {
       badge: 'bg-accent-100 text-accent-700 border-accent-200',
       icon: 'text-accent-600',
       button: 'bg-accent-600 hover:bg-accent-700',
       border: 'border-accent-200',
     },
-    learnMore: { href: '/solutions/talentmasters', label: 'View TalentMasters™ in detail' },
+    learnMore: { href: '/solutions/talentmasters/assessment', label: 'Take the free workforce needs assessment' },
   },
 ];
 
@@ -147,10 +150,10 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60 flex items-center justify-center">
             <div className="text-center text-white w-full max-w-6xl px-4 sm:px-6 animate-fade-in">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 sm:mb-6 md:mb-8 animate-slide-up leading-tight">
-                Digital Learning Infrastructure &amp; Retained Corporate Capability
+                Digital Learning Infrastructure &amp; Modern Workforce Development
               </h1>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-10 md:mb-12 font-light text-white/90 max-w-4xl mx-auto leading-relaxed">
-                We engineer production-grade e-learning systems for development partners and provide turnkey, retained Learning &amp; Development departments for growing enterprises across East Africa.
+                We engineer production-grade e-learning systems for development partners and provide practical workforce development for employees, managers and executives across East Africa.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-stretch sm:items-center max-w-3xl mx-auto">
                 <Link href="#rfp" className="btn-primary w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-bold group flex items-center justify-center gap-2">
@@ -274,7 +277,7 @@ export default function Home() {
               Our 2 Core Solutions
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-4 leading-tight">
-              Learning Infrastructure. Retained Capability.
+              Learning Infrastructure. Workforce Development.
             </h2>
             <p className="text-base sm:text-lg text-neutral-600 leading-relaxed">
               Two institutional offers, each scoped to your mandate, procurement process, and reporting requirements.
@@ -317,7 +320,7 @@ export default function Home() {
 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-auto">
                   <Link
-                    href={proposalHrefFor(offer.id)}
+                    href={offer.ctaHref ?? proposalHrefFor(offer.id)}
                     className={`group inline-flex items-center justify-center gap-2 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 ${offer.accent.button}`}
                   >
                     {offer.cta}

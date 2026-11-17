@@ -14,6 +14,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // TalentMasters™ "Modern Bridge" palette — used only by TalentMasters pages
+        tm: {
+          teal: "#0F4C5C",
+          "teal-dark": "#0A3742",
+          "teal-light": "#E7F0F2",
+          sage: "#84A98C",
+          "sage-light": "#EEF3EF",
+          coral: "#F26419",
+          "coral-dark": "#D9520B",
+          "coral-light": "#FDEEE5",
+          alabaster: "#F8FAFC",
+          slate: "#0F172A",
+        },
         primary: {
           50: "#f0f9ff",
           100: "#e0f2fe",

@@ -16,10 +16,12 @@ interface InquiryEmail {
   replyTo: string;
   fields: [string, string][];
   longField?: [string, string];
+  /** Recipient; defaults to the partnerships inbox. */
+  to?: string;
 }
 
 // Sends a lead-capture inquiry to the partnerships inbox using the SMTP_* env vars
-export async function sendInquiryEmail({ subject, heading, replyTo, fields, longField }: InquiryEmail) {
+export async function sendInquiryEmail({ subject, heading, replyTo, fields, longField, to = 'drew@qraftacademy.com' }: InquiryEmail) {
   const host = process.env.SMTP_HOST;
   const port = process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) : undefined;
   const user = process.env.SMTP_USER;
@@ -47,7 +49,7 @@ export async function sendInquiryEmail({ subject, heading, replyTo, fields, long
 
   await transporter.sendMail({
     from,
-    to: 'drew@qraftacademy.com',
+    to,
     replyTo,
     subject,
     text: fields.map(([label, value]) => `${label}: ${value}`).join('\n') + textLong,

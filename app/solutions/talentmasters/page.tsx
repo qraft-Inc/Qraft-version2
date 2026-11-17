@@ -1,522 +1,334 @@
 import { type Metadata } from 'next';
 import Link from 'next/link';
-import { CheckCircle, XCircle } from 'lucide-react';
-import DiagnosticRequestForm from '@/components/forms/diagnostic-request-form';
-import { PARTNERSHIP_HREF } from '@/lib/proposal';
+import { ArrowRight, MessageCircle } from 'lucide-react';
+import {
+  AcceleratorVsAnnual,
+  AnnualJourney,
+  FaqSection,
+  FinalCta,
+  OfferLadder,
+  PartnershipTiers,
+  PortfolioSection,
+  ProcessSteps,
+  faqJsonLd,
+} from '@/components/talentmasters/sections';
+import { TmPageView, TrackedLink } from '@/components/talentmasters/tracked-link';
+import { CheckList, Eyebrow, SectionHeading, TmWordmark, tmBtn } from '@/components/talentmasters/ui';
+import {
+  deliveryPartnersNote,
+  improvementOutcomes,
+  serviceAreas,
+  specialisedProgrammes,
+  workplaceChallenges,
+} from '@/lib/talentmasters/content';
+import { TM_ROUTES, annualOffer, assessmentHref, freeOffer, tmWhatsappHref } from '@/lib/talentmasters/offers';
+
+const title = 'TalentMasters™ | Corporate Training & Workforce Development in Uganda';
+const description =
+  'Practical corporate training, leadership development and workplace wellbeing programmes for employees, managers and executives in Uganda and East Africa. Workshops, 90-day programmes and annual workforce partnerships. Start with a free needs assessment.';
 
 export const metadata: Metadata = {
-  title: { absolute: 'TalentMasters™ | Retained L&D-as-a-Service for Growing Enterprises' },
-  description:
-    'Outsourced Learning & Development department for mid-market businesses in Uganda and East Africa, delivered with TeachNations Uganda, Networth Consult, AniScholar, and Qraft Academy’s Tech Talent Studio. 90-day operational audits, monthly execution sprints, and onboarding engines from $1,000/month.',
+  title: { absolute: title },
+  description,
+  keywords: [
+    'corporate training Uganda',
+    'employee training Kampala',
+    'leadership development Uganda',
+    'workforce development Uganda',
+    'management training Uganda',
+    'team building Uganda',
+    'workplace productivity training',
+    'employee wellbeing programmes',
+    'corporate AI training Uganda',
+  ],
   alternates: { canonical: 'https://qraftacademy.com/solutions/talentmasters' },
-  openGraph: {
-    title: 'TalentMasters™ | Retained L&D-as-a-Service for Growing Enterprises',
-    description:
-      'Your turnkey modern L&D department: 90-day operational leak audits, 30-day onboarding engines, and monthly execution sprints from $1,000/month.',
-    url: 'https://qraftacademy.com/solutions/talentmasters',
-  },
+  openGraph: { title, description, url: 'https://qraftacademy.com/solutions/talentmasters' },
 };
 
-type CostColumn = {
-  title: string;
-  items: string[];
-  total: string;
-  highlight?: boolean;
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'TalentMasters™ Workforce Development',
+  serviceType: 'Corporate training and workforce development',
+  provider: { '@type': 'Organization', name: 'Qraft Academy', url: 'https://qraftacademy.com' },
+  areaServed: ['Uganda', 'East Africa'],
+  url: 'https://qraftacademy.com/solutions/talentmasters',
+  description,
 };
 
-const costColumns: CostColumn[] = [
-  {
-    title: 'The In-House Trap',
-    items: [
-      'L&D Director: $2,300 – $3,450/mo',
-      'Content Designer: $1,150 – $1,700/mo',
-      'Training Officer: $550 – $1,150/mo',
-      'Payroll Tax, NSSF, Medical & Gear',
-    ],
-    total: '$4,000 – $6,300+ every month',
-  },
-  {
-    title: 'The Traditional Seminar Drain',
-    items: [
-      '$2,850 – $5,700 per weekend retreat',
-      'Huge venue & per diem bills',
-      '80%+ knowledge decay in 30 days',
-      'Zero ongoing reinforcement',
-    ],
-    total: 'High cost, near-zero ROI',
-  },
-  {
-    title: 'The TalentMasters™ Retainer',
-    items: [
-      'Predictable $1,000 / month',
-      'Zero payroll tax or overhead',
-      'Continuous monthly reinforcement',
-      'Permanent digital onboarding assets',
-    ],
-    total: '1/4 the cost of a full in-house L&D team',
-    highlight: true,
-  },
-];
-
-type Pillar = {
-  pillar: string;
-  partner: string;
-  ledBy?: boolean;
-  focus: string;
-  text: string;
-  trackRecord?: string;
-  allianceNote?: string;
-  border: string;
-  color: string;
-};
-
-const consortium: Pillar[] = [
-  {
-    pillar: 'Leadership, Execution & Mindset',
-    partner: 'TeachNations Uganda',
-    focus: 'Mindset, Personal Mastery & Organizational Effectiveness',
-    text: 'Personal mastery, supervisory coaching, organizational effectiveness, and building disciplined “10X Teams.”',
-    border: 'border-accent-400',
-    color: 'text-accent-700',
-  },
-  {
-    pillar: 'Workplace Health, Safety & Immersion',
-    partner: 'Networth Consult',
-    focus: 'Workplace Safety, OHS/ESG Safeguards & Psychosocial Wellbeing',
-    text: 'Occupational Health & Safety (OHS), psychosocial wellness, ESG safeguards, and signature off-site tracks: Skilling In The Wild™ and Team Building In The Wild™.',
-    border: 'border-green-500',
-    color: 'text-green-700',
-  },
-  {
-    pillar: 'Employability & Transition Systems',
-    partner: 'AniScholar',
-    focus: 'Institutional Transition, Employability & Workforce Readiness',
-    text: 'Institutional work-readiness, graduate onboarding, professional ethics, and foundational career readiness.',
-    border: 'border-primary-500',
-    color: 'text-primary-700',
-  },
-  {
-    pillar: 'Tech Bootcamps, Apprenticeships & Placements',
-    partner: 'Qraft Academy',
-    ledBy: true,
-    focus: 'Tech Talent Studio',
-    text: 'Custom Hire-Train-Deploy (HTD) pipelines, intensive technical bootcamps, software development, data analytics, and pre-vetted apprentice placements for tech companies and digital teams.',
-    trackRecord: 'Trusted by enterprise IT leaders like Spidd Africa to source, train, and place job-ready technical talent.',
-    allianceNote: 'Currently led by Qraft Academy — actively open to ecosystem co-delivery and consortium partners.',
-    border: 'border-amber-500',
-    color: 'text-amber-700',
-  },
-];
-
-const deliverables = [
-  {
-    name: 'The 90-Day Operational Leak Audit™',
-    formerly: 'Quarterly TNA',
-    text: 'We audit your workflows every quarter to find where managers are bottlenecked, where staff are losing time, and where safety risks and skill deficits sit. No generic slide decks; only high-priority operational fixes.',
-  },
-  {
-    name: 'The 30-Day Zero-Drag Onboarding Engine™',
-    formerly: 'Modern Onboarding',
-    text: 'We map and build an automated, self-paced digital onboarding journey for your core business roles so new staff become profitable contributors in weeks, not months.',
-  },
-  {
-    name: 'The Monthly 10X Team Execution Sprint™',
-    formerly: 'Applied Capability Clinics',
-    text: 'One 3-hour, laptop-open intensive workshop each month. Staff don’t listen to lectures — they build live spreadsheets, automate reports, and practice management simulations.',
-  },
-  {
-    name: 'The Future-Proof Digital Fluency Toolkit™',
-    formerly: 'Digital Upskilling',
-    text: 'Ready-made operational upgrades: Power BI dashboards, Applied Workplace AI, prompt engineering, and modern delegation systems.',
-  },
-  {
-    name: 'The C-Suite ROI & Competency Scorecard™',
-    formerly: 'Executive Reports',
-    text: 'Clear, executive-level summaries sent directly to the MD and HR Head tracking employee participation, skill mastery benchmarks, and operational time saved.',
-  },
-];
-
-const portfolio = [
-  {
-    sector: 'Enterprise Technology & Infrastructure',
-    client: 'Spidd Africa',
-    program: 'Technical Talent Acceleration, Custom Apprenticeships & Job Placements.',
-  },
-  {
-    sector: 'Enterprise Technology & Infrastructure',
-    client: 'Neptune Financial Software (U) Ltd',
-    program: 'Building 10X Teams through Better Leadership, Systems, and Flawless Execution.',
-  },
-  {
-    sector: 'Diplomatic & Sovereign Missions',
-    client: 'Embassy of Ireland in Uganda',
-    program: 'Executive Track: Personal & Professional Mastery — Leading Yourself First.',
-  },
-  {
-    sector: 'Applied Research & Academia',
-    client: 'Centre for Research in Energy and Energy Conservation (CREEC - Makerere University)',
-    program: 'Organizational Effectiveness & Team Synergy.',
-  },
-  {
-    sector: 'International Non-Profit / INGOs',
-    client: 'Forgotten Children Worldwide (FCW Uganda)',
-    program: 'Frontline Resilience & Holistic Employee Wellbeing.',
-  },
-  {
-    sector: 'Operations & Frontline Workforce',
-    client: 'Splendor of the Home',
-    program: 'Modern Sales, Innovation & Work-Readiness for Frontline Teams.',
-  },
-  {
-    sector: 'Employability & Ecosystems',
-    client: 'AniScholar',
-    program: 'Institutional Transition & Workplace Employability Pipelines.',
-  },
-];
-
-type Tier = {
-  name: string;
-  price: string;
-  target: string;
-  features: string[];
-  featured?: boolean;
-};
-
-const tiers: Tier[] = [
-  {
-    name: 'Foundation Retainer',
-    price: '$1,000',
-    target: '30–80 staff',
-    features: [
-      '1 Monthly 10X Execution Sprint (up to 20 pax)',
-      '1 Core Role 30-Day Zero-Drag Onboarding Engine',
-      '1 Quarterly 90-Day Operational Leak Audit',
-      'Monthly & Quarterly C-Suite Scorecards',
-    ],
-  },
-  {
-    name: 'Enterprise Accelerator',
-    price: '$1,850 – $2,150',
-    target: '80–250+ staff',
-    features: [
-      '2 Monthly Execution Sprints (across tech, leadership, or OHS tracks)',
-      'Multi-Department Onboarding Tracks',
-      'Quarterly Audits + Dedicated Line Manager Coaching',
-      'Board-Ready ROI Reporting',
-    ],
-    featured: true,
-  },
-];
-
-const courseMastersClinicItems = [
-  'Team-based course development',
-  'Tools, templates & checklists',
-  'Moodle/course-authoring workflow',
-  'Prototype development',
-  'Optional mentorship',
+const heroPath = [
+  { label: 'Free Needs Assessment', note: 'Free' },
+  { label: 'Corporate Workshop', note: 'From $850' },
+  { label: '90-Day Accelerator', note: '$3,450–$5,150' },
+  { label: 'Annual Partnership', note: 'From $1,000 / month' },
 ];
 
 export default function TalentMastersPage() {
   return (
-    <main className="min-h-screen">
-      {/* A. Hero */}
-      <section className="relative py-20 sm:py-24 md:py-28 bg-gradient-to-br from-neutral-950 via-accent-900 to-primary-900 text-white">
-        <div className="container-custom px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-white font-semibold text-xs sm:text-sm uppercase tracking-widest mb-6 border border-white/20">
-              Retained L&amp;D-as-a-Service | A Multi-Disciplinary Capability Consortium
+    <main className="min-h-screen bg-white">
+      <TmPageView page="talentmasters_home" />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd()) }} />
+
+      {/* 1. Hero */}
+      <section className="bg-tm-teal py-16 text-white sm:py-20 lg:py-24">
+        <div className="container-custom grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.4fr_1fr]">
+          <div>
+            <div className="mb-6">
+              <TmWordmark dark />
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 leading-tight">
-              Modern Workforce Development For Employees, Managers And Executives
+            <Eyebrow dark>Modern Workforce Development</Eyebrow>
+            <h1 className="font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+              Better Employees. Stronger Managers. More Productive Teams.
             </h1>
-            <p className="text-lg sm:text-xl mb-10 leading-relaxed text-white/85 max-w-3xl mx-auto">
-              Delivered in joint capability partnership with <strong className="text-white">TeachNations Uganda</strong>,{' '}
-              <strong className="text-white">Networth Consult</strong>, <strong className="text-white">AniScholar</strong>, and{' '}
-              <strong className="text-white">Qraft Academy&apos;s Tech Talent Studio</strong>. We diagnose operational leaks, automate onboarding, upskill teams, and deploy pre-vetted tech apprentices.
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
+              Practical training and workforce development that helps your people work better, lead effectively, and deliver
+              measurable workplace improvements.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="#diagnostic" className="px-8 py-4 rounded-xl bg-white text-accent-800 hover:bg-white/90 text-base sm:text-lg font-bold shadow-lg transition-all duration-200">
-                Schedule a 30-Minute Capability Diagnostic
-              </Link>
-              <Link href="#consortium" className="px-8 py-4 bg-white/10 backdrop-blur-md text-white text-base sm:text-lg font-semibold rounded-xl hover:bg-white/20 transition-all duration-300 border border-white/30">
-                Explore Our 4 Capability Pillars
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <TrackedLink
+                href={assessmentHref()}
+                event="tm_cta_click"
+                params={{ offer: 'free_assessment', location: 'hero' }}
+                className={tmBtn.primary}
+              >
+                {freeOffer.cta}
+              </TrackedLink>
+              <Link href="#offers" className={tmBtn.secondaryDark}>
+                Explore Our Training Programmes
               </Link>
             </div>
-            <p className="mt-8 text-sm text-white/70">
-              Retainers from <strong className="text-white">$1,000 / month</strong>
+            <p className="mt-6 text-sm text-white/75">
+              Corporate Workshops • 90-Day Improvement Programmes • Annual Workforce Partnerships
             </p>
+          </div>
+
+          <div className="rounded-3xl bg-white/5 p-6 ring-1 ring-white/15 sm:p-8">
+            <p className="mb-5 text-sm font-semibold text-white/80">Start small or commit for the year — your choice.</p>
+            <ol className="space-y-3">
+              {heroPath.map((step, index) => (
+                <li key={step.label} className="flex items-center gap-4 rounded-xl bg-white/5 px-4 py-3">
+                  <span
+                    className={`flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full text-sm font-bold ${index === 0 ? 'bg-tm-coral text-tm-slate' : 'bg-white/15 text-white'}`}
+                    aria-hidden="true"
+                  >
+                    {index + 1}
+                  </span>
+                  <span className="flex-1 font-semibold">{step.label}</span>
+                  <span className="text-sm text-tm-sage">{step.note}</span>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
       </section>
 
-      {/* B. Consortium Delivery Pillars */}
-      <section id="consortium" className="section-padding bg-neutral-50 scroll-mt-24">
-        <div className="container-custom px-4">
-          <div className="text-center mb-12 max-w-3xl mx-auto">
-            <div className="inline-block px-4 py-2 bg-accent-100 rounded-full text-accent-700 font-semibold text-xs uppercase tracking-widest mb-5 border border-accent-200">
-              The Delivery Consortium
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-4 leading-tight">
-              4 Capability Pillars. One Retainer.
-            </h2>
-            <p className="text-base sm:text-lg text-neutral-600">
-              Specialist partners and our own Tech Talent Studio, covering the complete workforce capability spectrum.
-            </p>
+      {/* 2. Workplace challenges */}
+      <section className="bg-tm-alabaster py-16 md:py-24">
+        <div className="container-custom">
+          <SectionHeading
+            eyebrow="The challenge"
+            title="Your people are working hard. But could your teams be performing better?"
+            intro="Most organizations we speak to recognise at least a few of these:"
+          />
+          <ul className="mx-auto grid max-w-4xl grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {workplaceChallenges.map((item) => (
+              <li key={item} className="rounded-xl border border-neutral-200 bg-white px-5 py-4 font-medium text-tm-slate">
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p className="mx-auto mt-10 max-w-2xl text-center text-lg font-semibold text-tm-slate">
+            These challenges require more than another generic workshop.
+          </p>
+        </div>
+      </section>
+
+      {/* 3. What we help you improve */}
+      <section className="py-16 md:py-24">
+        <div className="container-custom">
+          <SectionHeading eyebrow="Results we work towards" title="What we help you improve" />
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {improvementOutcomes.map((item) => (
+              <div key={item.title} className="rounded-2xl border-t-4 border-tm-sage bg-tm-alabaster p-6">
+                <h3 className="font-display text-lg font-bold text-tm-slate">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-neutral-600">{item.text}</p>
+              </div>
+            ))}
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {consortium.map((item, index) => (
-              <article key={item.pillar} className={`card p-7 sm:p-8 flex flex-col border-t-4 ${item.border}`}>
-                <p className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-3">Pillar {index + 1}</p>
-                <h3 className="text-xl font-display font-bold text-neutral-900 mb-2 leading-snug">{item.pillar}</h3>
-                <p className={`text-sm font-semibold mb-4 ${item.color}`}>
-                  {item.ledBy ? 'Led by' : 'with'} {item.partner}
-                </p>
-                <p className="text-neutral-700 text-sm sm:text-base leading-relaxed mb-4">
-                  {item.trackRecord ? <span className="font-semibold text-neutral-900">Mandate: </span> : null}
-                  {item.text}
-                </p>
-                {item.trackRecord ? (
-                  <p className="text-neutral-700 text-sm sm:text-base leading-relaxed mb-4">
-                    <span className="font-semibold text-neutral-900">Enterprise Track Record: </span>
-                    {item.trackRecord}
-                  </p>
-                ) : null}
-                {item.allianceNote ? (
-                  <p className="text-sm italic text-amber-800 bg-amber-50 border border-amber-100 rounded-xl p-3 mb-4">
-                    {item.allianceNote}
-                  </p>
-                ) : null}
-                <p className="mt-auto text-xs text-neutral-500 border-t border-neutral-100 pt-4">
-                  <span className="font-semibold text-neutral-700">{item.partner}:</span> {item.focus}
+        </div>
+      </section>
+
+      {/* 4. Service areas */}
+      <section id="services" className="scroll-mt-24 bg-tm-alabaster py-16 md:py-24">
+        <div className="container-custom">
+          <SectionHeading eyebrow="What we do" title="Our four service areas" />
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            {serviceAreas.map((area, index) => (
+              <article key={area.title} className="rounded-2xl border border-neutral-200 bg-white p-6 sm:p-8">
+                <p className="text-xs font-bold uppercase tracking-widest text-tm-coral-dark">Area {index + 1}</p>
+                <h3 className="mt-2 font-display text-xl font-bold text-tm-slate">{area.title}</h3>
+                <p className="mt-3 leading-relaxed text-neutral-600">{area.text}</p>
+                <p className="mt-4 flex flex-wrap gap-2">
+                  {area.examples.map((example) => (
+                    <span key={example} className="rounded-full bg-tm-teal-light px-3 py-1 text-xs font-semibold text-tm-teal">
+                      {example}
+                    </span>
+                  ))}
                 </p>
               </article>
             ))}
           </div>
+          <p className="mx-auto mt-8 max-w-4xl text-center text-sm leading-relaxed text-neutral-600">{deliveryPartnersNote}</p>
+        </div>
+      </section>
 
-          {/* C. Open Consortium Partnership Callout */}
-          <aside className="mt-10 rounded-3xl bg-gradient-to-br from-neutral-900 to-primary-900 text-white p-8 sm:p-10 md:flex md:items-center md:gap-10">
+      {/* 5. How we work */}
+      <section className="py-16 md:py-24">
+        <div className="container-custom">
+          <SectionHeading
+            eyebrow="How we work"
+            title="Assess → Develop → Apply → Measure"
+            intro="Training only matters if people use it at work. Every programme follows the same four steps."
+          />
+          <ProcessSteps />
+        </div>
+      </section>
+
+      {/* 6. Choose your offer */}
+      <section id="offers" className="scroll-mt-24 bg-tm-alabaster py-16 md:py-24">
+        <div className="container-custom">
+          <SectionHeading
+            eyebrow="Programmes & pricing"
+            title="Choose the right starting point"
+            intro="Start with a free assessment, solve one problem with a workshop, run a focused 90-day programme, or partner with us for the year."
+          />
+          <OfferLadder />
+          <div className="mx-auto mt-10 max-w-4xl">
+            <p className="mb-3 text-center text-sm font-semibold text-tm-slate">90-day programme or annual partnership?</p>
+            <AcceleratorVsAnnual />
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Annual workforce partnership */}
+      <section id="annual" className="scroll-mt-24 bg-tm-teal py-16 text-white md:py-24">
+        <div className="container-custom">
+          <SectionHeading
+            dark
+            eyebrow="Our annual partnership"
+            title={annualOffer.name}
+            intro="One year. Four development pillars. Continuous workplace improvement — with separate learning paths for employees, managers and executives."
+          />
+          <AnnualJourney />
+        </div>
+      </section>
+      <section className="bg-tm-alabaster py-16 md:py-20">
+        <div className="container-custom">
+          <SectionHeading title="Annual partnership pricing" intro="Paid monthly. Committed for 12 months. Scope defined up front." />
+          <PartnershipTiers location="tm_home_annual" />
+          <p className="mt-8 text-center">
+            <Link href={TM_ROUTES.annual} className="inline-flex items-center gap-1 font-semibold text-tm-teal hover:underline">
+              See the full four-quarter programme <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      {/* 8. Specialised programmes */}
+      <section id="specialised" className="scroll-mt-24 py-16 md:py-24">
+        <div className="container-custom">
+          <SectionHeading
+            eyebrow="Specialised programmes"
+            title="Focused programmes for specific needs"
+            intro="Available on their own or alongside a workshop, 90-day programme or annual partnership. Priced by quotation."
+          />
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {specialisedProgrammes.map((item) => {
+              const body = (
+                <>
+                  <h3 className="font-display text-lg font-bold text-tm-slate">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-neutral-600">{item.text}</p>
+                  {'href' in item ? (
+                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-tm-teal">
+                      Learn more <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </span>
+                  ) : null}
+                </>
+              );
+              return 'href' in item ? (
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  className="block rounded-2xl border border-neutral-200 p-6 transition-colors hover:border-tm-teal"
+                >
+                  {body}
+                </Link>
+              ) : (
+                <div key={item.title} className="rounded-2xl border border-neutral-200 p-6">
+                  {body}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Kept for existing links from the CourseMasters™ page; this service belongs to CourseMasters. */}
+          <aside
+            id="coursemasters-clinic"
+            className="mt-10 scroll-mt-24 rounded-2xl border border-neutral-200 bg-tm-alabaster p-6 sm:flex sm:items-center sm:gap-8 sm:p-8"
+          >
             <div className="flex-1">
-              <h3 className="text-2xl sm:text-3xl font-display font-bold mb-3">
-                Built on Collaborative Capability &amp; Strategic Alliances
-              </h3>
-              <p className="text-white/80 leading-relaxed">
-                TalentMasters™ is founded on the belief that modern workforce development requires deep, specialized expertise. While our technical talent studio delivers bespoke bootcamps and placement pipelines directly, we welcome strategic co-delivery alliances with tech hubs, donor programs, and institutional partners.
+              <p className="text-xs font-bold uppercase tracking-widest text-neutral-500">From CourseMasters™</p>
+              <h3 className="mt-1 font-display text-lg font-bold text-tm-slate">Institutional CourseMasters™ Clinic</h3>
+              <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+                Need to build digital courses or an LMS in-house? The 3–5 day CourseMasters™ Clinic ($4,300 per organization)
+                equips your HR, L&amp;D and programme teams to design and build digital learning. Digital course and LMS work
+                is handled by CourseMasters™.
               </p>
+              <CheckList
+                items={['Team-based course development', 'Tools, templates & checklists', 'Moodle/course-authoring workflow']}
+                className="mt-3"
+              />
             </div>
-            <Link
-              href={PARTNERSHIP_HREF}
-              className="mt-6 md:mt-0 inline-flex shrink-0 items-center justify-center px-6 py-3 rounded-xl bg-white text-primary-800 hover:bg-white/90 font-semibold transition-colors"
-            >
-              Partner With Us as a Co-Delivery Ally →
+            <Link href="/coursemasters" className={`${tmBtn.secondaryLight} mt-6 sm:mt-0`}>
+              Visit CourseMasters™
             </Link>
           </aside>
         </div>
       </section>
 
-      {/* Value-for-Money Math */}
-      <section id="roi" className="section-padding bg-white scroll-mt-24">
-        <div className="container-custom px-4">
-          <div className="text-center mb-12 max-w-3xl mx-auto">
-            <div className="inline-block px-4 py-2 bg-accent-100 rounded-full text-accent-700 font-semibold text-xs uppercase tracking-widest mb-5 border border-accent-200">
-              The Value-for-Money Math
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 leading-tight">
-              The Unit Economics of Workforce Capability
-            </h2>
-          </div>
+      {/* 9. Portfolio */}
+      <PortfolioSection />
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {costColumns.map((column) => (
-              <div
-                key={column.title}
-                className={`rounded-3xl p-6 sm:p-8 flex flex-col ${
-                  column.highlight
-                    ? 'bg-gradient-to-br from-accent-700 to-primary-800 text-white shadow-xl lg:scale-[1.03]'
-                    : 'card'
-                }`}
-              >
-                <h3 className={`text-xl font-display font-bold mb-6 ${column.highlight ? 'text-white' : 'text-neutral-900'}`}>
-                  {column.title}
-                </h3>
-                <ul className="space-y-4 flex-1 mb-6">
-                  {column.items.map((item) => (
-                    <li key={item} className={`flex items-start gap-3 ${column.highlight ? 'text-white/90' : 'text-neutral-700'}`}>
-                      {column.highlight ? (
-                        <CheckCircle className="w-5 h-5 text-green-300 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                      ) : (
-                        <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                      )}
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <p
-                  className={`rounded-xl p-4 font-bold ${
-                    column.highlight ? 'bg-white/15 text-white' : 'bg-red-50 border border-red-100 text-red-800'
-                  }`}
-                >
-                  Total: {column.total}
-                </p>
-              </div>
-            ))}
-          </div>
+      {/* 10. FAQ */}
+      <FaqSection />
 
-          <blockquote className="mt-10 max-w-4xl mx-auto text-center rounded-2xl border-2 border-accent-200 bg-accent-50 p-6 sm:p-8 text-lg sm:text-xl font-semibold text-neutral-900 leading-relaxed">
-            You save over $28,500 annually while getting an entire multidisciplinary team of curriculum architects, data experts, and executive facilitators on tap.
-          </blockquote>
-        </div>
-      </section>
+      {/* 11. Final conversion */}
+      <div id="diagnostic" className="scroll-mt-24">
+        <FinalCta location="tm_home_final" />
+      </div>
 
-      {/* The 5 M.A.G.I.C. Deliverables */}
-      <section id="how-it-works" className="section-padding bg-neutral-950 scroll-mt-24">
-        <div className="container-custom px-4">
-          <div className="text-center mb-12 max-w-3xl mx-auto">
-            <div className="inline-block px-4 py-2 bg-white/10 border border-white/20 rounded-full text-white/80 font-semibold text-xs uppercase tracking-widest mb-5">
-              What&apos;s Included in Your Retainer
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-tight">
-              5 Concrete Assets, Delivered Every Quarter
-            </h2>
-          </div>
-          <ol className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
-            {deliverables.map((item, index) => (
-              <li key={item.name} className="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-7 flex flex-col">
-                <div className="w-12 h-12 rounded-2xl bg-accent-600/20 border border-accent-500/30 flex items-center justify-center mb-5">
-                  <span className="text-accent-300 font-bold">{String(index + 1).padStart(2, '0')}</span>
-                </div>
-                <h3 className="font-display font-bold text-white text-lg mb-1 leading-snug">{item.name}</h3>
-                <p className="text-xs uppercase tracking-widest text-neutral-500 mb-4">Formerly {item.formerly}</p>
-                <p className="text-neutral-300 text-sm leading-relaxed">{item.text}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* D. Track Record & Social Proof */}
-      <section id="track-record" className="section-padding bg-white scroll-mt-24">
-        <div className="container-custom px-4">
-          <div className="text-center mb-12 max-w-3xl mx-auto">
-            <div className="inline-block px-4 py-2 bg-primary-100 rounded-full text-primary-700 font-semibold text-xs uppercase tracking-widest mb-5 border border-primary-200">
-              Verified Institutional Case Portfolio
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-neutral-900 leading-tight">
-              Real-World Validation Across Every Sector
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {portfolio.map((item) => (
-              <article key={item.client} className="card p-6 sm:p-7 flex flex-col">
-                <p className="text-xs font-bold uppercase tracking-widest text-accent-700 mb-3">{item.sector}</p>
-                <h3 className="font-display font-bold text-neutral-900 text-lg mb-2 leading-snug">{item.client}</h3>
-                <p className="text-sm text-neutral-600 leading-relaxed">{item.program}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* E. Retainer Tiers */}
-      <section id="pricing" className="section-padding bg-gradient-to-b from-neutral-50 to-white scroll-mt-24">
-        <div className="container-custom px-4">
-          <div className="text-center mb-12 max-w-3xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-4 leading-tight">
-              Simple, Transparent Retainers
-            </h2>
-            <p className="text-base sm:text-lg text-neutral-600">Two tiers. One predictable monthly fee. No payroll overhead.</p>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
-            {tiers.map((tier) => (
-              <article
-                key={tier.name}
-                className={`card p-8 sm:p-10 flex flex-col border-2 ${tier.featured ? 'border-accent-400 shadow-xl' : 'border-neutral-200'}`}
-              >
-                <p className="text-xs font-bold uppercase tracking-widest text-accent-700 mb-2">For {tier.target}</p>
-                <h3 className="text-2xl font-display font-bold text-neutral-900 mb-4">{tier.name}</h3>
-                <p className="mb-6">
-                  <span className="text-3xl sm:text-4xl font-display font-bold text-neutral-900">{tier.price}</span>
-                  <span className="text-neutral-500"> / month</span>
-                </p>
-                <ul className="space-y-3 mb-8 flex-1">
-                  {tier.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3 text-neutral-700 text-sm sm:text-base">
-                      <CheckCircle className="w-5 h-5 text-accent-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="#diagnostic"
-                  className={`inline-flex justify-center px-6 py-3 rounded-xl font-semibold transition-colors ${
-                    tier.featured
-                      ? 'bg-accent-600 hover:bg-accent-700 text-white'
-                      : 'bg-white border-2 border-accent-600 text-accent-700 hover:bg-accent-50'
-                  }`}
-                >
-                  Start with a Free Diagnostic
-                </Link>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-8 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
-            <p className="rounded-2xl border-2 border-dashed border-amber-300 bg-amber-50 p-5 sm:p-6 text-neutral-800">
-              <span className="block font-bold text-amber-800 mb-1">Custom Technical Pipeline Add-On</span>
-              Dedicated apprentice recruiting, custom bootcamps, and cohort placements — priced per project or cohort.
-            </p>
-            <p className="rounded-2xl border-2 border-dashed border-green-300 bg-green-50 p-5 sm:p-6 text-neutral-800">
-              <span className="block font-bold text-green-800 mb-1">Optional Add-On: In The Wild™</span>
-              <strong>Team Building &amp; Skilling In The Wild™</strong> retreats, delivered in partnership with Networth Consult.
-            </p>
-          </div>
-
-          {/* Institutional CourseMasters™ Clinic (moved from the CourseMasters™ page) */}
-          <article id="coursemasters-clinic" className="mt-6 max-w-5xl mx-auto card p-8 sm:p-10 scroll-mt-24 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-            <div className="lg:col-span-2">
-              <p className="text-xs font-bold uppercase tracking-widest text-accent-700 mb-2">Add-On Clinic · Build In-House Capability</p>
-              <h3 className="text-2xl font-display font-bold text-neutral-900 mb-2">Institutional CourseMasters™ Clinic</h3>
-              <p className="text-neutral-600 mb-5">
-                Equip your HR, L&amp;D, programme, communications, academic and technical teams to design and build digital learning in-house.
-              </p>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
-                {courseMastersClinicItems.map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-neutral-700">
-                    <CheckCircle className="w-4 h-4 text-accent-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="rounded-2xl bg-accent-50 border border-accent-100 p-6 text-center">
-              <p className="text-2xl font-display font-bold text-accent-700">$4,300</p>
-              <p className="text-sm text-neutral-600 mb-1">per organization</p>
-              <p className="text-sm text-neutral-500 mb-5">3–5 day clinic</p>
-              <Link href="#diagnostic" className="inline-flex w-full justify-center px-6 py-3 rounded-xl bg-accent-600 hover:bg-accent-700 text-white font-semibold transition-colors">
-                Inquire for Teams
-              </Link>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      {/* F. Diagnostic Call Booking */}
-      <section id="diagnostic" className="section-padding bg-gradient-to-b from-accent-50 to-white scroll-mt-24">
-        <div className="container-custom px-4">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-10">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-neutral-900 mb-4">
-                Request a 30-Minute Modern Workforce Capability Audit (MWCA)
-              </h2>
-              <p className="text-neutral-600 text-base sm:text-lg">
-                Let&apos;s identify where manual spreadsheets, onboarding lag, or supervisory bottlenecks are slowing your organization down.
-              </p>
-            </div>
-            <div className="card p-6 sm:p-8 md:p-10">
-              <DiagnosticRequestForm />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Mobile quick-contact bar */}
+      <div className="sticky bottom-0 z-30 flex gap-2 border-t border-neutral-200 bg-white p-3 sm:hidden">
+        <TrackedLink
+          href={assessmentHref()}
+          event="tm_cta_click"
+          params={{ offer: 'free_assessment', location: 'mobile_bar' }}
+          className={`${tmBtn.primary} flex-1 px-3 py-3 text-sm`}
+        >
+          Free Needs Assessment
+        </TrackedLink>
+        <TrackedLink
+          href={tmWhatsappHref()}
+          external
+          event="tm_whatsapp_click"
+          params={{ location: 'mobile_bar' }}
+          className="inline-flex items-center justify-center rounded-xl border-2 border-tm-teal px-4 text-tm-teal"
+        >
+          <MessageCircle className="h-5 w-5" aria-hidden="true" />
+          <span className="sr-only">Chat on WhatsApp</span>
+        </TrackedLink>
+      </div>
     </main>
   );
 }
