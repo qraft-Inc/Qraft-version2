@@ -1,6 +1,5 @@
 import { type Metadata } from 'next';
-import { Suspense } from 'react';
-import AssessmentForm from '@/components/talentmasters/assessment-form';
+import TallyAssessment from '@/components/talentmasters/tally-assessment';
 import { TmPageView, TrackedLink } from '@/components/talentmasters/tracked-link';
 import { CheckList, Eyebrow, TmWordmark } from '@/components/talentmasters/ui';
 import { freeOffer, tmWhatsappHref } from '@/lib/talentmasters/offers';
@@ -38,9 +37,7 @@ export default function AssessmentPage() {
       <section className="py-12 sm:py-16">
         <div className="container-custom grid grid-cols-1 gap-10 lg:grid-cols-[1fr_320px]">
           <div className="min-w-0">
-            <Suspense fallback={<p className="text-neutral-600">Loading the assessment…</p>}>
-              <AssessmentForm />
-            </Suspense>
+            <TallyAssessment />
           </div>
           <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
             <div className="rounded-2xl border border-neutral-200 bg-white p-6">
