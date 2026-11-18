@@ -46,6 +46,17 @@ export default function AboutPage() {
               </Link>
             </div>
           </div>
+
+          <div className="mt-10 rounded-2xl border border-neutral-200 bg-neutral-50 p-6 sm:p-8">
+            <h2 className="text-xl font-display font-bold text-neutral-900 mb-2">Part of Qraft Group</h2>
+            <p className="text-neutral-700 mb-4">
+              Qraft Academy is one of two business platforms operated by Rata Qraft Solutions Limited (Qraft Group), alongside
+              Qraft Capital, which focuses on enterprise systems and financial capability.
+            </p>
+            <Link href="/qraft-group" className="text-primary-600 font-semibold hover:text-primary-700">
+              Explore Qraft Group →
+            </Link>
+          </div>
         </div>
       </section>
     </main>

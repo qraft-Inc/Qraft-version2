@@ -50,9 +50,9 @@ const Footer = () => {
                 <span className="w-1 h-1 rounded-full bg-primary-300 group-active:w-2 sm:group-hover:w-2 transition-all duration-200"></span>
                 TalentMasters™
               </Link></li>
-              <li><Link className="text-primary-100 active:text-white sm:hover:text-white transition-colors duration-200 flex items-center gap-2 group text-sm sm:text-base" href="/#partners">
+              <li><Link className="text-primary-100 active:text-white sm:hover:text-white transition-colors duration-200 flex items-center gap-2 group text-sm sm:text-base" href="/qraft-group">
                 <span className="w-1 h-1 rounded-full bg-primary-300 group-active:w-2 sm:group-hover:w-2 transition-all duration-200"></span>
-                Institutional Impact
+                Qraft Group
               </Link></li>
               <li><Link className="text-primary-100 active:text-white sm:hover:text-white transition-colors duration-200 flex items-center gap-2 group text-sm sm:text-base" href="/about">
                 <span className="w-1 h-1 rounded-full bg-primary-300 group-active:w-2 sm:group-hover:w-2 transition-all duration-200"></span>

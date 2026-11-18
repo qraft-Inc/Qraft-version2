@@ -9,6 +9,7 @@ export const SOLUTIONS_OF_INTEREST = [
   'CourseMasters™ — Digital Learning Infrastructure',
   'TalentMasters™ — Workforce Development & Corporate Training',
   'Both',
+  'Qraft Capital — SystemMasters™ / CapitalMasters™',
   'Co-Delivery / Consortium Partnership',
 ] as const;
 
@@ -17,6 +18,7 @@ export const INTEREST_PARAM_TO_SOLUTION: Record<string, (typeof SOLUTIONS_OF_INT
   coursemasters: 'CourseMasters™ — Digital Learning Infrastructure',
   talentmasters: 'TalentMasters™ — Workforce Development & Corporate Training',
   both: 'Both',
+  qraftcapital: 'Qraft Capital — SystemMasters™ / CapitalMasters™',
   partnership: 'Co-Delivery / Consortium Partnership',
 };
 

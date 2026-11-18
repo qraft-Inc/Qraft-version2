@@ -13,7 +13,7 @@ type NavItem = {
 const navItems: NavItem[] = [
   { label: "CourseMasters™", href: "/#coursemasters" },
   { label: "TalentMasters™", href: TALENTMASTERS_HREF },
-  { label: "Institutional Impact", href: "/#partners" },
+  { label: "Qraft Group", href: "/qraft-group" },
   { label: "About Us", href: "/about" },
 ];
 

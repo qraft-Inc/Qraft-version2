@@ -40,6 +40,10 @@ const config = withPlugins([[withBundleAnalyzer({ enabled: env.ANALYZE })]], {
       { source: "/modern-work-fund", destination: "/future-of-work-forum", permanent: true },
       { source: "/spaces", destination: "/contact", permanent: true },
       { source: "/rfp", destination: "/#rfp", permanent: true },
+      // Near-duplicate of the Forum page; consolidated into /future-of-work-forum
+      { source: "/future-of-work-consortium", destination: "/future-of-work-forum", permanent: true },
+      { source: "/qraftgroup", destination: "/qraft-group", permanent: true },
+      { source: "/group", destination: "/qraft-group", permanent: true },
     ]
   },
   rewrites() {
